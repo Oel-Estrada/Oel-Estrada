@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Oel Estrada - Portafolio
 
-## Getting Started
+Este proyecto es una aplicación de React desarrollada con TypeScript y Vite, configurada siguiendo las mejores prácticas de la industria.
 
-First, run the development server:
+## 🚀 Tecnologías
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **ESLint** (con plugins para React, Hooks y Accesibilidad)
+- **Prettier** (formateo de código consistente)
+
+## 📁 Estructura del Proyecto
+
+```text
+src/
+├── assets/          # Recursos estáticos (imágenes, SVGs, etc.)
+├── components/      # Componentes de React reutilizables
+├── styles/          # Estilos globales y compartidos
+├── App.tsx          # Componente principal
+└── main.tsx         # Punto de entrada de la aplicación
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Configuración Especial
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Alias de Rutas
+Se ha configurado el alias `@/` que apunta a la carpeta `src/`. Esto facilita las importaciones:
+`import Component from '@/components/Component'`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Estilo de Código
+- Se utiliza **Prettier** para mantener un estilo de código consistente.
+- **ESLint** está configurado para detectar errores comunes y asegurar buenas prácticas en React y accesibilidad (JSX-A11y).
 
-## Learn More
+## 📜 Scripts Disponibles
 
-To learn more about Next.js, take a look at the following resources:
+- `pnpm dev`: Inicia el servidor de desarrollo.
+- `pnpm build`: Compila el proyecto para producción.
+- `pnpm lint`: Ejecuta el linter para encontrar problemas en el código.
+- `pnpm format`: Formatea automáticamente el código usando Prettier.
+- `pnpm preview`: Previsualiza la compilación de producción localmente.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Desarrollado por Oel Estrada
