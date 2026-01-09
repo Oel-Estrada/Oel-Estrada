@@ -1,43 +1,89 @@
-# Oel Estrada - Portafolio
+# Oel Estrada Campos
 
-Este proyecto es una aplicación de React desarrollada con TypeScript y Vite, configurada siguiendo las mejores prácticas de la industria.
+**Frontend Engineer**  
+Kaluga, Russia  
+📧 [oelestradacampos@gmail.com](mailto:oelestradacampos@gmail.com)  
+🌐 [www.oelestrada.ru](http://www.oelestrada.ru)
 
-## 🚀 Tecnologías
+## About Me
 
-- **React 19**
-- **TypeScript**
-- **Vite**
-- **ESLint** (con plugins para React, Hooks y Accesibilidad)
-- **Prettier** (formateo de código consistente)
+👨‍💻 I am a Frontend Engineer with over 6 years of experience specializing in **React**, **Next.js**, and **TypeScript**. I have a proven track record of developing **e-learning platforms**, scalable web applications, and user interfaces with advanced animations. My focus is on improving **SEO**, **performance**, and **user experience**. I also have extensive experience integrating **AI functionalities** (e.g., ChatGPT) to enhance user engagement and drive traffic.
 
-## 📁 Estructura del Proyecto
+I am skilled in **agile methodologies**, **UI/UX design** (using **Figma**), and **version control** with **Git**. My approach always centers on **best practices**, **accessibility**, and **semantic HTML** to create high-performance, inclusive, and intuitive web solutions.
 
-```text
-src/
-├── assets/          # Recursos estáticos (imágenes, SVGs, etc.)
-├── components/      # Componentes de React reutilizables
-├── styles/          # Estilos globales y compartidos
-├── App.tsx          # Componente principal
-└── main.tsx         # Punto de entrada de la aplicación
-```
+## Technical Skills
 
-## 🛠️ Configuración Especial
+### 💻 Languages:
+- JavaScript (ES6+), TypeScript, HTML5, CSS3, SASS, C++, Python, Java
 
-### Alias de Rutas
-Se ha configurado el alias `@/` que apunta a la carpeta `src/`. Esto facilita las importaciones:
-`import Component from '@/components/Component'`
+### 🛠️ Frameworks, Libraries, and Tools:
+- React, Next.js, Redux, Zustand, Styled Components, CSS Modules, Tailwind CSS
+- Figma, Webpack, Vite, GraphQL, REST API, GPT Integrations, AI APIs
 
-### Estilo de Código
-- Se utiliza **Prettier** para mantener un estilo de código consistente.
-- **ESLint** está configurado para detectar errores comunes y asegurar buenas prácticas en React y accesibilidad (JSX-A11y).
+### 🔍 Testing:
+- React Testing Library, Jest, Vitest, Mock Service Worker
+- Component, hooks, and full-flow testing
 
-## 📜 Scripts Disponibles
+### ⚡ Performance Optimization:
+- Lazy-loading, Code-splitting, Bundle optimization
+- SEO improvements, Image optimization, Progressive loading
 
-- `pnpm dev`: Inicia el servidor de desarrollo.
-- `pnpm build`: Compila el proyecto para producción.
-- `pnpm lint`: Ejecuta el linter para encontrar problemas en el código.
-- `pnpm format`: Formatea automáticamente el código usando Prettier.
-- `pnpm preview`: Previsualiza la compilación de producción localmente.
+## Experience
 
----
-Desarrollado por Oel Estrada
+### **Frontend Engineer**  
+*Lexa Education Group Inc* (Remote) — April 2023 – Present  
+- Developed the **Lexawise e-learning platform** using **React**, **Redux**, and **Styled Components**.
+- Integrated **ChatGPT** to boost user interaction and engagement.
+- Collaborated with the marketing team to optimize **SEO**, improving user flow, sales, and reducing bounce rates.
+- Designed **interactive UI/UX prototypes** using **Figma** and implemented advanced animations.
+- Used **agile methodologies**, **Jira** for project management, and **Git** for version control.
+
+### **Freelance Developer**  
+*Self-employed* (Remote) — November 2022 – March 2023  
+- Created custom web applications for clients, including **landing pages**, **digital catalogs**, and **PHP plugins**.
+- Developed **Android applications** in **C++** using **Embarcadero IDE**.
+- Focused on performance improvements and conversion optimization.
+
+### **Web Developer**  
+*Social Media Latino LTD* (England and Wales) — September 2020 – November 2022  
+- Developed interactive websites, landing pages, and custom tools.
+- Implemented **PHP plugins** and scripts for internal functionality improvements.
+- Worked with **Laravel** and **CodeIgniter** for backend development and API integrations.
+
+### **Web Developer**  
+*La Casita Verde* (Havana, Cuba) — September 2019 – September 2020  
+- Developed modern web applications focused on efficiency and usability.
+- Created **audiovisual digital catalogs** optimized for web usage.
+- Built **Android applications** using **C++** and **Embarcadero IDE**.
+
+## Education
+
+🎓 **Bachelor’s Degree in Computer Engineering**  
+*Universidad Tecnológica de La Habana "José Antonio Echeverría" (CUJAE)* — 2017 - 2021
+
+📚 **Informatics / Software Engineering**  
+*IPI Raúl Cepero Bonilla* — 2011 - 2014
+
+## Certifications
+
+🏅 **Professional Frontend Developer Course** - Platzi  
+🏅 **Advanced React.js Course** - Platzi  
+🏅 **React.js with TypeScript Course** - Platzi  
+🏅 **CSS Animations and Transitions Course** - Platzi  
+🏅 **TailwindCSS Course** - Platzi
+
+## Achievements
+
+🏆 **Optimized Digital Catalogs**: Reduced load times by **50%** through digital catalog optimization.  
+🏆 **Developed Web Applications**: Created over **15 web applications**, improving client efficiency.  
+🏆 **Increased Online Visibility**: Improved website traffic by **40%** through strategic SEO enhancements.  
+🏆 **Enhanced User Engagement**: Boosted platform interaction by **30%** with **ChatGPT** integration.
+
+## Soft Skills
+
+- 🗣️ Effective communication
+- 🤝 Team collaboration
+- 🧠 Problem-solving and critical thinking
+- 👀 Attention to detail and adaptability
+- ⏰ Time management and autonomy
+- 💬 Openness to feedback
