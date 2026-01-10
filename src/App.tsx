@@ -2,7 +2,7 @@ import '@/styles/App.css'
 import ComingSoon from '@/components/ComingSoon'
 
 function App() {
-  return <ComingSoon />
+    return <ComingSoon/>
 }
 
 export default App

@@ -1,8 +1,8 @@
-import {useTranslation} from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import './ComingSoon.css'
 
 function ComingSoon() {
-    const {t} = useTranslation(['comingSoon', 'common']);
+    const { t } = useTranslation(['comingSoon', 'common']);
 
     return (
         <div className="coming-soon-container">
