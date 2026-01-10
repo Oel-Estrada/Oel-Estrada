@@ -69,7 +69,10 @@ export default tseslint.config(
                 {argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
             ],
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-            '@typescript-eslint/no-explicit-any': 'warn',
+            '@typescript-eslint/no-explicit-any': 'error',
+            '@typescript-eslint/explicit-function-return-type': 'off',
+            '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+            '@typescript-eslint/no-non-null-assertion': 'warn',
             '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/no-misused-promises': [
                 'error',
