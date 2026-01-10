@@ -79,6 +79,11 @@ export default tseslint.config(
             // General best practices
             'no-console': ['warn', {allow: ['warn', 'error']}],
             'eqeqeq': ['error', 'always'],
+            'object-curly-spacing': ['error', 'always'],
+            'react/jsx-curly-brace-presence': [
+                'error',
+                {props: 'never', children: 'never'},
+            ],
         },
     },
 )
