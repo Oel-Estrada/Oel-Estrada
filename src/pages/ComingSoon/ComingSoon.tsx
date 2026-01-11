@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import './ComingSoon.css';
- 
+
 function ComingSoon() {
     const { t } = useTranslation(['comingSoon', 'common']);
 
