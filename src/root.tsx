@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, } from "react-router";
 import { Suspense } from "react";
-import { SUPPORTED_LANGUAGES } from "@/i18n.ts";
+import i18n from "i18next";
 
 interface MetaData {
     title?: string;
@@ -17,7 +17,7 @@ export function Layout({
 }) {
     const title = _meta?.title ?? "Oel Estrada";
     const description = _meta?.description;
-    const lang = _meta?.lang ?? SUPPORTED_LANGUAGES[0];
+    const lang = _meta?.lang ?? i18n.language;
 
     return (
         <html lang={lang}>
