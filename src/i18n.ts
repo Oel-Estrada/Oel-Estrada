@@ -20,6 +20,7 @@ void i18n
     .init({
         fallbackLng: SUPPORTED_LANGUAGES[0],
         supportedLngs: SUPPORTED_LANGUAGES,
+        ns: ['common'],
         debug: isDev,
 
         interpolation: {
