@@ -1,4 +1,4 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, } from "react-router";
+import { Links, Outlet, Scripts, ScrollRestoration, } from "react-router";
 import { Suspense } from "react";
 import i18n from "i18next";
 
@@ -29,7 +29,6 @@ export function Layout({
                 />
                 <title>{title}</title>
                 {description && <meta name="description" content={description} />}
-                <Meta />
                 <Links />
             </head>
             <body>
