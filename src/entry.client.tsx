@@ -9,7 +9,7 @@ ReactDOM.hydrateRoot(
     document,
     <React.StrictMode>
         <Suspense fallback={<div>Loading...</div>}>
-            <HydratedRouter/>
+            <HydratedRouter />
         </Suspense>
     </React.StrictMode>,
 );
