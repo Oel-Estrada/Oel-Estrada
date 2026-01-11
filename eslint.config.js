@@ -92,6 +92,15 @@ export default tseslint.config(
                 'error',
                 {props: 'never', children: 'never'},
             ],
+            'react/jsx-tag-spacing': [
+                'error',
+                {
+                    closingSlash: 'never',
+                    beforeSelfClosing: 'always',
+                    afterOpening: 'never',
+                    beforeClosing: 'never',
+                },
+            ],
         },
     },
 )
