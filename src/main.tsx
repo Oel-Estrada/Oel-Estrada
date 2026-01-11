@@ -1,11 +1,11 @@
-import { StrictMode, Suspense } from 'react'
-import { createRoot } from 'react-dom/client'
-import '@/styles/index.css'
-import App from './App'
+import { StrictMode, Suspense } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@/styles/index.css';
+import App from './App';
 
 import './i18n';
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById('root');
 if (rootElement) {
     createRoot(rootElement).render(
         <StrictMode>
@@ -13,5 +13,5 @@ if (rootElement) {
                 <App/>
             </Suspense>
         </StrictMode>,
-    )
+    );
 }  
