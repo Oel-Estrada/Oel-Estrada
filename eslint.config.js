@@ -85,7 +85,7 @@ export default tseslint.config(
             'semi': ['error', 'always'],
             'id-length': ['error', {
                 'min': 4,
-                'exceptions': ['id', 't', 'ctx', 'App', 'req', 'res', 'err', 'ssr', 'idx']
+                'exceptions': ['id', 't', 'ctx', 'App', 'req', 'res', 'err', 'ssr', 'idx', 'cn']
             }],
             'object-curly-spacing': ['error', 'always'],
             'react/jsx-curly-brace-presence': [
