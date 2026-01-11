@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next'
-import './ComingSoon.css'
-
+import { useTranslation } from 'react-i18next';
+import './ComingSoon.css';
+ 
 function ComingSoon() {
     const { t } = useTranslation(['comingSoon', 'common']);
 
@@ -19,7 +19,7 @@ function ComingSoon() {
                 <p>{t('common:footer.rights')}</p>
             </footer>
         </div>
-    )
+    );
 }
 
-export default ComingSoon
+export default ComingSoon;
