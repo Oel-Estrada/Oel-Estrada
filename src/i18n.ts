@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { isDev } from "@/env.ts";
 
 export const SUPPORTED_LANGUAGES = ['es', 'en', 'ru'] as const;
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number];
@@ -19,7 +20,8 @@ void i18n
     .init({
         fallbackLng: SUPPORTED_LANGUAGES[0],
         supportedLngs: SUPPORTED_LANGUAGES,
-        debug: true,
+        ns: ['common'],
+        debug: isDev,
 
         interpolation: {
             escapeValue: false,

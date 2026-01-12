@@ -7,7 +7,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default tseslint.config(
     {
-        ignores: ['dist', 'node_modules', '.vite'],
+        ignores: ['dist', 'node_modules', '.vite', '.react-router', 'src/env.d.ts'],
     },
     ...tseslint.configs.strictTypeChecked.map((config) => ({
         ...config,
@@ -28,6 +28,7 @@ export default tseslint.config(
             parserOptions: {
                 project: ['./tsconfig.node.json', './tsconfig.app.json'],
                 tsconfigRootDir: import.meta.dirname,
+                extraFileExtensions: ['.d.ts'],
             },
         },
         settings: {
@@ -83,14 +84,24 @@ export default tseslint.config(
             'no-console': ['warn', {allow: ['warn', 'error']}],
             'eqeqeq': ['error', 'always'],
             'semi': ['error', 'always'],
+            'indent': ['error', 4, {'SwitchCase': 1}],
             'id-length': ['error', {
                 'min': 4,
-                'exceptions': ['id', 't', 'ctx', 'App', 'req', 'res', 'err', 'ssr', 'idx']
+                'exceptions': ['id', 't', 'ctx', 'App', 'req', 'res', 'err', 'ssr', 'idx', 'cn', 'ns']
             }],
             'object-curly-spacing': ['error', 'always'],
             'react/jsx-curly-brace-presence': [
                 'error',
                 {props: 'never', children: 'never'},
+            ],
+            'react/jsx-tag-spacing': [
+                'error',
+                {
+                    closingSlash: 'never',
+                    beforeSelfClosing: 'always',
+                    afterOpening: 'never',
+                    beforeClosing: 'never',
+                },
             ],
         },
     },
