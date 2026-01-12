@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { HydratedRouter } from 'react-router/dom';
 import '@/styles/index.css';
 
-import './i18n';
+import "@/i18n/client";
 
 ReactDOM.hydrateRoot(
     document,
