@@ -26,6 +26,7 @@ void i18n
         detection: {
             order: ["path", "cookie", "localStorage", "sessionStorage", "navigator"],
             lookupFromPathIndex: 0,
+            caches: ["cookie", "localStorage"],
         },
     });
 
