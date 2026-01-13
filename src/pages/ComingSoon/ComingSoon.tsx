@@ -12,9 +12,7 @@ function ComingSoon() {
                 title={t('comingSoon:meta.title')}
                 description={t('comingSoon:meta.description')}
                 keywords={t('comingSoon:meta.keywords')}
-                ogType="website"
             />
-            {/* Elementos decorativos de fondo */}
             <div className="absolute inset-0 z-0 opacity-50 pointer-events-none"
                 style={{
                     background: 'radial-gradient(circle at 20% 30%, rgba(100, 108, 255, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(97, 218, 251, 0.15) 0%, transparent 40%)'
@@ -25,16 +23,16 @@ function ComingSoon() {
                 <h1 className="text-[clamp(3rem,8vw,5rem)] mb-2 font-extrabold tracking-tight animate-shine">
                     {t('common:name')}
                 </h1>
-                <h2 className="text-[clamp(1.2rem,3vw,1.8rem)] font-normal text-[#94a3b8] mb-8 tracking-[0.1em] uppercase">
+                <h2 className="text-[clamp(1.2rem,3vw,1.8rem)] font-normal text-[#94a3b8] mb-8 tracking-widest uppercase">
                     {t('common:specialty')}
                 </h2>
             </header>
 
             <main className="relative z-10 flex flex-col gap-2">
-                <p className="text-xl text-[#cbd5e1] max-w-[600px]">
+                <p className="text-xl text-[#cbd5e1] max-w-150">
                     {t('comingSoon:working')}
                 </p>
-                <p className="text-xl text-[#cbd5e1] max-w-[600px]">
+                <p className="text-xl text-[#cbd5e1] max-w-150">
                     {t('comingSoon:portfolio')}
                 </p>
             </main>
