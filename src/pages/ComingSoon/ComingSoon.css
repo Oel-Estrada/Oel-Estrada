@@ -5,7 +5,7 @@
 }
 
 .animate-shine {
-    background: linear-gradient(to right, #646cff, #61dafb, #646cff);
+    background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
