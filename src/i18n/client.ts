@@ -24,7 +24,7 @@ void i18n
             escapeValue: false,
         },
         detection: {
-            order: ["path", "htmlTag", "cookie", "localStorage", "navigator"],
+            order: ["path", "cookie", "localStorage", "sessionStorage", "navigator"],
             lookupFromPathIndex: 0,
         },
     });

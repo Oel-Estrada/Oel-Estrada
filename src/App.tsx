@@ -1,8 +1,17 @@
+import { BrowserRouter, useRoutes } from 'react-router-dom';
 import '@/styles/App.css';
-import ComingSoon from "@/pages/ComingSoon/ComingSoon.tsx";
+import { routes } from './routes';
+
+function AppRoutes() {
+    return useRoutes(routes);
+}
 
 function App() {
-    return <ComingSoon />;
+    return (
+        <BrowserRouter>
+            <AppRoutes />
+        </BrowserRouter>
+    );
 }
 
 export default App;
