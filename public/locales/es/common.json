@@ -1,6 +1,10 @@
 {
   "name": "Oel Estrada",
   "specialty": "Frontend Engineer",
+  "contact": "Contactar",
+  "telegram": "Chatear en Telegram",
+  "whatsapp": "Escribeme por WhatsApp",
+  "email": "Escribeme por Email",
   "footer": {
     "rights": "© 2026 - Próximamente"
   }
