@@ -3,6 +3,8 @@ import './ComingSoon.css';
 import { MetaTags } from "@/components/MetaTags.tsx";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button/Button.tsx";
+import { Mail, MessageCircle, Send } from "lucide-react";
+import { contactInfo } from "@/lib/constants.ts";
 
 function ComingSoon() {
     const { t } = useTranslation(['comingSoon', 'common']);
@@ -50,23 +52,42 @@ function ComingSoon() {
                     </p>
                 </div>
 
-                <div className="flex justify-center gap-4 mt-4">
+                <div className="flex flex-wrap justify-center gap-4 mt-4">
                     <Button asChild size="lg" className="shadow-lg hover:shadow-primary/20 transition-shadow">
                         <motion.a
-                            href="#"
+                            href={`mailto:${contactInfo.email}`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            className="flex items-center gap-2"
                         >
-                            {t('common:contact', 'Contactar')}
+                            <Mail className="w-5 h-5" />
+                            {t('common:email')}
                         </motion.a>
                     </Button>
-                    <Button asChild variant="outline" size="lg">
+                    <Button asChild variant="outline" size="lg" className="hover:bg-surface transition-colors">
                         <motion.a
-                            href="#"
+                            href={contactInfo.telegram}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            className="flex items-center gap-2"
                         >
-                            {t('common:projects', 'Ver Proyectos')}
+                            <Send className="w-5 h-5 text-[#24A1DE]" />
+                            {t('common:telegram')}
+                        </motion.a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="hover:bg-surface transition-colors">
+                        <motion.a
+                            href={contactInfo.whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="flex items-center gap-2"
+                        >
+                            <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                            {t('common:whatsapp')}
                         </motion.a>
                     </Button>
                 </div>
