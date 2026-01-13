@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet, useNavigate, useParams } from "react-router";
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from "@/i18n/shared";
+import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher.tsx";
 
 /**
  * LangLayout component to handle language changes based on URL parameters.
@@ -29,6 +30,9 @@ export default function LangLayout() {
     }
 
     return (
-        <Outlet />
+        <>
+            <ThemeSwitcher />
+            <Outlet />
+        </>
     );
 }
