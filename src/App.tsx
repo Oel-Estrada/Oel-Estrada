@@ -1,11 +1,10 @@
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import '@/styles/App.css';
-import { routes } from './routes';
+import AppRoutes from "@/routes/AppRoutes.tsx";
 
-function AppRoutes() {
-    return useRoutes(routes);
-}
-
+/**
+ * The main application component that sets up routing.
+ */
 function App() {
     return (
         <BrowserRouter>
