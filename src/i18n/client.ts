@@ -29,5 +29,3 @@ void i18n
             caches: ["cookie", "localStorage"],
         },
     });
-
-export default i18n;
