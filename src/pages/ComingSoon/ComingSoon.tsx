@@ -93,7 +93,7 @@ function ComingSoon() {
                     </p>
                 </div>
 
-                <div className="flex flex-col flex-wrap justify-center gap-4 mt-4 sm:flex-row">
+                <div className="flex flex-col flex-wrap justify-center gap-4 mt-4 md:flex-row">
                     {contactButtons.map((button) => (
                         <ContactButton
                             key={button.id}
