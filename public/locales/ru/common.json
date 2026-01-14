@@ -1,6 +1,10 @@
 {
   "name": "Оэль Эстрада",
   "specialty": "Фронтенд-инженер",
+  "contact": "Связаться",
+  "telegram": "Чат в Telegram",
+  "whatsapp": "Пишите в WhatsApp",
+  "email": "Напишите мне",
   "footer": {
     "rights": "© 2026 - Скоро"
   }
