@@ -2,9 +2,50 @@ import { useTranslation } from 'react-i18next';
 import './ComingSoon.css';
 import { MetaTags } from "@/components/MetaTags.tsx";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button/Button.tsx";
 import { Mail, MessageCircle, Send } from "lucide-react";
 import { contactInfo } from "@/lib/constants.ts";
+import ContactButton from "./components/ContactButton.tsx";
+import { type ComponentType, type SVGProps } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "@/components/ui/Button/buttonVariants.tsx";
+
+interface ContactButton {
+    id: number,
+    icon: { icon: ComponentType<SVGProps<SVGSVGElement>>; className?: string };
+    label: string;
+    href: string;
+    target?: string;
+    className?: string;
+    variant?: VariantProps<typeof buttonVariants>["variant"];
+}
+
+const contactButtons: ContactButton[] = [
+    {
+        id: 0,
+        icon: { icon: Mail },
+        label: 'common:email',
+        href: `mailto:${contactInfo.email}`,
+        className: 'shadow-lg hover:shadow-primary/20 transition-shadow',
+    },
+    {
+        id: 1,
+        icon: { icon: Send, className: 'text-[#24A1DE]' },
+        label: 'common:telegram',
+        href: contactInfo.telegram,
+        target: '_blank',
+        className: 'hover:bg-surface transition-colors',
+        variant: 'outline',
+    },
+    {
+        id: 2,
+        icon: { icon: MessageCircle, className: 'text-[#25D366]' },
+        label: 'common:whatsapp',
+        href: contactInfo.whatsapp,
+        target: '_blank',
+        className: 'hover:bg-surface transition-colors',
+        variant: 'outline',
+    },
+];
 
 function ComingSoon() {
     const { t } = useTranslation(['comingSoon', 'common']);
@@ -52,44 +93,18 @@ function ComingSoon() {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4 mt-4">
-                    <Button asChild size="lg" className="shadow-lg hover:shadow-primary/20 transition-shadow">
-                        <motion.a
-                            href={`mailto:${contactInfo.email}`}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2"
-                        >
-                            <Mail className="w-5 h-5" />
-                            {t('common:email')}
-                        </motion.a>
-                    </Button>
-                    <Button asChild variant="outline" size="lg" className="hover:bg-surface transition-colors">
-                        <motion.a
-                            href={contactInfo.telegram}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2"
-                        >
-                            <Send className="w-5 h-5 text-[#24A1DE]" />
-                            {t('common:telegram')}
-                        </motion.a>
-                    </Button>
-                    <Button asChild variant="outline" size="lg" className="hover:bg-surface transition-colors">
-                        <motion.a
-                            href={contactInfo.whatsapp}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2"
-                        >
-                            <MessageCircle className="w-5 h-5 text-[#25D366]" />
-                            {t('common:whatsapp')}
-                        </motion.a>
-                    </Button>
+                <div className="flex flex-col flex-wrap justify-center gap-4 mt-4 md:flex-row">
+                    {contactButtons.map((button) => (
+                        <ContactButton
+                            key={button.id}
+                            icon={button.icon}
+                            label={t(button.label)}
+                            href={button.href}
+                            target={button.target}
+                            variant={button.variant}
+                            className="shadow-lg hover:shadow-primary/20 transition-shadow"
+                        />
+                    ))}
                 </div>
             </motion.main>
 
