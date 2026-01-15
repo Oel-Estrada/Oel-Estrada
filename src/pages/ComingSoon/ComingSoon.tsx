@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import './ComingSoon.css';
-import { MetaTags } from "@/components/MetaTags.tsx";
+import MetaTags from "@/components/MetaTags.tsx";
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, Send } from "lucide-react";
 import { contactInfo } from "@/lib/constants.ts";
 import ContactButton from "./components/ContactButton.tsx";
-import { type ComponentType, type SVGProps } from "react";
+import type { ComponentType, JSX, SVGProps } from "react";
 import type { VariantProps } from "class-variance-authority";
 import { buttonVariants } from "@/components/ui/Button/buttonVariants.tsx";
 
@@ -47,7 +47,14 @@ const contactButtons: ContactButton[] = [
     },
 ];
 
-function ComingSoon() {
+/**
+ * "Coming Soon" page.
+ * The page includes a header, animated elements, content, contact buttons,
+ * and a footer, styled to fit a modern coming soon template.
+ *
+ * @return {JSX.Element} A JSX element representing the "Coming Soon" page.
+ */
+function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
 
     return (

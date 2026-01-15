@@ -1,9 +1,11 @@
-import { type RouteObject } from "react-router";
-import ComingSoon from "@/pages/ComingSoon/ComingSoon.tsx";
+import { Navigate, Outlet, type RouteObject } from "react-router";
 import StyleGuide from "@/pages/StyleGuide/StyleGuide.tsx";
 import LangLayout from "@/routes/LangLayout.tsx";
 import RootRedirect from "@/routes/RootRedirect.tsx";
 import { ENVIRONMENTS } from "@/env.ts";
+import Home from "@/pages/Home/Home.tsx";
+import MainLayout from "@/layouts/MainLayout.tsx";
+import ComingSoon from "@/pages/ComingSoon/ComingSoon.tsx";
 
 /**
  * Extended RouteObject to include development-only routes.
@@ -28,12 +30,17 @@ const routesConfig: AppRouteObject[] = [
         Component: LangLayout,
         children: [
             {
-                index: true,
-                Component: ComingSoon,
-            },
-            {
-                path: "*",
-                Component: ComingSoon,
+                Component: ENVIRONMENTS.isProd ? Outlet : MainLayout,
+                children: [
+                    {
+                        index: true,
+                        Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
+                    },
+                    {
+                        path: "*",
+                        element: <Navigate to="/" replace />,
+                    },
+                ],
             },
         ],
     },
