@@ -1,13 +1,18 @@
-import { useEffect } from "react";
+import { type JSX, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet, useNavigate, useParams } from "react-router";
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from "@/i18n/shared";
-import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher.tsx";
 
 /**
- * LangLayout component to handle language changes based on URL parameters.
+ * Managing the language layout of the application.
+ * It adjusts the language configuration based on URL parameters and ensures fallback behavior
+ * for unsupported or missing language settings.
+ *
+ * @return {JSX.Element|null} Returns the Outlet component to render nested routes
+ *                            if the language parameter is valid and supported,
+ *                            otherwise returns null.
  */
-export default function LangLayout() {
+function LangLayout(): JSX.Element | null {
     const { lang } = useParams();
     const { i18n } = useTranslation();
     const navigate = useNavigate();
@@ -30,9 +35,8 @@ export default function LangLayout() {
     }
 
     return (
-        <>
-            <ThemeSwitcher />
-            <Outlet />
-        </>
+        <Outlet />
     );
 }
+
+export default LangLayout;
