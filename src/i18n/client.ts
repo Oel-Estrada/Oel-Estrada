@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { isDev } from "@/env.ts";
+import { ENVIRONMENTS } from "@/env.ts";
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./shared";
 
 void i18n
@@ -19,7 +19,7 @@ void i18n
         fallbackLng: DEFAULT_LANGUAGE,
         supportedLngs: SUPPORTED_LANGUAGES,
         ns: ["common"],
-        debug: isDev,
+        debug: ENVIRONMENTS.isDev,
         interpolation: {
             escapeValue: false,
         },
