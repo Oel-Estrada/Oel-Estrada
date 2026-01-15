@@ -1,10 +1,18 @@
 const RAW_ENV = import.meta.env.VITE_APP_ENV as string;
-export const ENV_NORMALIZED = RAW_ENV.toLowerCase().trim() || 'prod';
 
-export const isDev = ENV_NORMALIZED === 'dev';
-export const isProd = ENV_NORMALIZED === 'prod';
+export const ENVIRONMENTS = {
+    DEV: 'dev',
+    PROD: 'prod',
 
-export default {
-    isDev,
-    isProd,
+    get current(): string {
+        return RAW_ENV.toLowerCase().trim() || this.PROD;
+    },
+
+    get isDev(): boolean {
+        return this.current === this.DEV;
+    },
+
+    get isProd(): boolean {
+        return this.current === this.PROD;
+    },
 };
