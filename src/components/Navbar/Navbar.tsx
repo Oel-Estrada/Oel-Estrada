@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { SquareChevronRight } from "lucide-react";
 
 /**
  * Renders the Navbar component.
@@ -13,9 +14,17 @@ import type { JSX } from "react";
  */
 function Navbar(): JSX.Element {
     return (
-        <nav
-            className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md py-4 px-6 flex justify-between items-center">
-            Navbar
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-275">
+            <div className="glass-nav">
+                <div className="flex items-center gap-2">
+                    <div
+                        className="size-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground">
+                        <span className="material-symbols-outlined font-bold text-xl">
+                            <SquareChevronRight size={16} />
+                        </span>
+                    </div>
+                </div>
+            </div>
         </nav>
     );
 }
