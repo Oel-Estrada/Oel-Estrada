@@ -23,6 +23,7 @@ function Navbar(): JSX.Element {
                             <SquareChevronRight size={16} />
                         </span>
                     </div>
+                    <span className="font-extrabold tracking-tighter text-lg">OEL_ESTRADA</span>
                 </div>
             </div>
         </nav>
