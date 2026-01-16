@@ -25,6 +25,12 @@ function Navbar(): JSX.Element {
                     </div>
                     <span className="font-extrabold tracking-tighter text-lg">OEL_ESTRADA</span>
                 </div>
+                <div className="hidden md:flex items-center gap-8">
+                    <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Work</a>
+                    <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Stack</a>
+                    <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Process</a>
+                    <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Insights</a>
+                </div>
             </div>
         </nav>
     );
