@@ -31,6 +31,18 @@ function Navbar(): JSX.Element {
                     <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Process</a>
                     <a className="text-sm font-medium hover:text-primary transition-colors" href="./">Insights</a>
                 </div>
+                <div className="flex items-center gap-3">
+                    <button
+                        type="button"
+                        className="hidden sm:flex items-center justify-center rounded-full h-10 px-5 bg-primary text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95">
+                        Contact
+                    </button>
+                    <div className="size-10 rounded-full border border-primary/20 overflow-hidden bg-surface"
+                        data-alt="Professional headshot of a developer">
+                        <img alt="Profile" className="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwmDsVJe97_suDOoitWyWTRbDj64-1Y3JLl-qmKnpuJbKROhmT60VNOqztXd3GJE6RGS5pau6I-18_YyzpzfJTs-7fZEo84i1JFCQZTGDvVn3wg6sXGdIeM0jvpdRLTvz6rR6nG7b30eEzPSp5tXx9AIekoE5GaLQIfwoseYOA7t2BA0_EL27xkzH5jWSIqb0-n9zlV9GicnbiqD8fP7pHH8QUDX4G8k9q3iGtjfend4tGApTztmlv1GLGTpIGE3IkR6zLZCrCtNo" />
+                    </div>
+                </div>
             </div>
         </nav>
     );
