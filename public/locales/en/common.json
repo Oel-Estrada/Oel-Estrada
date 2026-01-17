@@ -5,6 +5,9 @@
   "telegram": "Chat on Telegram",
   "whatsapp": "Message me on WhatsApp",
   "email": "Send me a message",
+  "mainNavigation": "Main navigation",
+  "home": "Home",
+  "selectLanguage": "Select language",
   "footer": {
     "rights": "© 2026 - Coming soon"
   }

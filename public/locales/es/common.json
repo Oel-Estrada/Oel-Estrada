@@ -5,6 +5,9 @@
   "telegram": "Chatear en Telegram",
   "whatsapp": "Escribeme por WhatsApp",
   "email": "Escribeme por Email",
+  "mainNavigation": "Navegación principal",
+  "home": "Inicio",
+  "selectLanguage": "Seleccionar idioma",
   "footer": {
     "rights": "© 2026 - Próximamente"
   }
