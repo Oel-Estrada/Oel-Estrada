@@ -5,6 +5,9 @@
   "telegram": "Чат в Telegram",
   "whatsapp": "Пишите в WhatsApp",
   "email": "Напишите мне",
+  "mainNavigation": "Главная навигация",
+  "home": "Главная",
+  "selectLanguage": "Выбрать язык",
   "footer": {
     "rights": "© 2026 - Скоро"
   }
