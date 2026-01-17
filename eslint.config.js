@@ -130,6 +130,22 @@ export default tseslint.config(
             'import/named': 'error',
             'import/default': 'error',
             'import/namespace': 'error',
+            // Import ordering and grouping
+            'import/order': [
+                'error',
+                {
+                    'groups': ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'type'],
+                    'pathGroups': [
+                        {
+                            pattern: '@/**',
+                            group: 'internal',
+                        },
+                    ],
+                    'pathGroupsExcludedImportTypes': ['builtin'],
+                    'newlines-between': 'always',
+                    'alphabetize': {order: 'asc', caseInsensitive: true},
+                },
+            ],
 
             // Prettier integration
             'prettier/prettier': 'error',
