@@ -1,22 +1,25 @@
+import { motion } from 'framer-motion';
+import { Mail, MessageCircle, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
 import './ComingSoon.css';
-import MetaTags from "@/components/MetaTags.tsx";
-import { motion } from "framer-motion";
-import { Mail, MessageCircle, Send } from "lucide-react";
-import { contactInfo } from "@/lib/constants.ts";
-import ContactButton from "./components/ContactButton.tsx";
-import type { ComponentType, JSX, SVGProps } from "react";
-import type { VariantProps } from "class-variance-authority";
-import { buttonVariants } from "@/components/ui/Button/buttonVariants.tsx";
+import MetaTags from '@/components/MetaTags.tsx';
+import type { buttonVariants } from '@/components/ui/buttonVariants.tsx';
+import { contactInfo } from '@/lib/constants.ts';
+
+import ContactButton from './components/ContactButton.tsx';
+
+import type { VariantProps } from 'class-variance-authority';
+import type { ComponentType, JSX, SVGProps } from 'react';
 
 interface ContactButton {
-    id: number,
+    id: number;
     icon: { icon: ComponentType<SVGProps<SVGSVGElement>>; className?: string };
     label: string;
     href: string;
     target?: string;
     className?: string;
-    variant?: VariantProps<typeof buttonVariants>["variant"];
+    variant?: VariantProps<typeof buttonVariants>['variant'];
 }
 
 const contactButtons: ContactButton[] = [
@@ -58,16 +61,17 @@ function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
 
     return (
-        <div
-            className="flex flex-col items-center justify-center min-h-screen w-full p-8 text-center relative overflow-hidden bg-background text-text-primary">
+        <div className="flex flex-col items-center justify-center min-h-screen w-full p-8 text-center relative overflow-hidden bg-background text-text-primary">
             <MetaTags
                 title={t('comingSoon:meta.title')}
                 description={t('comingSoon:meta.description')}
                 keywords={t('comingSoon:meta.keywords')}
             />
-            <div className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+            <div
+                className="absolute inset-0 z-0 opacity-30 pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 40%)'
+                    background:
+                        'radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 40%)',
                 }}
             />
 
@@ -91,7 +95,7 @@ function ComingSoon(): JSX.Element {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="relative z-10 flex flex-col gap-6"
             >
-                <div className="card max-w-2xl mx-auto">
+                <div className="card glass max-w-2xl mx-auto">
                     <p className="text-xl text-text-secondary">
                         {t('comingSoon:working')}
                     </p>
