@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { JSX } from 'react';
 
 interface MetaTagsProps {
     title?: string;
@@ -21,7 +21,13 @@ interface MetaTagsProps {
  *
  * @return {JSX.Element} The JSX structure containing the meta tags for the document head.
  */
-function MetaTags({ title, description, keywords, ogImage, ogType = "website" }: MetaTagsProps): JSX.Element {
+function MetaTags({
+    title,
+    description,
+    keywords,
+    ogImage,
+    ogType = 'website',
+}: MetaTagsProps): JSX.Element {
     return (
         <>
             {title && <title>{title}</title>}
@@ -30,14 +36,18 @@ function MetaTags({ title, description, keywords, ogImage, ogType = "website" }:
 
             {/* Open Graph / Facebook */}
             {title && <meta property="og:title" content={title} />}
-            {description && <meta property="og:description" content={description} />}
+            {description && (
+                <meta property="og:description" content={description} />
+            )}
             {ogImage && <meta property="og:image" content={ogImage} />}
             <meta property="og:type" content={ogType} />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             {title && <meta name="twitter:title" content={title} />}
-            {description && <meta name="twitter:description" content={description} />}
+            {description && (
+                <meta name="twitter:description" content={description} />
+            )}
             {ogImage && <meta name="twitter:image" content={ogImage} />}
         </>
     );
