@@ -1,7 +1,8 @@
-import { type JSX, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { Outlet, useNavigate, useParams } from "react-router";
-import { DEFAULT_LANGUAGE, isSupportedLanguage } from "@/i18n/shared";
+import { type JSX, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Outlet, useNavigate, useParams } from 'react-router';
+
+import { DEFAULT_LANGUAGE, isSupportedLanguage } from '@/i18n/shared';
 
 /**
  * Managing the language layout of the application.
@@ -34,9 +35,7 @@ function LangLayout(): JSX.Element | null {
         return null;
     }
 
-    return (
-        <Outlet />
-    );
+    return <Outlet />;
 }
 
 export default LangLayout;
