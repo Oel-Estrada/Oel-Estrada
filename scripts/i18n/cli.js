@@ -23,7 +23,9 @@ Commands:
 
 async function interactiveMenu() {
     const {ask, close} = createQuestionAsker();
-    console.log(`\n${COLORS.bright}${COLORS.blue}--- i18n Interactive Menu ---${COLORS.reset}`);
+    console.log(
+        `\n${COLORS.bright}${COLORS.blue}--- i18n Interactive Menu ---${COLORS.reset}`,
+    );
     console.log(`${COLORS.cyan}1.${COLORS.reset} Check keys`);
     console.log(`${COLORS.cyan}2.${COLORS.reset} Sort keys`);
     console.log(`${COLORS.cyan}3.${COLORS.reset} Sync keys`);
@@ -31,7 +33,9 @@ async function interactiveMenu() {
     console.log(`${COLORS.cyan}5.${COLORS.reset} Help`);
     console.log(`${COLORS.cyan}0.${COLORS.reset} Exit`);
 
-    const choice = await ask(`\n${COLORS.bright}Selecciona una opción:${COLORS.reset} `);
+    const choice = await ask(
+        `\n${COLORS.bright}Selecciona una opción:${COLORS.reset} `,
+    );
 
     switch (choice.trim()) {
         case '1':
@@ -89,7 +93,9 @@ async function main() {
             break;
         default:
             if (command) {
-                console.error(`${COLORS.red}Error: Comando desconocido "${command}"${COLORS.reset}`);
+                console.error(
+                    `${COLORS.red}Error: Comando desconocido "${command}"${COLORS.reset}`,
+                );
                 help();
                 process.exit(1);
             }
@@ -98,7 +104,7 @@ async function main() {
     }
 }
 
-main().catch(err => {
+main().catch((err) => {
     console.error(`\n${COLORS.red}Error inesperado:${COLORS.reset}`, err);
     process.exit(1);
 });
