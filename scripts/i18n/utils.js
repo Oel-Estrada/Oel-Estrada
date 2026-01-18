@@ -14,7 +14,8 @@ export const COLORS = {
 
 export const LOCALES_DIR = path.join(process.cwd(), 'public', 'locales');
 
-export const getLogPrefix = (command) => `${COLORS.bright}${COLORS.blue}[i18n-${command}]${COLORS.reset}`;
+export const getLogPrefix = (command) =>
+    `${COLORS.bright}${COLORS.blue}[i18n-${command}]${COLORS.reset}`;
 
 /**
  * Creates a question asker using readline interface.
@@ -22,9 +23,10 @@ export const getLogPrefix = (command) => `${COLORS.bright}${COLORS.blue}[i18n-${
 export const createQuestionAsker = () => {
     const rl = readline.createInterface({
         input: process.stdin,
-        output: process.stdout
+        output: process.stdout,
     });
-    const ask = (query) => new Promise((resolve) => rl.question(query, resolve));
+    const ask = (query) =>
+        new Promise((resolve) => rl.question(query, resolve));
     return {ask, close: () => rl.close()};
 };
 
@@ -32,7 +34,8 @@ export const createQuestionAsker = () => {
  * Loads shared i18n configuration.
  */
 export const loadSharedConfig = async () => {
-    const {SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE} = await import('../../src/i18n/shared.ts');
+    const {SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE} =
+        await import('../../src/i18n/shared.ts');
     return {LANGUAGES: SUPPORTED_LANGUAGES, REFERENCE_LANG: DEFAULT_LANGUAGE};
 };
 

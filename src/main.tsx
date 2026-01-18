@@ -1,9 +1,10 @@
+import { ThemeProvider } from 'next-themes';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ThemeProvider } from 'next-themes';
-import '@/styles/index.css';
+
+import '@/styles/App.css';
 import App from './App.tsx';
-import "./i18n/client";
+import './i18n/client';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

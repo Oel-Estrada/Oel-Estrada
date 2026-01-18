@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { JSX } from 'react';
 
 /**
  * Represents the Home component.
@@ -6,11 +6,7 @@ import type { JSX } from "react";
  * @return {JSX.Element} The JSX structure for the Home component, displaying the Home Page.
  */
 function Home(): JSX.Element {
-    return (
-        <div>
-            Home Page
-        </div>
-    );
+    return <div>Home Page</div>;
 }
 
 export default Home;
