@@ -1,8 +1,10 @@
-import { Outlet } from "react-router";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
-import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
-import type { JSX } from "react";
+import { Outlet } from 'react-router';
+
+import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/Navbar/Navbar';
+import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher';
+
+import type { JSX } from 'react';
 
 /**
  * Main layout part that structures the primary layout of the application.
