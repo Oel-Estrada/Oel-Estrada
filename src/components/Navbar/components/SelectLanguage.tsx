@@ -22,9 +22,16 @@ import type { JSX } from 'react';
  *
  * Used by {@link Navbar}
  *
+ * @param {object} props - The component props.
+ * @param {string} [props.className] - Optional additional CSS class names to apply to the component.
+ *
  * @return {JSX.Element} A dropdown menu component for selecting the application's language.
  */
-function SelectLanguage(): JSX.Element {
+function SelectLanguage({
+    className = '',
+}: {
+    className?: string;
+}): JSX.Element {
     const { i18n, t } = useTranslation();
     const { lang } = useParams();
     const navigate = useNavigate();
@@ -50,9 +57,9 @@ function SelectLanguage(): JSX.Element {
         <Select value={i18n.language} onValueChange={handleLanguageChange}>
             <SelectTrigger
                 aria-label={t('selectLanguage')}
-                className="hover:bg-accent border-none shadow-none dark:bg-transparent p-2 [&>svg:last-child]:hidden"
+                className={`${className} hover:bg-accent border-none shadow-none dark:bg-transparent p-2 [&>svg:last-child]:hidden`}
             >
-                <Languages className="text-primary hover:text-primary w-36 h-36" />
+                <Languages className="text-slate-400 w-36 h-36" />
             </SelectTrigger>
             <SelectContent
                 className="[&_svg]:hidden"
