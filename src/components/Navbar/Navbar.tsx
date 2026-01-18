@@ -5,11 +5,10 @@ import Logo from '@/components/Logo/Logo.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 
 import type { JSX } from 'react';
-import type { To } from 'react-router';
 
 interface NavbarLink {
     label: string;
-    to: To;
+    to: string;
 }
 
 const NAVBAR_LINKS: NavbarLink[] = [
@@ -35,7 +34,7 @@ const CONTACT_LINK: NavbarLink = {
  * @return {JSX.Element} A JSX element that renders a navigation bar.
  */
 function Navbar(): JSX.Element {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <nav
@@ -48,7 +47,7 @@ function Navbar(): JSX.Element {
                     <Link
                         key={link.label}
                         className="text-sm font-medium hover:text-primary transition-colors"
-                        to={link.to}
+                        to={`/${i18n.language}${link.to}`}
                         aria-label={t(link.label)}
                     >
                         {t(link.label)}
@@ -58,7 +57,7 @@ function Navbar(): JSX.Element {
             <div className="flex items-center gap-3">
                 <SelectLanguage className="hidden xs:flex" />
                 <Link
-                    to={CONTACT_LINK.to}
+                    to={`/${i18n.language}${CONTACT_LINK.to}`}
                     aria-label={t(CONTACT_LINK.label)}
                     className="hidden sm:flex items-center justify-center rounded-full h-10 px-5 bg-accent text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-(--accent)"
                 >
