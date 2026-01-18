@@ -1,8 +1,10 @@
-import React, { type JSX } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button/Button.tsx";
-import { buttonVariants } from "@/components/ui/Button/buttonVariants.tsx";
-import type { VariantProps } from "class-variance-authority";
+import { motion } from 'framer-motion';
+import React, { type JSX } from 'react';
+
+import { Button } from '@/components/ui/button.tsx';
+import type { buttonVariants } from '@/components/ui/buttonVariants.tsx';
+
+import type { VariantProps } from 'class-variance-authority';
 
 export interface ContactButtonProps {
     icon: {
@@ -13,7 +15,7 @@ export interface ContactButtonProps {
     label: string;
     href: string;
     className?: string;
-    variant?: VariantProps<typeof buttonVariants>["variant"];
+    variant?: VariantProps<typeof buttonVariants>['variant'];
 }
 
 /**
@@ -31,11 +33,11 @@ export interface ContactButtonProps {
  */
 export default function ContactButton({
     icon: Icon,
-    target = "",
+    target = '',
     label,
     href,
     className,
-    variant
+    variant,
 }: ContactButtonProps): JSX.Element {
     return (
         <Button asChild variant={variant} size="lg" className={className ?? ''}>
