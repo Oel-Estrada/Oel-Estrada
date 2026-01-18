@@ -1,11 +1,12 @@
-import { Navigate, Outlet, type RouteObject } from "react-router";
-import StyleGuide from "@/pages/StyleGuide/StyleGuide.tsx";
-import LangLayout from "@/routes/LangLayout.tsx";
-import RootRedirect from "@/routes/RootRedirect.tsx";
-import { ENVIRONMENTS } from "@/env.ts";
-import Home from "@/pages/Home/Home.tsx";
-import MainLayout from "@/layouts/MainLayout.tsx";
-import ComingSoon from "@/pages/ComingSoon/ComingSoon.tsx";
+import { Navigate, Outlet, type RouteObject } from 'react-router';
+
+import { ENVIRONMENTS } from '@/env.ts';
+import MainLayout from '@/layouts/MainLayout.tsx';
+import ComingSoon from '@/pages/ComingSoon/ComingSoon.tsx';
+import Home from '@/pages/Home/Home.tsx';
+import StyleGuide from '@/pages/StyleGuide/StyleGuide.tsx';
+import LangLayout from '@/routes/LangLayout.tsx';
+import RootRedirect from '@/routes/RootRedirect.tsx';
 
 /**
  * Extended RouteObject to include development-only routes.
@@ -17,16 +18,16 @@ export type AppRouteObject = RouteObject & {
 
 const routesConfig: AppRouteObject[] = [
     {
-        path: "/",
+        path: '/',
         Component: RootRedirect,
     },
     {
-        path: "/style-guide",
+        path: '/style-guide',
         Component: StyleGuide,
         isDevelopment: true,
     },
     {
-        path: "/:lang",
+        path: '/:lang',
         Component: LangLayout,
         children: [
             {
@@ -37,7 +38,32 @@ const routesConfig: AppRouteObject[] = [
                         Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
                     },
                     {
-                        path: "*",
+                        path: 'projects',
+                        element: <>Projects</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: 'tech-stack',
+                        element: <>Tech Stack</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: 'process',
+                        element: <>Process</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: 'insights',
+                        element: <>Insights</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: 'contact',
+                        element: <>Contact</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: '*',
                         element: <Navigate to="/" replace />,
                     },
                 ],
@@ -56,7 +82,9 @@ const filterRoutes = (routes: AppRouteObject[]): RouteObject[] =>
         .map((route) => {
             const filteredRoute = { ...route };
             if (filteredRoute.children) {
-                filteredRoute.children = filterRoutes(filteredRoute.children) as AppRouteObject[];
+                filteredRoute.children = filterRoutes(
+                    filteredRoute.children,
+                ) as AppRouteObject[];
             }
 
             delete filteredRoute.isDevelopment;
