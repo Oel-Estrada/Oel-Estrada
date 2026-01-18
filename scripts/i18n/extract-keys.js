@@ -4,12 +4,14 @@ import {COLORS, createQuestionAsker, getLogPrefix, loadSharedConfig, LOCALES_DIR
 
 const LOG_PREFIX = getLogPrefix('extract');
 
+/**
+ * Gets all keys from an object recursively, including nested objects.
+ */
 function getAllKeys(obj, prefix = '') {
     return Object.keys(obj).reduce((res, el) => {
         const fullKey = prefix ? `${prefix}.${el}` : el;
         const value = obj[el];
         const isObject = typeof value === 'object' && value !== null && !Array.isArray(value);
-        const isArray = Array.isArray(value);
 
         // Añadir la clave actual (sea objeto, array o valor simple)
         res[fullKey] = value;
@@ -70,6 +72,9 @@ function deleteKeyPath(obj, keyPath) {
     }
 }
 
+/**
+ * Merges two objects deeply.
+ */
 function mergeDeep(target, source) {
     const isObject = obj => obj && typeof obj === 'object' && !Array.isArray(obj);
 
@@ -138,7 +143,7 @@ export async function extractKeys() {
             const isObject = typeof value === 'object' && value !== null && !Array.isArray(value);
             const isArray = Array.isArray(value);
 
-            let displayValue = '';
+            let displayValue;
             if (isObject) {
                 displayValue = `${COLORS.yellow}{...}${COLORS.reset}`;
             } else if (isArray) {
@@ -169,7 +174,7 @@ export async function extractKeys() {
                 break;
             } else {
                 if (parts.length > 0 && parts[0] !== '') {
-                    const invalidParts = parts.filter((p, idx) => {
+                    const invalidParts = parts.filter((p) => {
                         const i = parseInt(p) - 1;
                         return isNaN(i) || i < 0 || i >= allKeys.length;
                     });
