@@ -11,7 +11,12 @@
     "check:lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
     "format:all": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "i18n": "node scripts/i18n/cli.js",
+    "i18n:check": "npm run i18n check",
+    "i18n:sort": "npm run i18n sort",
+    "i18n:sync": "npm run i18n sync",
+    "i18n:extract": "npm run i18n extract"
   },
   "husky": {
     "hooks": {
@@ -25,8 +30,11 @@
     ]
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@react-router/node": "^7.12.0",
     "@tailwindcss/vite": "^4.1.18",
     "class-variance-authority": "^0.7.1",
@@ -58,6 +66,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
