@@ -9,8 +9,11 @@ import {
     SelectItem,
     SelectTrigger,
 } from '@/components/ui/select.tsx';
-import type { SupportedLanguage } from '@/i18n/shared.ts';
-import { SUPPORTED_LANGUAGES } from '@/i18n/shared.ts';
+import {
+    LANGUAGES,
+    SUPPORTED_LANGUAGES,
+    type SupportedLanguage,
+} from '@/i18n/shared.ts';
 
 import type { JSX } from 'react';
 
@@ -25,7 +28,7 @@ function SelectLanguage(): JSX.Element {
     const { i18n, t } = useTranslation();
     const { lang } = useParams();
     const navigate = useNavigate();
-    const location = useLocation();
+    const { pathname } = useLocation();
 
     /**
      * Handles the language change event.
@@ -36,39 +39,35 @@ function SelectLanguage(): JSX.Element {
             if (!SUPPORTED_LANGUAGES.includes(newLang)) return;
 
             if (lang && lang !== newLang) {
-                const newPath = location.pathname.replace(
-                    `/${lang}`,
-                    `/${newLang}`,
-                );
+                const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
                 await navigate(newPath, { replace: true });
             }
         },
-        [lang, location.pathname, navigate],
+        [lang, pathname, navigate],
     );
 
     return (
         <Select value={i18n.language} onValueChange={handleLanguageChange}>
             <SelectTrigger
                 aria-label={t('selectLanguage')}
-                className="hover:bg-accent w-full border-none shadow-none dark:bg-transparent pr-2 [&>svg:last-child]:hidden"
+                className="hover:bg-accent border-none shadow-none dark:bg-transparent p-2 [&>svg:last-child]:hidden"
             >
                 <Languages className="text-primary hover:text-primary w-36 h-36" />
             </SelectTrigger>
             <SelectContent
-                className="[&_svg]:hidden w-fit"
+                className="[&_svg]:hidden"
                 position="popper"
                 side="bottom"
                 align="start"
-                sideOffset={6}
             >
-                {SUPPORTED_LANGUAGES.map((lang) => (
+                {LANGUAGES.map(({ code, label }) => (
                     <SelectItem
-                        key={lang}
-                        value={lang}
+                        key={code}
+                        value={code}
                         className="text-sm font-medium hover:text-primary transition-colors"
-                        data-state={i18n.language === lang ? 'selected' : ''}
+                        data-state={i18n.language === code ? 'selected' : ''}
                     >
-                        <span className="truncate uppercase">{lang}</span>
+                        <span className="truncate capitalize">{label}</span>
                     </SelectItem>
                 ))}
             </SelectContent>
