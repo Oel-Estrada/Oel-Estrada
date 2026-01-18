@@ -1,3 +1,4 @@
+import { Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 
@@ -63,6 +64,9 @@ function Navbar(): JSX.Element {
                 >
                     {t(CONTACT_LINK.label)}
                 </Link>
+                <span className="lg:hidden size-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 cursor-pointer active:bg-white/10 transition-colors">
+                    <Menu className="h-4 w-4 text-primary-foreground" />
+                </span>
             </div>
         </nav>
     );
