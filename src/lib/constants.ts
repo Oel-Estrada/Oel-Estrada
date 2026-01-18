@@ -23,7 +23,7 @@ export class ContactInfo {
     }
 
     get sanitizedPhone(): string {
-        return this.phone.replace(/[^\d]/g, "");
+        return this.phone.replace(/[^\d]/g, '');
     }
 
     get whatsapp(): string {
@@ -39,15 +39,17 @@ export class ContactInfo {
     }
 
     get github(): string | undefined {
-        return this.githubUsername ? `https://github.com/${this.githubUsername}` : undefined;
+        return this.githubUsername
+            ? `https://github.com/${this.githubUsername}`
+            : undefined;
     }
 }
 
 export const contactInfo = new ContactInfo({
-    phone: "79955556081",
-    email: "oelestradacampos@gmail.com",
-    telegramUsername: "Oel_Estrada",
-    linkedinUsername: "oel-estrada",
-    githubUsername: "Oel-Estrada",
-    website: "https://www.oelestrada.ru",
+    phone: '79955556081',
+    email: 'oelestradacampos@gmail.com',
+    telegramUsername: 'Oel_Estrada',
+    linkedinUsername: 'oel-estrada',
+    githubUsername: 'Oel-Estrada',
+    website: 'https://www.oelestrada.ru',
 });
