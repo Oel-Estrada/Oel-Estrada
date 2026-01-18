@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
-import { Navigate } from "react-router";
+import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router';
 
 /**
  * RootRedirect component that redirects to the default language route.
