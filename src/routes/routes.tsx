@@ -1,5 +1,6 @@
 import { Navigate, Outlet, type RouteObject } from 'react-router';
 
+import { ROUTES } from '@/constants/routes.ts';
 import { ENVIRONMENTS } from '@/env.ts';
 import MainLayout from '@/layouts/MainLayout.tsx';
 import ComingSoon from '@/pages/ComingSoon/ComingSoon.tsx';
@@ -22,11 +23,6 @@ const routesConfig: AppRouteObject[] = [
         Component: RootRedirect,
     },
     {
-        path: '/style-guide',
-        Component: StyleGuide,
-        isDevelopment: true,
-    },
-    {
         path: '/:lang',
         Component: LangLayout,
         children: [
@@ -38,33 +34,38 @@ const routesConfig: AppRouteObject[] = [
                         Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
                     },
                     {
-                        path: 'projects',
+                        path: ROUTES.PROJECTS,
                         element: <>Projects</>,
                         isDevelopment: true,
                     },
                     {
-                        path: 'tech-stack',
+                        path: ROUTES.TECH_STACK,
                         element: <>Tech Stack</>,
                         isDevelopment: true,
                     },
                     {
-                        path: 'process',
+                        path: ROUTES.PROCESS,
                         element: <>Process</>,
                         isDevelopment: true,
                     },
                     {
-                        path: 'insights',
+                        path: ROUTES.INSIGHTS,
                         element: <>Insights</>,
                         isDevelopment: true,
                     },
                     {
-                        path: 'contact',
+                        path: ROUTES.CONTACT,
                         element: <>Contact</>,
                         isDevelopment: true,
                     },
                     {
+                        path: ROUTES.STYLE_GUIDE,
+                        Component: StyleGuide,
+                        isDevelopment: true,
+                    },
+                    {
                         path: '*',
-                        element: <Navigate to="/" replace />,
+                        element: <Navigate to={ROUTES.HOME} replace />,
                     },
                 ],
             },
