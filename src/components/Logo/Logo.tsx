@@ -1,7 +1,9 @@
 import { DraftingCompass } from 'lucide-react';
-import { Link } from 'react-router';
-import { useTranslation } from 'react-i18next';
 import { type JSX } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { ROUTES } from '@/constants/routes.ts';
+import { Link } from '@/routes';
 
 /**
  * Logo component displaying the site logo with an icon and text.
@@ -13,7 +15,7 @@ function Logo(): JSX.Element {
 
     return (
         <Link
-            to="/"
+            to={ROUTES.HOME}
             aria-label={t('home')}
             className="flex items-center gap-2 hover:opacity-100 active:scale-100"
         >
