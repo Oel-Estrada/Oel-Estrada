@@ -1,30 +1,12 @@
-import { Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/components/Logo/Logo.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
-import { ROUTES } from '@/constants/routes.ts';
-import { Link } from '@/routes';
+import { SidebarTrigger } from '@/components/ui/sidebar.tsx';
+import { CONTACT_LINK, NAVIGATION_ITEMS } from '@/constants/navigation.ts';
+import { Link, NavLink } from '@/routes';
 
 import type { JSX } from 'react';
-import type { To } from 'react-router';
-
-interface NavbarLink {
-    label: string;
-    to: To;
-}
-
-const NAVBAR_LINKS: NavbarLink[] = [
-    { label: 'navBar.work', to: ROUTES.PROJECTS },
-    { label: 'navBar.techStack', to: ROUTES.TECH_STACK },
-    { label: 'navBar.howIWork', to: ROUTES.PROCESS },
-    { label: 'navBar.insights', to: ROUTES.INSIGHTS },
-];
-
-const CONTACT_LINK: NavbarLink = {
-    label: 'contact',
-    to: ROUTES.CONTACT,
-};
 
 /**
  * Renders the Navbar component.
@@ -43,19 +25,24 @@ function Navbar(): JSX.Element {
     return (
         <nav
             aria-label={t('mainNavigation')}
-            className="glass rounded-full px-6 py-3 flex items-center justify-between fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl"
+            className="glass rounded-full px-6 py-3 flex items-center justify-between fixed top-8 left-1/2 -translate-x-1/2 z-40 w-full max-w-7xl"
         >
             <Logo />
             <div className="hidden lg:flex items-center gap-8">
-                {NAVBAR_LINKS.map((link) => (
-                    <Link
+                {NAVIGATION_ITEMS.map((link) => (
+                    <NavLink
                         key={link.label}
-                        className="text-sm font-medium hover:text-primary transition-colors"
                         to={link.to}
                         aria-label={t(link.label)}
+                        className={({ isActive }) =>
+                            [
+                                'text-sm font-medium transition-colors hover:text-primary',
+                                isActive ? 'text-primary' : 'text-foreground',
+                            ].join(' ')
+                        }
                     >
                         {t(link.label)}
-                    </Link>
+                    </NavLink>
                 ))}
             </div>
             <div className="flex items-center gap-3">
@@ -67,9 +54,7 @@ function Navbar(): JSX.Element {
                 >
                     {t(CONTACT_LINK.label)}
                 </Link>
-                <span className="lg:hidden size-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 cursor-pointer active:bg-white/10 transition-colors">
-                    <Menu className="h-4 w-4 text-primary-foreground" />
-                </span>
+                <SidebarTrigger className="lg:hidden size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 text-text-primary hover:text-primary transition-colors" />
             </div>
         </nav>
     );
