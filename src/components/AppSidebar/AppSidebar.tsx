@@ -55,19 +55,25 @@ function AppSidebar(): JSX.Element {
                             {NAVIGATION_ITEMS.map(
                                 ({ label, icon: Icon, to }) => (
                                     <SidebarMenuItem key={label}>
-                                        <SidebarMenuButton
-                                            asChild
-                                            className="text-sm font-medium hover:text-primary transition-colors"
+                                        <NavLink
+                                            key={label}
+                                            to={to}
+                                            aria-label={t(label)}
+                                            className="w-full"
                                         >
-                                            <NavLink
-                                                key={label}
-                                                to={to}
-                                                aria-label={t(label)}
-                                            >
-                                                {Icon && <Icon />}
-                                                {t(label)}
-                                            </NavLink>
-                                        </SidebarMenuButton>
+                                            {({ isActive }) => (
+                                                <SidebarMenuButton
+                                                    asChild
+                                                    isActive={isActive}
+                                                    className="text-sm font-medium hover:text-primary transition-colors"
+                                                >
+                                                    <div>
+                                                        {Icon && <Icon />}
+                                                        {t(label)}
+                                                    </div>
+                                                </SidebarMenuButton>
+                                            )}
+                                        </NavLink>
                                     </SidebarMenuItem>
                                 ),
                             )}
