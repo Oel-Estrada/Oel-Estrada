@@ -57,9 +57,9 @@ function SelectLanguage({
         <Select value={i18n.language} onValueChange={handleLanguageChange}>
             <SelectTrigger
                 aria-label={t('selectLanguage')}
-                className={`${className} hover:bg-accent border-none shadow-none dark:bg-transparent p-2 [&>svg:last-child]:hidden`}
+                className={`${className} hover:bg-primary/10 border-none shadow-none dark:bg-transparent p-2 [&>svg:last-child]:hidden text-text-primary hover:text-primary transition-colors`}
             >
-                <Languages className="text-slate-400 w-36 h-36" />
+                <Languages className="size-5" />
             </SelectTrigger>
             <SelectContent
                 className="[&_svg]:hidden"
