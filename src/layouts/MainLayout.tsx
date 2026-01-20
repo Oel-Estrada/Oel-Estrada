@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router';
 
+import AppSidebar from '@/components/AppSidebar/AppSidebar.tsx';
 import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher';
+import { SidebarProvider } from '@/components/ui/sidebar.tsx';
 
 import type { JSX } from 'react';
 
@@ -14,14 +16,17 @@ import type { JSX } from 'react';
  */
 function MainLayout(): JSX.Element {
     return (
-        <div className="min-h-screen flex flex-col pt-16.25">
-            <Navbar />
-            <main className="grow">
-                <Outlet />
-            </main>
-            <Footer />
-            <ThemeSwitcher />
-        </div>
+        <SidebarProvider defaultOpen={false}>
+            <div className="min-h-screen flex flex-col pt-16.25 w-full">
+                <AppSidebar />
+                <Navbar />
+                <main className="grow">
+                    <Outlet />
+                </main>
+                <Footer />
+                <ThemeSwitcher />
+            </div>
+        </SidebarProvider>
     );
 }
 
