@@ -13,6 +13,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarTrigger,
+    useSidebar,
 } from '@/components/ui/sidebar.tsx';
 import { NAVIGATION_ITEMS } from '@/constants/navigation.ts';
 import { NavLink } from '@/routes';
@@ -26,6 +27,18 @@ import type { JSX } from 'react';
  */
 function AppSidebar(): JSX.Element {
     const { t } = useTranslation();
+    const { setOpen, setOpenMobile, isMobile } = useSidebar();
+
+    /**
+     * Closes the sidebar based on the current device type.
+     */
+    const closeSidebar = (): void => {
+        if (isMobile) {
+            setOpenMobile(false);
+        } else {
+            setOpen(false);
+        }
+    };
 
     return (
         <Sidebar
@@ -37,7 +50,7 @@ function AppSidebar(): JSX.Element {
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem className="flex justify-between p-4">
-                        <Logo />
+                        <Logo onClick={closeSidebar} />
                         <div className="flex items-center gap-1">
                             <SelectLanguage className="" />
                             <SidebarTrigger
@@ -60,6 +73,7 @@ function AppSidebar(): JSX.Element {
                                             to={to}
                                             aria-label={t(label)}
                                             className="w-full"
+                                            onClick={closeSidebar}
                                         >
                                             {({ isActive }) => (
                                                 <SidebarMenuButton
