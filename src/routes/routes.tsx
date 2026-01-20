@@ -23,15 +23,20 @@ const routesConfig: AppRouteObject[] = [
         Component: RootRedirect,
     },
     {
+        path: ROUTES.STYLE_GUIDE,
+        Component: StyleGuide,
+        isDevelopment: true,
+    },
+    {
         path: '/:lang',
         Component: LangLayout,
         children: [
             {
-                Component: ENVIRONMENTS.isProd ? Outlet : MainLayout,
+                Component: !ENVIRONMENTS.isProd ? Outlet : MainLayout,
                 children: [
                     {
                         index: true,
-                        Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
+                        Component: !ENVIRONMENTS.isProd ? ComingSoon : Home,
                     },
                     {
                         path: ROUTES.PROJECTS,
@@ -56,11 +61,6 @@ const routesConfig: AppRouteObject[] = [
                     {
                         path: ROUTES.CONTACT,
                         element: <>Contact</>,
-                        isDevelopment: true,
-                    },
-                    {
-                        path: ROUTES.STYLE_GUIDE,
-                        Component: StyleGuide,
                         isDevelopment: true,
                     },
                     {
