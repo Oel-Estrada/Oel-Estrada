@@ -102,7 +102,7 @@ function AppSidebar(): JSX.Element {
                             to={CONTACT_LINK.to}
                             onClick={closeSidebar}
                             aria-label={t(CONTACT_LINK.label)}
-                            className="flex sm:hidden w-full gap-2 items-center justify-center rounded-full h-10 px-5 bg-accent text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-(--accent)"
+                            className="flex sm:hidden w-full gap-2 items-center justify-center rounded-full h-10 px-5 bg-primary text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
                         >
                             {t(CONTACT_LINK.label)}
                             {!!CONTACT_LINK.icon && (
