@@ -36,7 +36,7 @@ function AppSidebar(): JSX.Element {
         >
             <SidebarHeader>
                 <SidebarMenu>
-                    <SidebarMenuItem className="flex justify-between p-2">
+                    <SidebarMenuItem className="flex justify-between p-4">
                         <Logo />
                         <div className="flex items-center gap-1">
                             <SelectLanguage className="" />
@@ -48,7 +48,7 @@ function AppSidebar(): JSX.Element {
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
-            <SidebarContent>
+            <SidebarContent className="px-4">
                 <SidebarGroup>
                     <SidebarGroupContent>
                         <SidebarMenu>
