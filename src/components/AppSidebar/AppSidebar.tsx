@@ -52,7 +52,7 @@ function AppSidebar(): JSX.Element {
                     <SidebarMenuItem className="flex justify-between p-4">
                         <Logo onClick={closeSidebar} />
                         <div className="flex items-center gap-1">
-                            <SelectLanguage className="" />
+                            <SelectLanguage className="flex xs:hidden" />
                             <SidebarTrigger
                                 icon={X}
                                 className="size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 transition-colors"
@@ -100,11 +100,12 @@ function AppSidebar(): JSX.Element {
                     <SidebarMenuItem className="flex justify-between p-4">
                         <Link
                             to={CONTACT_LINK.to}
+                            onClick={closeSidebar}
                             aria-label={t(CONTACT_LINK.label)}
                             className="flex sm:hidden w-full gap-2 items-center justify-center rounded-full h-10 px-5 bg-accent text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-(--accent)"
                         >
                             {t(CONTACT_LINK.label)}
-                            {CONTACT_LINK.icon && (
+                            {!!CONTACT_LINK.icon && (
                                 <CONTACT_LINK.icon className="h-4 w-4" />
                             )}
                         </Link>
