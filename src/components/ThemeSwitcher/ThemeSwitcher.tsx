@@ -15,7 +15,7 @@ export default function ThemeSwitcher() {
         <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="fixed bottom-8 right-8 z-50"
+            className="fixed bottom-8 right-8 z-40"
         >
             <Button
                 variant="secondary"

@@ -8,13 +8,17 @@ import { Link } from '@/routes';
 /**
  * Logo component displaying the site logo with an icon and text.
  *
+ * @param {Object} props - The component props.
+ * @param {Function} [props.onClick] - Optional click handler for the logo.
+ *
  * @returns {JSX.Element} The rendered Logo component.
  */
-function Logo(): JSX.Element {
+function Logo({ onClick }: { onClick?: () => void }): JSX.Element {
     const { t } = useTranslation();
 
     return (
         <Link
+            onClick={onClick}
             to={ROUTES.HOME}
             aria-label={t('home')}
             className="flex items-center gap-2 hover:opacity-100 active:scale-100"
