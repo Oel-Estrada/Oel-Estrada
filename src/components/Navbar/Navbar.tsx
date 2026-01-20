@@ -26,7 +26,7 @@ function Navbar(): JSX.Element {
     return (
         <nav
             aria-label={t('mainNavigation')}
-            className="glass rounded-full px-6 py-3 flex items-center justify-between fixed top-8 left-1/2 -translate-x-1/2 z-40 w-full max-w-7xl"
+            className="glass rounded-full px-6 py-3 flex items-center justify-between fixed top-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-6xl"
         >
             <Logo />
             <div className="hidden lg:flex items-center gap-8">
@@ -51,7 +51,7 @@ function Navbar(): JSX.Element {
                 <Link
                     to={CONTACT_LINK.to}
                     aria-label={t(CONTACT_LINK.label)}
-                    className="hidden sm:flex items-center justify-center rounded-full h-10 px-5 bg-accent text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-(--accent)"
+                    className="hidden sm:flex items-center justify-center rounded-full h-10 px-5 bg-primary text-primary-foreground text-sm font-bold transition-transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
                 >
                     {t(CONTACT_LINK.label)}
                 </Link>
