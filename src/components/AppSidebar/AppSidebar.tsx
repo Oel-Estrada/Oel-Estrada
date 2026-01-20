@@ -42,7 +42,7 @@ function AppSidebar(): JSX.Element {
                             <SelectLanguage className="" />
                             <SidebarTrigger
                                 icon={X}
-                                className="size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 text-text-primary hover:text-primary transition-colors"
+                                className="size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 transition-colors"
                             />
                         </div>
                     </SidebarMenuItem>
