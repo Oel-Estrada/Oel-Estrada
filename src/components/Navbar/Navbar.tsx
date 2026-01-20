@@ -54,7 +54,7 @@ function Navbar(): JSX.Element {
                 >
                     {t(CONTACT_LINK.label)}
                 </Link>
-                <SidebarTrigger className="lg:hidden size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 text-text-primary hover:text-primary transition-colors" />
+                <SidebarTrigger className="lg:hidden size-10 flex items-center justify-center rounded-full bg-surface border border-border cursor-pointer hover:bg-primary/10 transition-colors" />
             </div>
         </nav>
     );
