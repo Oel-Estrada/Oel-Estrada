@@ -4,6 +4,7 @@ import Logo from '@/components/Logo/Logo.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { SidebarTrigger } from '@/components/ui/sidebar.tsx';
 import { CONTACT_LINK, NAVIGATION_ITEMS } from '@/constants/navigation.ts';
+import { cn } from '@/lib/utils.ts';
 import { Link, NavLink } from '@/routes';
 
 import type { JSX } from 'react';
@@ -35,10 +36,10 @@ function Navbar(): JSX.Element {
                         to={link.to}
                         aria-label={t(link.label)}
                         className={({ isActive }) =>
-                            [
+                            cn(
                                 'text-sm font-medium transition-colors hover:text-primary',
                                 isActive ? 'text-primary' : 'text-foreground',
-                            ].join(' ')
+                            )
                         }
                     >
                         {t(link.label)}
