@@ -1,5 +1,4 @@
 import { Languages } from 'lucide-react';
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router';
 
@@ -41,17 +40,14 @@ function SelectLanguage({
      * Handles the language change event.
      * @param {string} newLang - The selected language code.
      */
-    const handleLanguageChange = useCallback(
-        async (newLang: SupportedLanguage) => {
-            if (!SUPPORTED_LANGUAGES.includes(newLang)) return;
+    const handleLanguageChange = async (newLang: SupportedLanguage) => {
+        if (!SUPPORTED_LANGUAGES.includes(newLang)) return;
 
-            if (lang && lang !== newLang) {
-                const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
-                await navigate(newPath, { replace: true });
-            }
-        },
-        [lang, pathname, navigate],
-    );
+        if (lang && lang !== newLang) {
+            const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
+            await navigate(newPath, { replace: true });
+        }
+    };
 
     return (
         <Select value={i18n.language} onValueChange={handleLanguageChange}>
