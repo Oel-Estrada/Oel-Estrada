@@ -22,6 +22,163 @@ import { Input } from '@/components/ui/input.tsx';
 import { Toaster } from '@/components/ui/sonner.tsx';
 
 /**
+ * Navigation items for the StyleGuide.
+ */
+const NAV_ITEMS = [
+    { label: 'Brand', href: '#brand' },
+    { label: 'Colors', href: '#colors' },
+    { label: 'Typography', href: '#typography' },
+    { label: 'Components', href: '#components' },
+] as const;
+
+/**
+ * Color palette tokens.
+ */
+const COLOR_PALETTE = [
+    { name: 'Primary', token: '--primary', class: 'bg-primary' },
+    {
+        name: 'Background',
+        token: '--background',
+        class: 'bg-background border border-border',
+    },
+    {
+        name: 'Surface',
+        token: '--surface',
+        class: 'bg-surface border border-border',
+    },
+    { name: 'Accent', token: '--accent', class: 'bg-accent' },
+    { name: 'Text Primary', token: '--text-primary', class: 'bg-text-primary' },
+    {
+        name: 'Text Secondary',
+        token: '--text-secondary',
+        class: 'bg-text-secondary',
+    },
+    { name: 'Success', token: '--success', class: 'bg-success' },
+    { name: 'Warning', token: '--warning', class: 'bg-warning' },
+    { name: 'Error', token: '--error', class: 'bg-error' },
+    { name: 'Info', token: '--info', class: 'bg-info' },
+    { name: 'Border', token: '--border', class: 'bg-border' },
+    { name: 'Text Muted', token: '--text-muted', class: 'bg-text-muted' },
+] as const;
+
+/**
+ * Shared section header component.
+ */
+const SectionHeader = ({
+    number,
+    title,
+}: {
+    number: string;
+    title: string;
+}) => (
+    <div className="flex items-center gap-4 mb-12">
+        <span className="text-primary font-mono text-sm font-bold">
+            {number}.
+        </span>
+        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
+            {title}
+        </h2>
+        <div className="h-px flex-1 bg-border" />
+    </div>
+);
+
+/**
+ * Typography card component.
+ */
+const TypographyCard = ({
+    title,
+    subtitle,
+    badge,
+    children,
+}: {
+    title: string;
+    subtitle: string;
+    badge: string;
+    children: React.ReactNode;
+}) => (
+    <div className="rounded-2xl border border-border bg-surface p-10">
+        <div className="flex items-center justify-between mb-12">
+            <div>
+                <h3 className="text-2xl font-bold mb-1">{title}</h3>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest">
+                    {subtitle}
+                </p>
+            </div>
+            <Badge variant="outline">{badge}</Badge>
+        </div>
+        <div className="space-y-6">{children}</div>
+    </div>
+);
+
+/**
+ * Component subsection header.
+ */
+const ComponentHeader = ({ title }: { title: string }) => (
+    <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
+        {title}
+    </h3>
+);
+
+/**
+ * Brand identity box component.
+ */
+const BrandBox = ({
+    title,
+    children,
+    className,
+}: {
+    title: string;
+    children: React.ReactNode;
+    className?: string;
+}) => (
+    <div
+        className={`rounded-2xl border border-border bg-surface p-8 aspect-square flex flex-col ${className}`}
+    >
+        <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-auto">
+            {title}
+        </span>
+        <div className="flex-1 flex items-center justify-center">
+            {children}
+        </div>
+    </div>
+);
+
+/**
+ * Navigation item component.
+ */
+const NavItem = ({ label, href }: { label: string; href: string }) => (
+    <a
+        href={href}
+        className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+    >
+        {label}
+    </a>
+);
+
+/**
+ * Color card component.
+ */
+const ColorCard = ({
+    name,
+    token,
+    className,
+}: {
+    name: string;
+    token: string;
+    className: string;
+}) => (
+    <div className="space-y-3">
+        <div className={`aspect-4/3 rounded-xl shadow-sm ${className}`} />
+        <div className="space-y-1">
+            <p className="text-sm font-bold">{name}</p>
+            <p className="text-[10px] font-mono text-muted-foreground uppercase">
+                {token}
+            </p>
+        </div>
+    </div>
+);
+
+/**
  * StyleGuide component showcasing the design system and components.
  */
 const StyleGuide = () => {
@@ -41,19 +198,12 @@ const StyleGuide = () => {
                     </div>
 
                     <div className="hidden md:flex items-center gap-8">
-                        {[
-                            { label: 'Brand', href: '#brand' },
-                            { label: 'Colors', href: '#colors' },
-                            { label: 'Typography', href: '#typography' },
-                            { label: 'Components', href: '#components' },
-                        ].map((item) => (
-                            <a
+                        {NAV_ITEMS.map((item) => (
+                            <NavItem
                                 key={item.label}
+                                label={item.label}
                                 href={item.href}
-                                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                            >
-                                {item.label}
-                            </a>
+                            />
                         ))}
                     </div>
 
@@ -87,15 +237,7 @@ const StyleGuide = () => {
 
                 {/* 01 BRAND IDENTITY */}
                 <section id="brand" className="mb-32">
-                    <div className="flex items-center gap-4 mb-12">
-                        <span className="text-primary font-mono text-sm font-bold">
-                            01.
-                        </span>
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
-                            Brand Identity
-                        </h2>
-                        <div className="h-px flex-1 bg-border" />
-                    </div>
+                    <SectionHeader number="01" title="Brand Identity" />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="lg:col-span-2 group relative overflow-hidden rounded-2xl border border-border bg-surface p-12 flex flex-col items-center justify-center min-h-100">
@@ -108,248 +250,125 @@ const StyleGuide = () => {
                         </div>
 
                         <div className="space-y-6">
-                            <div className="rounded-2xl border border-border bg-surface p-8 aspect-square flex flex-col">
-                                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-auto">
-                                    Logomark
-                                </span>
-                                <div className="flex-1 flex items-center justify-center">
-                                    <div className="size-20 bg-primary rounded-xl flex items-center justify-center text-primary-foreground">
-                                        <Blocks className="size-10" />
-                                    </div>
+                            <BrandBox title="Logomark">
+                                <div className="size-20 bg-primary rounded-xl flex items-center justify-center text-primary-foreground">
+                                    <Blocks className="size-10" />
                                 </div>
-                            </div>
-                            <div className="rounded-2xl border border-border bg-surface p-8 aspect-square flex flex-col">
-                                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-auto">
-                                    Favicon
-                                </span>
-                                <div className="flex-1 flex items-center justify-center">
-                                    <div className="size-10 border border-primary/50 bg-primary/10 rounded flex items-center justify-center text-primary">
-                                        <Blocks className="size-5" />
-                                    </div>
+                            </BrandBox>
+                            <BrandBox title="Favicon">
+                                <div className="size-10 border border-primary/50 bg-primary/10 rounded flex items-center justify-center text-primary">
+                                    <Blocks className="size-5" />
                                 </div>
-                            </div>
+                            </BrandBox>
                         </div>
                     </div>
                 </section>
 
                 {/* 02 COLOR PALETTE */}
                 <section id="colors" className="mb-32">
-                    <div className="flex items-center gap-4 mb-12">
-                        <span className="text-primary font-mono text-sm font-bold">
-                            02.
-                        </span>
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
-                            Color Palette
-                        </h2>
-                        <div className="h-px flex-1 bg-border" />
-                    </div>
+                    <SectionHeader number="02" title="Color Palette" />
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        {[
-                            {
-                                name: 'Primary',
-                                token: '--primary',
-                                class: 'bg-primary',
-                            },
-                            {
-                                name: 'Background',
-                                token: '--background',
-                                class: 'bg-background border border-border',
-                            },
-                            {
-                                name: 'Surface',
-                                token: '--surface',
-                                class: 'bg-surface border border-border',
-                            },
-                            {
-                                name: 'Accent',
-                                token: '--accent',
-                                class: 'bg-accent',
-                            },
-                            {
-                                name: 'Text Primary',
-                                token: '--text-primary',
-                                class: 'bg-text-primary',
-                            },
-                            {
-                                name: 'Text Secondary',
-                                token: '--text-secondary',
-                                class: 'bg-text-secondary',
-                            },
-                            {
-                                name: 'Success',
-                                token: '--success',
-                                class: 'bg-success',
-                            },
-                            {
-                                name: 'Warning',
-                                token: '--warning',
-                                class: 'bg-warning',
-                            },
-                            {
-                                name: 'Error',
-                                token: '--error',
-                                class: 'bg-error',
-                            },
-                            { name: 'Info', token: '--info', class: 'bg-info' },
-                            {
-                                name: 'Border',
-                                token: '--border',
-                                class: 'bg-border',
-                            },
-                            {
-                                name: 'Text Muted',
-                                token: '--text-muted',
-                                class: 'bg-text-muted',
-                            },
-                        ].map((color) => (
-                            <div key={color.name} className="space-y-3">
-                                <div
-                                    className={`aspect-4/3 rounded-xl shadow-sm ${color.class}`}
-                                />
-                                <div className="space-y-1">
-                                    <p className="text-sm font-bold">
-                                        {color.name}
-                                    </p>
-                                    <p className="text-[10px] font-mono text-muted-foreground uppercase">
-                                        {color.token}
-                                    </p>
-                                </div>
-                            </div>
+                        {COLOR_PALETTE.map((color) => (
+                            <ColorCard
+                                key={color.name}
+                                name={color.name}
+                                token={color.token}
+                                className={color.class}
+                            />
                         ))}
                     </div>
                 </section>
 
                 {/* 03 TYPOGRAPHY */}
                 <section id="typography" className="mb-32">
-                    <div className="flex items-center gap-4 mb-12">
-                        <span className="text-primary font-mono text-sm font-bold">
-                            03.
-                        </span>
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
-                            Typography
-                        </h2>
-                        <div className="h-px flex-1 bg-border" />
-                    </div>
+                    <SectionHeader number="03" title="Typography" />
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Sans-Serif */}
-                        <div className="rounded-2xl border border-border bg-surface p-10">
-                            <div className="flex items-center justify-between mb-12">
-                                <div>
-                                    <h3 className="text-2xl font-bold mb-1">
-                                        Inter
-                                    </h3>
-                                    <p className="text-xs text-muted-foreground uppercase tracking-widest">
-                                        UI & Body Copy
-                                    </p>
-                                </div>
-                                <Badge variant="outline">Sans-Serif</Badge>
-                            </div>
-
-                            <div className="space-y-6">
-                                <p className="text-4xl font-bold tracking-tight">
-                                    The quick brown fox jumps over the lazy dog.
-                                </p>
-                                <p className="text-2xl font-medium">
-                                    The quick brown fox jumps over the lazy dog.
-                                </p>
-                                <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                                    The quick brown fox jumps over the lazy dog.
-                                    Designers use Lorem Ipsum to fill space
-                                    before content is ready. It helps visualize
-                                    layout without the distraction of meaningful
-                                    text.
-                                </p>
-                            </div>
-                        </div>
+                        <TypographyCard
+                            title="Inter"
+                            subtitle="UI & Body Copy"
+                            badge="Sans-Serif"
+                        >
+                            <p className="text-4xl font-bold tracking-tight">
+                                The quick brown fox jumps over the lazy dog.
+                            </p>
+                            <p className="text-2xl font-medium">
+                                The quick brown fox jumps over the lazy dog.
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                                The quick brown fox jumps over the lazy dog.
+                                Designers use Lorem Ipsum to fill space before
+                                content is ready. It helps visualize layout
+                                without the distraction of meaningful text.
+                            </p>
+                        </TypographyCard>
 
                         {/* Monospace */}
-                        <div className="rounded-2xl border border-border bg-surface p-10">
-                            <div className="flex items-center justify-between mb-12">
-                                <div>
-                                    <h3 className="text-2xl font-bold mb-1">
-                                        JetBrains Mono
-                                    </h3>
-                                    <p className="text-xs text-muted-foreground uppercase tracking-widest">
-                                        Code & Technical Data
-                                    </p>
-                                </div>
-                                <Badge variant="outline">Monospace</Badge>
+                        <TypographyCard
+                            title="JetBrains Mono"
+                            subtitle="Code & Technical Data"
+                            badge="Monospace"
+                        >
+                            <div className="font-mono bg-background/50 rounded-xl p-6 border border-border/50">
+                                <pre className="text-sm overflow-x-auto">
+                                    <code>
+                                        <span className="text-primary">
+                                            const
+                                        </span>{' '}
+                                        portfolio = &#123; name:{' '}
+                                        <span className="text-success">
+                                            "Oel Estrada"
+                                        </span>{' '}
+                                        &#125;;
+                                        <br />
+                                        <br />
+                                        <span className="text-primary">
+                                            function
+                                        </span>{' '}
+                                        <span className="text-accent">
+                                            InitializeSystem
+                                        </span>
+                                        () &#123;
+                                        <br />
+                                        &nbsp;&nbsp;console.
+                                        <span className="text-accent">log</span>
+                                        (
+                                        <span className="text-success">
+                                            'Activating Design Engine...'
+                                        </span>
+                                        );
+                                        <br />
+                                        &nbsp;&nbsp;
+                                        <span className="text-primary">
+                                            return
+                                        </span>{' '}
+                                        <span className="text-warning">
+                                            true
+                                        </span>
+                                        ;<br />
+                                        &#125;
+                                    </code>
+                                </pre>
                             </div>
-
-                            <div className="space-y-6">
-                                <div className="font-mono bg-background/50 rounded-xl p-6 border border-border/50">
-                                    <pre className="text-sm overflow-x-auto">
-                                        <code>
-                                            <span className="text-primary">
-                                                const
-                                            </span>{' '}
-                                            portfolio = &#123; name:{' '}
-                                            <span className="text-success">
-                                                "Oel Estrada"
-                                            </span>{' '}
-                                            &#125;;
-                                            <br />
-                                            <br />
-                                            <span className="text-primary">
-                                                function
-                                            </span>{' '}
-                                            <span className="text-accent">
-                                                InitializeSystem
-                                            </span>
-                                            () &#123;
-                                            <br />
-                                            &nbsp;&nbsp;console.
-                                            <span className="text-accent">
-                                                log
-                                            </span>
-                                            (
-                                            <span className="text-success">
-                                                'Activating Design Engine...'
-                                            </span>
-                                            );
-                                            <br />
-                                            &nbsp;&nbsp;
-                                            <span className="text-primary">
-                                                return
-                                            </span>{' '}
-                                            <span className="text-warning">
-                                                true
-                                            </span>
-                                            ;<br />
-                                            &#125;
-                                        </code>
-                                    </pre>
-                                </div>
-                                <div className="font-mono text-xs text-muted-foreground tracking-tighter opacity-50">
-                                    0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ
-                                    <br />
-                                    abcdefghijklmnopqrstuvwxyz !@#$%^&*()
-                                </div>
+                            <div className="font-mono text-xs text-muted-foreground tracking-tighter opacity-50">
+                                0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                                <br />
+                                abcdefghijklmnopqrstuvwxyz !@#$%^&*()
                             </div>
-                        </div>
+                        </TypographyCard>
                     </div>
                 </section>
 
                 {/* 04 UI COMPONENTS */}
                 <section id="components" className="mb-32">
-                    <div className="flex items-center gap-4 mb-12">
-                        <span className="text-primary font-mono text-sm font-bold">
-                            04.
-                        </span>
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
-                            UI Components
-                        </h2>
-                        <div className="h-px flex-1 bg-border" />
-                    </div>
+                    <SectionHeader number="04" title="UI Components" />
 
                     <div className="space-y-20">
                         {/* Buttons */}
                         <div>
-                            <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
-                                Buttons
-                            </h3>
+                            <ComponentHeader title="Buttons" />
                             <div className="flex flex-wrap gap-6 items-center">
                                 <Button size="lg">Primary Button</Button>
                                 <Button variant="outline" size="lg">
@@ -367,9 +386,7 @@ const StyleGuide = () => {
                         {/* Form Elements */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                             <div>
-                                <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
-                                    Input Fields
-                                </h3>
+                                <ComponentHeader title="Input Fields" />
                                 <div className="space-y-8 max-w-md">
                                     <div className="space-y-2">
                                         <label
@@ -403,9 +420,7 @@ const StyleGuide = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
-                                    Chips & Badges
-                                </h3>
+                                <ComponentHeader title="Chips & Badges" />
                                 <div className="flex flex-wrap gap-3">
                                     <Badge variant="outline">REACT</Badge>
                                     <Badge>DESIGN SYSTEM</Badge>
@@ -424,9 +439,7 @@ const StyleGuide = () => {
 
                         {/* Interactive Cards */}
                         <div>
-                            <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
-                                Interactive Cards
-                            </h3>
+                            <ComponentHeader title="Interactive Cards" />
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <Card className="group cursor-pointer hover:border-primary/50 transition-colors">
                                     <CardHeader>

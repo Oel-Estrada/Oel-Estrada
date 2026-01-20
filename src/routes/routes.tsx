@@ -32,11 +32,11 @@ const routesConfig: AppRouteObject[] = [
         Component: LangLayout,
         children: [
             {
-                Component: !ENVIRONMENTS.isProd ? Outlet : MainLayout,
+                Component: ENVIRONMENTS.isProd ? Outlet : MainLayout,
                 children: [
                     {
                         index: true,
-                        Component: !ENVIRONMENTS.isProd ? ComingSoon : Home,
+                        Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
                     },
                     {
                         path: ROUTES.PROJECTS,
