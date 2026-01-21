@@ -1,347 +1,526 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button/Button.tsx";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card/Card.tsx";
-import { Input } from "@/components/ui/Input/Input.tsx";
-import { Toaster } from "@/components/ui/Sonner/Sonner.tsx";
-import { toast } from "sonner";
-import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher.tsx";
-import { Badge } from "@/components/ui/Badge/Badge.tsx";
+import {
+    Blocks,
+    Code2,
+    Cpu,
+    ExternalLink,
+    Layout,
+    Palette,
+} from 'lucide-react';
+
+import Logo from '@/components/Logo/Logo.tsx';
+import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import {
+    Card,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card.tsx';
+import { Input } from '@/components/ui/input.tsx';
+import { Toaster } from '@/components/ui/sonner.tsx';
+
+/**
+ * Navigation items for the StyleGuide.
+ */
+const NAV_ITEMS = [
+    { label: 'Brand', href: '#brand' },
+    { label: 'Colors', href: '#colors' },
+    { label: 'Typography', href: '#typography' },
+    { label: 'Components', href: '#components' },
+] as const;
+
+/**
+ * Color palette tokens.
+ */
+const COLOR_PALETTE = [
+    { name: 'Primary', token: '--primary', class: 'bg-primary' },
+    {
+        name: 'Background',
+        token: '--background',
+        class: 'bg-background border border-border',
+    },
+    {
+        name: 'Surface',
+        token: '--surface',
+        class: 'bg-surface border border-border',
+    },
+    { name: 'Accent', token: '--accent', class: 'bg-accent' },
+    { name: 'Text Primary', token: '--text-primary', class: 'bg-text-primary' },
+    {
+        name: 'Text Secondary',
+        token: '--text-secondary',
+        class: 'bg-text-secondary',
+    },
+    { name: 'Success', token: '--success', class: 'bg-success' },
+    { name: 'Warning', token: '--warning', class: 'bg-warning' },
+    { name: 'Error', token: '--error', class: 'bg-error' },
+    { name: 'Info', token: '--info', class: 'bg-info' },
+    { name: 'Border', token: '--border', class: 'bg-border' },
+    { name: 'Text Muted', token: '--text-muted', class: 'bg-text-muted' },
+] as const;
+
+/**
+ * Shared section header component.
+ */
+const SectionHeader = ({
+    number,
+    title,
+}: {
+    number: string;
+    title: string;
+}) => (
+    <div className="flex items-center gap-4 mb-12">
+        <span className="text-primary font-mono text-sm font-bold">
+            {number}.
+        </span>
+        <h2 className="text-sm font-bold uppercase tracking-[0.2em]">
+            {title}
+        </h2>
+        <div className="h-px flex-1 bg-border" />
+    </div>
+);
+
+/**
+ * Typography card component.
+ */
+const TypographyCard = ({
+    title,
+    subtitle,
+    badge,
+    children,
+}: {
+    title: string;
+    subtitle: string;
+    badge: string;
+    children: React.ReactNode;
+}) => (
+    <div className="rounded-2xl border border-border bg-surface p-10">
+        <div className="flex items-center justify-between mb-12">
+            <div>
+                <h3 className="text-2xl font-bold mb-1">{title}</h3>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest">
+                    {subtitle}
+                </p>
+            </div>
+            <Badge variant="outline">{badge}</Badge>
+        </div>
+        <div className="space-y-6">{children}</div>
+    </div>
+);
+
+/**
+ * Component subsection header.
+ */
+const ComponentHeader = ({ title }: { title: string }) => (
+    <h3 className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.3em] mb-8">
+        {title}
+    </h3>
+);
+
+/**
+ * Brand identity box component.
+ */
+const BrandBox = ({
+    title,
+    children,
+    className,
+}: {
+    title: string;
+    children: React.ReactNode;
+    className?: string;
+}) => (
+    <div
+        className={`rounded-2xl border border-border bg-surface p-8 aspect-square flex flex-col ${className}`}
+    >
+        <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-auto">
+            {title}
+        </span>
+        <div className="flex-1 flex items-center justify-center">
+            {children}
+        </div>
+    </div>
+);
+
+/**
+ * Navigation item component.
+ */
+const NavItem = ({ label, href }: { label: string; href: string }) => (
+    <a
+        href={href}
+        className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+    >
+        {label}
+    </a>
+);
+
+/**
+ * Color card component.
+ */
+const ColorCard = ({
+    name,
+    token,
+    className,
+}: {
+    name: string;
+    token: string;
+    className: string;
+}) => (
+    <div className="space-y-3">
+        <div className={`aspect-4/3 rounded-xl shadow-sm ${className}`} />
+        <div className="space-y-1">
+            <p className="text-sm font-bold">{name}</p>
+            <p className="text-[10px] font-mono text-muted-foreground uppercase">
+                {token}
+            </p>
+        </div>
+    </div>
+);
 
 /**
  * StyleGuide component showcasing the design system and components.
  */
 const StyleGuide = () => {
     return (
-        <div className="min-h-screen bg-background text-text-primary p-8 md:p-16 relative">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
             <Toaster />
-            <ThemeSwitcher />
 
-            <header className="mb-12 border-b border-border pb-6">
-                <h1 className="text-4xl font-extrabold mb-2">Style Guide</h1>
-                <p className="text-text-secondary">Visible only in development environment. Integrating Shadcn UI +
-                    Framer Motion.</p>
-            </header>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Base Color Palette</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-                    {[
-                        { name: 'Primary', class: 'bg-primary text-primary-foreground', token: '--primary' },
-                        { name: 'Background', class: 'bg-background border border-border', token: '--background' },
-                        { name: 'Surface/Card', class: 'bg-surface border border-border', token: '--surface' },
-                        { name: 'Text Primary', class: 'bg-text-primary text-text-inverse', token: '--text-primary' },
-                        {
-                            name: 'Text Secondary',
-                            class: 'bg-text-secondary text-text-inverse',
-                            token: '--text-secondary'
-                        },
-                        { name: 'Accent', class: 'bg-accent text-accent-foreground', token: '--accent' },
-                        {
-                            name: 'Destructive/Error',
-                            class: 'bg-error text-text-inverse',
-                            token: '--error'
-                        },
-                    ].map((color) => (
-                        <div key={color.name} className="flex flex-col gap-2">
-                            <div
-                                className={`h-20 rounded-lg ${color.class} flex items-center justify-center font-bold shadow-sm`}>
-                                Aa
-                            </div>
-                            <span className="text-sm font-medium">{color.name}</span>
-                            <code className="text-[10px] text-text-secondary">{color.token}</code>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Semantic States</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                        { name: 'Success', class: 'bg-success text-text-inverse', token: '--success' },
-                        { name: 'Warning', class: 'bg-warning text-text-inverse', token: '--warning' },
-                        { name: 'Error', class: 'bg-error text-text-inverse', token: '--error' },
-                        { name: 'Info', class: 'bg-info text-text-inverse', token: '--info' },
-                    ].map((color) => (
-                        <div key={color.name} className="flex flex-col gap-2">
-                            <div
-                                className={`h-20 rounded-lg ${color.class} flex items-center justify-center font-bold shadow-sm`}>
-                                {color.name}
-                            </div>
-                            <code className="text-[10px] text-text-secondary">{color.token}</code>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Interaction and Text</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Interactive States</h3>
-                        <div className="flex flex-wrap gap-4">
-                            <div className="flex flex-col items-center gap-2">
-                                <div
-                                    className="h-12 w-24 rounded bg-primary-hover flex items-center justify-center text-[10px] text-primary-foreground">Hover
-                                </div>
-                                <code className="text-[10px]">--primary-hover</code>
-                            </div>
-                            <div className="flex flex-col items-center gap-2">
-                                <div
-                                    className="h-12 w-24 rounded bg-primary-active flex items-center justify-center text-[10px] text-primary-foreground">Active
-                                </div>
-                                <code className="text-[10px]">--primary-active</code>
-                            </div>
-                        </div>
-                        <div className="flex gap-4">
-                            <Button disabled>Disabled Button</Button>
-                            <div className="flex flex-col gap-1">
-                                <span className="text-disabled-text text-sm">Disabled text</span>
-                                <code className="text-[10px]">--disabled-text</code>
-                            </div>
-                        </div>
+            {/* Glass Navigation Header */}
+            <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+                <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        <Logo />
+                        <div className="h-6 w-px bg-border hidden sm:block" />
+                        <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest hidden sm:block">
+                            Design System v1.0
+                        </span>
                     </div>
 
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Extended Text</h3>
-                        <div className="space-y-2">
-                            <p className="text-text-muted">This is a muted text (placeholders, help texts).</p>
-                            <code className="text-[10px] text-text-secondary">--text-muted</code>
-                            <p><a href="./" className="text-link">This is an explicit link</a></p>
-                            <code className="text-[10px] text-text-secondary">--link</code>
-                            <div className="p-4 bg-primary text-text-inverse rounded">
-                                Inverse text on strong background
-                            </div>
-                            <code className="text-[10px] text-text-secondary">--text-inverse</code>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Typography</h2>
-                <div className="space-y-8">
-                    <div className="border border-border p-6 rounded-xl">
-                        <h3 className="text-sm text-text-secondary mb-4 uppercase tracking-wider">Headings (Plus Jakarta
-                            Sans)</h3>
-                        <h1 className="text-5xl font-extrabold mb-4">Heading 1 - 48px</h1>
-                        <h2 className="text-4xl font-bold mb-3">Heading 2 - 36px</h2>
-                        <h3 className="text-3xl font-bold mb-2">Heading 3 - 30px</h3>
-                        <h4 className="text-2xl font-semibold mb-2">Heading 4 - 24px</h4>
+                    <div className="hidden md:flex items-center gap-8">
+                        {NAV_ITEMS.map((item) => (
+                            <NavItem
+                                key={item.label}
+                                label={item.label}
+                                href={item.href}
+                            />
+                        ))}
                     </div>
 
-                    <div className="border border-border p-6 rounded-xl">
-                        <h3 className="text-sm text-text-secondary mb-4 uppercase tracking-wider">Body (Inter / Work
-                            Sans)</h3>
-                        <p className="text-xl mb-4 leading-relaxed">Large Text: The quick brown fox jumps over the
-                            lazy dog.</p>
-                        <p className="text-base mb-4 leading-relaxed">Base Text: The quick brown fox jumps over the
-                            lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <p className="text-sm text-text-secondary leading-relaxed">Secondary Text: This is the style
-                            for secondary or metadata texts.</p>
-                    </div>
-
-                    <div className="border border-border p-6 rounded-xl">
-                        <h3 className="text-sm text-text-secondary mb-4 uppercase tracking-wider">Code (JetBrains
-                            Mono)</h3>
-                        <code className="block bg-surface p-4 rounded-lg border border-border">
-                            const developer = &#123;<br />
-                            &nbsp;&nbsp;name: "Oel Estrada",<br />
-                            &nbsp;&nbsp;role: "Software Engineer",<br />
-                            &nbsp;&nbsp;skills: ["React", "TypeScript", "Tailwind"]<br />
-                            &#125;;
-                        </code>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Surfaces, Focus, and Others</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="space-y-4">
-                        <h3 className="text-sm font-semibold uppercase text-text-muted">Focus Ring</h3>
-                        <div className="flex items-center gap-4">
-                            <button
-                                type="button"
-                                className="px-4 py-2 rounded border border-border focus:ring-[3px] focus:ring-ring outline-none transition-all">
-                                Focus me
-                            </button>
-                            <code className="text-[10px]">--focus-ring</code>
-                        </div>
-                    </div>
-                    <div className="space-y-4">
-                        <h3 className="text-sm font-semibold uppercase text-text-muted">Dividers and Icons</h3>
-                        <div className="space-y-2">
-                            <div className="h-px bg-divider w-full" />
-                            <code className="text-[10px]">--divider</code>
-                            <div className="flex gap-4">
-                                <div className="text-icon-primary flex flex-col items-center">
-                                    <span className="text-2xl">★</span>
-                                    <code className="text-[10px]">icon-primary</code>
-                                </div>
-                                <div className="text-icon-muted flex flex-col items-center">
-                                    <span className="text-2xl">★</span>
-                                    <code className="text-[10px]">icon-muted</code>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="space-y-4">
-                        <h3 className="text-sm font-semibold uppercase text-text-muted">Selection</h3>
-                        <p className="selection:bg-selection selection:text-text-primary">
-                            Select this text to see the custom selection color.
-                        </p>
-                        <code className="text-[10px]">--selection</code>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Shadcn UI Components</h2>
-                <div className="space-y-12">
-                    {/* Buttons */}
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Buttons (Variants)</h3>
-                        <div className="flex flex-wrap gap-4 items-center">
-                            <Button variant="default">Default</Button>
-                            <Button variant="secondary">Secondary</Button>
-                            <Button variant="outline">Outline</Button>
-                            <Button variant="destructive">Destructive</Button>
-                            <Button variant="ghost">Ghost</Button>
-                            <Button variant="link">Link</Button>
-                        </div>
-                        <div className="flex flex-wrap gap-4 items-center">
-                            <Button size="sm">Small</Button>
-                            <Button size="default">Default</Button>
-                            <Button size="lg">Large</Button>
-                        </div>
-                    </div>
-
-                    {/* Form elements */}
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-semibold">Inputs & Labels</h3>
-                            <div className="grid w-full max-w-sm items-center gap-1.5">
-                                <label htmlFor="email" className="text-sm font-medium leading-none">Email</label>
-                                <Input type="email" id="email" placeholder="Email" />
-                            </div>
-                            <div className="grid w-full max-w-sm items-center gap-1.5">
-                                <label htmlFor="disabled"
-                                    className="text-sm font-medium leading-none opacity-70">Disabled</label>
-                                <Input disabled type="text" id="disabled" placeholder="You cannot write here" />
-                            </div>
-                        </div>
-
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-semibold">Badges</h3>
-                            <div className="flex flex-wrap gap-2">
-                                <Badge>Default</Badge>
-                                <Badge variant="secondary">Secondary</Badge>
-                                <Badge variant="outline">Outline</Badge>
-                                <Badge variant="destructive">Destructive</Badge>
-                                <Badge variant="success">Success</Badge>
-                                <Badge variant="warning">Warning</Badge>
-                                <Badge variant="info">Info</Badge>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Cards */}
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Cards (Shadcn)</h3>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Card Title</CardTitle>
-                                    <CardDescription>Brief description of the card.</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-text-secondary">This is the main content using
-                                        Shadcn components.</p>
-                                </CardContent>
-                                <CardFooter className="flex justify-between">
-                                    <Button variant="ghost">Cancel</Button>
-                                    <Button>Accept</Button>
-                                </CardFooter>
-                            </Card>
-
-                            <Card className="border-primary/50">
-                                <CardHeader>
-                                    <CardTitle className="text-primary">Highlighted</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm">A card with a primary accent border.</p>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button className="w-full">Main Action</Button>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                    </div>
-
-                    {/* Feedback */}
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Feedback (Sonner)</h3>
-                        <p className="text-sm text-text-secondary">Configured to display up to 6 simultaneous
-                            notifications with opaque background.</p>
-                        <div className="flex flex-wrap gap-4">
-                            <Button
-                                onClick={() => toast("Standard Notification", { description: "This is a test message with an opaque background." })}>Show
-                                Toast</Button>
-                            <Button variant="outline"
-                                onClick={() => toast.success("Operation Successful", { description: "Changes were saved successfully." })}>Success
-                                Toast</Button>
-                            <Button variant="outline"
-                                onClick={() => toast.error("Critical Error", { description: "Could not connect to the server." })}>Error
-                                Toast</Button>
-                            <Button variant="secondary" onClick={() => {
-                                for (let idx = 1; idx <= 6; idx++) {
-                                    setTimeout(() => toast(`Multiple Notification #${idx.toString()}`), idx * 150);
-                                }
-                            }}>Launch 6 Toasts</Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6">Microinteractions (Framer Motion)</h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                    <motion.div
-                        whileHover={{ y: -5 }}
-                        className="card cursor-pointer"
-                    >
-                        <h3 className="font-bold mb-2">Hover Lift</h3>
-                        <p className="text-sm text-text-secondary">This card lifts when hovering over it.</p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="card"
-                    >
-                        <h3 className="font-bold mb-2">Smooth Entry</h3>
-                        <p className="text-sm text-text-secondary">Appears with a scale and opacity animation.</p>
-                    </motion.div>
-
-                    <div className="card flex items-center justify-center">
-                        <motion.div
-                            animate={{
-                                rotate: [0, 10, -10, 10, 0],
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            className="bg-accent/20 p-4 rounded-full"
+                    <div className="flex items-center gap-4">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="hidden sm:flex"
                         >
-                            <span className="text-2xl">✨</span>
-                        </motion.div>
+                            Export Assets
+                        </Button>
                     </div>
                 </div>
-            </section>
+            </nav>
+
+            <main className="container mx-auto px-6 py-20 max-w-6xl">
+                <ThemeSwitcher />
+                {/* Hero Section */}
+                <header className="mb-24">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 max-w-4xl">
+                        Systematic Design for Engineering Excellence
+                    </h1>
+                    <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                        A comprehensive guide to the visual identity and user
+                        interface components used across Oel Estrada's
+                        portfolio. This system balances technical precision with
+                        high-fidelity aesthetics, utilizing a deep-black
+                        foundation and emerald accents.
+                    </p>
+                </header>
+
+                {/* 01 BRAND IDENTITY */}
+                <section id="brand" className="mb-32">
+                    <SectionHeader number="01" title="Brand Identity" />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="lg:col-span-2 group relative overflow-hidden rounded-2xl border border-border bg-surface p-12 flex flex-col items-center justify-center min-h-100">
+                            <Logo />
+                            <div className="absolute bottom-8 left-0 right-0 text-center">
+                                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.4em]">
+                                    Senior Frontend Engineer
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
+                            <BrandBox title="Logomark">
+                                <div className="size-20 bg-primary rounded-xl flex items-center justify-center text-primary-foreground">
+                                    <Blocks className="size-10" />
+                                </div>
+                            </BrandBox>
+                            <BrandBox title="Favicon">
+                                <div className="size-10 border border-primary/50 bg-primary/10 rounded flex items-center justify-center text-primary">
+                                    <Blocks className="size-5" />
+                                </div>
+                            </BrandBox>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 02 COLOR PALETTE */}
+                <section id="colors" className="mb-32">
+                    <SectionHeader number="02" title="Color Palette" />
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        {COLOR_PALETTE.map((color) => (
+                            <ColorCard
+                                key={color.name}
+                                name={color.name}
+                                token={color.token}
+                                className={color.class}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                {/* 03 TYPOGRAPHY */}
+                <section id="typography" className="mb-32">
+                    <SectionHeader number="03" title="Typography" />
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Sans-Serif */}
+                        <TypographyCard
+                            title="Inter"
+                            subtitle="UI & Body Copy"
+                            badge="Sans-Serif"
+                        >
+                            <p className="text-4xl font-bold tracking-tight">
+                                The quick brown fox jumps over the lazy dog.
+                            </p>
+                            <p className="text-2xl font-medium">
+                                The quick brown fox jumps over the lazy dog.
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                                The quick brown fox jumps over the lazy dog.
+                                Designers use Lorem Ipsum to fill space before
+                                content is ready. It helps visualize layout
+                                without the distraction of meaningful text.
+                            </p>
+                        </TypographyCard>
+
+                        {/* Monospace */}
+                        <TypographyCard
+                            title="JetBrains Mono"
+                            subtitle="Code & Technical Data"
+                            badge="Monospace"
+                        >
+                            <div className="font-mono bg-background/50 rounded-xl p-6 border border-border/50">
+                                <pre className="text-sm overflow-x-auto">
+                                    <code>
+                                        <span className="text-primary">
+                                            const
+                                        </span>{' '}
+                                        portfolio = &#123; name:{' '}
+                                        <span className="text-success">
+                                            "Oel Estrada"
+                                        </span>{' '}
+                                        &#125;;
+                                        <br />
+                                        <br />
+                                        <span className="text-primary">
+                                            function
+                                        </span>{' '}
+                                        <span className="text-accent">
+                                            InitializeSystem
+                                        </span>
+                                        () &#123;
+                                        <br />
+                                        &nbsp;&nbsp;console.
+                                        <span className="text-accent">log</span>
+                                        (
+                                        <span className="text-success">
+                                            'Activating Design Engine...'
+                                        </span>
+                                        );
+                                        <br />
+                                        &nbsp;&nbsp;
+                                        <span className="text-primary">
+                                            return
+                                        </span>{' '}
+                                        <span className="text-warning">
+                                            true
+                                        </span>
+                                        ;<br />
+                                        &#125;
+                                    </code>
+                                </pre>
+                            </div>
+                            <div className="font-mono text-xs text-muted-foreground tracking-tighter opacity-50">
+                                0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                                <br />
+                                abcdefghijklmnopqrstuvwxyz !@#$%^&*()
+                            </div>
+                        </TypographyCard>
+                    </div>
+                </section>
+
+                {/* 04 UI COMPONENTS */}
+                <section id="components" className="mb-32">
+                    <SectionHeader number="04" title="UI Components" />
+
+                    <div className="space-y-20">
+                        {/* Buttons */}
+                        <div>
+                            <ComponentHeader title="Buttons" />
+                            <div className="flex flex-wrap gap-6 items-center">
+                                <Button size="lg">Primary Button</Button>
+                                <Button variant="outline" size="lg">
+                                    Outline Button
+                                </Button>
+                                <Button variant="ghost" size="lg">
+                                    Ghost Button
+                                </Button>
+                                <Button disabled size="lg">
+                                    Disabled
+                                </Button>
+                            </div>
+                        </div>
+
+                        {/* Form Elements */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                            <div>
+                                <ComponentHeader title="Input Fields" />
+                                <div className="space-y-8 max-w-md">
+                                    <div className="space-y-2">
+                                        <label
+                                            htmlFor="email"
+                                            className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground"
+                                        >
+                                            Email Address
+                                        </label>
+                                        <Input
+                                            id="email"
+                                            placeholder="name@example.com"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label
+                                            htmlFor="invalid-input"
+                                            className="text-[10px] font-mono uppercase tracking-widest text-error"
+                                        >
+                                            Error State
+                                        </label>
+                                        <Input
+                                            id="invalid-input"
+                                            className="border-error focus-visible:ring-error/20"
+                                            defaultValue="invalid-input"
+                                        />
+                                        <p className="text-[10px] text-error font-medium">
+                                            Please enter a valid email.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <ComponentHeader title="Chips & Badges" />
+                                <div className="flex flex-wrap gap-3">
+                                    <Badge variant="outline">REACT</Badge>
+                                    <Badge>DESIGN SYSTEM</Badge>
+                                    <Badge variant="secondary">
+                                        2024 PROJECT
+                                    </Badge>
+                                    <Badge variant="success">
+                                        <div className="size-1 bg-current rounded-full mr-1" />
+                                        AVAILABLE
+                                    </Badge>
+                                    <Badge variant="warning">WARNING</Badge>
+                                    <Badge variant="destructive">ERROR</Badge>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Interactive Cards */}
+                        <div>
+                            <ComponentHeader title="Interactive Cards" />
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <Card className="group cursor-pointer hover:border-primary/50 transition-colors">
+                                    <CardHeader>
+                                        <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                                            <Cpu className="size-5" />
+                                        </div>
+                                        <CardTitle>
+                                            Technical Architecture
+                                        </CardTitle>
+                                        <CardDescription>
+                                            Scalable frontend systems built with
+                                            React and TypeScript.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardFooter>
+                                        <Button
+                                            variant="link"
+                                            className="p-0 h-auto text-primary text-xs font-bold uppercase tracking-widest group-hover:gap-2 transition-all"
+                                        >
+                                            Read Documentation
+                                            <ExternalLink className="size-3" />
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+
+                                <Card className="group cursor-pointer hover:border-primary/50 transition-colors">
+                                    <CardHeader>
+                                        <div className="size-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4">
+                                            <Palette className="size-5" />
+                                        </div>
+                                        <CardTitle>Visual Design</CardTitle>
+                                        <CardDescription>
+                                            High-fidelity UI mockups and
+                                            interactive prototypes with Framer
+                                            Motion.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardFooter>
+                                        <Button
+                                            variant="link"
+                                            className="p-0 h-auto text-accent text-xs font-bold uppercase tracking-widest group-hover:gap-2 transition-all"
+                                        >
+                                            View Case Study
+                                            <ExternalLink className="size-3" />
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+
+                                <Card className="group relative overflow-hidden bg-surface flex flex-col items-center justify-center text-center p-8">
+                                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <Layout className="size-12 text-muted-foreground/20 mb-6" />
+                                    <div className="h-px w-12 bg-border mb-6" />
+                                    <span className="text-[10px] font-mono text-primary uppercase tracking-widest">
+                                        Est. 2024
+                                    </span>
+                                    <h4 className="text-xl font-bold mt-2">
+                                        Project Alpha
+                                    </h4>
+                                </Card>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            {/* Footer */}
+            <footer className="border-t border-border bg-surface py-12">
+                <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+                        © 2024 OEL ESTRADA // BUILT WITH TAILWIND CSS
+                    </div>
+                    <div className="flex items-center gap-6">
+                        <Button variant="ghost" size="icon">
+                            <Code2 className="size-4" />
+                        </Button>
+                        <Button variant="ghost" size="icon">
+                            <ExternalLink className="size-4" />
+                        </Button>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };

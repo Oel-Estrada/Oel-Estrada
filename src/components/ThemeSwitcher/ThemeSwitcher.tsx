@@ -1,20 +1,21 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "@/components/ui/Button/Button.tsx";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { AnimatePresence, motion } from 'framer-motion';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
+
+import { Button } from '@/components/ui/button.tsx';
 
 export default function ThemeSwitcher() {
     const { setTheme, resolvedTheme } = useTheme();
 
     const toggleTheme = () => {
-        setTheme(resolvedTheme === "dark" ? "light" : "dark");
+        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
     };
 
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="fixed bottom-8 right-8 z-50"
+            className="fixed bottom-8 right-8 z-40"
         >
             <Button
                 variant="secondary"
@@ -30,7 +31,7 @@ export default function ThemeSwitcher() {
                         exit={{ y: -20, opacity: 0, rotate: 45 }}
                         transition={{ duration: 0.2 }}
                     >
-                        {resolvedTheme === "dark" ? (
+                        {resolvedTheme === 'dark' ? (
                             <Sun className="h-6 w-6 text-yellow-400" />
                         ) : (
                             <Moon className="h-6 w-6 text-primary" />

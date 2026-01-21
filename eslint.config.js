@@ -1,13 +1,22 @@
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import react from 'eslint-plugin-react'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import react from 'eslint-plugin-react';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import importPlugin from 'eslint-plugin-import';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
 export default tseslint.config(
     {
-        ignores: ['dist', 'node_modules', '.vite', '.react-router', 'src/env.d.ts'],
+        ignores: [
+            'dist',
+            'node_modules',
+            '.vite',
+            '.react-router',
+            'src/env.d.ts',
+        ],
     },
     ...tseslint.configs.strictTypeChecked.map((config) => ({
         ...config,
@@ -35,12 +44,26 @@ export default tseslint.config(
             react: {
                 version: 'detect',
             },
+            'import/resolver': {
+                typescript: {
+                    project: ['./tsconfig.json'],
+                },
+                node: {
+                    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                },
+                alias: {
+                    map: [['@', './src']],
+                    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+                },
+            },
         },
         plugins: {
             react,
             'react-hooks': reactHooks,
             'react-refresh': reactRefresh,
             'jsx-a11y': jsxA11y,
+            import: importPlugin,
+            prettier: prettierPlugin,
         },
         rules: {
             // React rules
@@ -69,7 +92,10 @@ export default tseslint.config(
                 'error',
                 {argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
             ],
-            '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+            '@typescript-eslint/consistent-type-definitions': [
+                'error',
+                'interface',
+            ],
             '@typescript-eslint/no-explicit-any': 'error',
             '@typescript-eslint/explicit-function-return-type': 'off',
             '@typescript-eslint/no-unnecessary-type-assertion': 'error',
@@ -82,14 +108,32 @@ export default tseslint.config(
 
             // General best practices
             'no-console': ['warn', {allow: ['warn', 'error']}],
-            'eqeqeq': ['error', 'always'],
-            'semi': ['error', 'always'],
-            'indent': ['error', 4, {'SwitchCase': 1}],
-            'id-length': ['error', {
-                'min': 3,
-                'exceptions': ['id', 't', 'cn', 'ns', 'x', 'y', 'sm', 'md', 'lg', 'xl', 'xs']
-            }],
-            'object-curly-spacing': ['error', 'always'],
+            eqeqeq: ['error', 'always'],
+            // 'semi': ['error', 'always'],
+            // 'indent': ['error', 4, {'SwitchCase': 1}],
+            'id-length': [
+                'error',
+                {
+                    min: 3,
+                    exceptions: [
+                        'id',
+                        't',
+                        'cn',
+                        'ns',
+                        'x',
+                        'y',
+                        'sm',
+                        'md',
+                        'lg',
+                        'xl',
+                        'xs',
+                        '_',
+                        'to',
+                    ],
+                },
+            ],
+            // formatting handled by Prettier
+            // 'object-curly-spacing': ['error', 'always'],
             'react/jsx-curly-brace-presence': [
                 'error',
                 {props: 'never', children: 'never'},
@@ -103,6 +147,42 @@ export default tseslint.config(
                     beforeClosing: 'never',
                 },
             ],
+            // Force JSX attributes on separate lines when there are multiple props
+            'react/jsx-first-prop-new-line': ['error', 'multiline'],
+            'react/jsx-max-props-per-line': ['error', {when: 'multiline'}],
+
+            // import plugin recommendations
+            'import/no-unresolved': 'error',
+            'import/named': 'error',
+            'import/default': 'error',
+            'import/namespace': 'error',
+            // Import ordering and grouping
+            'import/order': [
+                'error',
+                {
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        ['parent', 'sibling', 'index'],
+                        'object',
+                        'type',
+                    ],
+                    pathGroups: [
+                        {
+                            pattern: '@/**',
+                            group: 'internal',
+                        },
+                    ],
+                    pathGroupsExcludedImportTypes: ['builtin'],
+                    'newlines-between': 'always',
+                    alphabetize: {order: 'asc', caseInsensitive: true},
+                },
+            ],
+
+            // Prettier integration
+            'prettier/prettier': 'error',
         },
     },
-)
+    prettierConfig,
+);

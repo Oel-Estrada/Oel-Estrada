@@ -1,11 +1,20 @@
 {
-  "name": "Oel Estrada",
-  "specialty": "Frontend Engineer",
   "contact": "Contact",
-  "telegram": "Chat on Telegram",
-  "whatsapp": "Message me on WhatsApp",
   "email": "Send me a message",
   "footer": {
     "rights": "© 2026 - Coming soon"
-  }
+  },
+  "home": "Home",
+  "mainNavigation": "Main navigation",
+  "name": "Oel Estrada",
+  "navBar": {
+    "howIWork": "How I work",
+    "insights": "Insights",
+    "techStack": "Tech Stack",
+    "work": "Work"
+  },
+  "selectLanguage": "Select language",
+  "specialty": "Frontend Engineer",
+  "telegram": "Chat on Telegram",
+  "whatsapp": "Message me on WhatsApp"
 }

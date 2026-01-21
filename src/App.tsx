@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
-import '@/styles/App.css';
-import AppRoutes from "@/routes/AppRoutes.tsx";
+
+import AppRoutes from '@/routes/AppRoutes.tsx';
 
 /**
  * The main application component that sets up routing.

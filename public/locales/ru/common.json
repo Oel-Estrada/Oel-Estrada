@@ -1,11 +1,20 @@
 {
-  "name": "Оэль Эстрада",
-  "specialty": "Фронтенд-инженер",
   "contact": "Связаться",
-  "telegram": "Чат в Telegram",
-  "whatsapp": "Пишите в WhatsApp",
   "email": "Напишите мне",
   "footer": {
     "rights": "© 2026 - Скоро"
-  }
+  },
+  "home": "Главная",
+  "mainNavigation": "Главная навигация",
+  "name": "Оэль Эстрада",
+  "navBar": {
+    "howIWork": "Как я работаю",
+    "insights": "Insights",
+    "techStack": "Tech Stack",
+    "work": "Проекты"
+  },
+  "selectLanguage": "Выбрать язык",
+  "specialty": "Фронтенд-инженер",
+  "telegram": "Чат в Telegram",
+  "whatsapp": "Пишите в WhatsApp"
 }
