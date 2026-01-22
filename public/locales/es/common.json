@@ -2,9 +2,10 @@
     "contact": "Contactar",
     "email": "Escribeme por Email",
     "footer": {
+        "backToTop": "Volver arriba",
+        "copyrights": "© 2026 $t(name) - Creado con amor",
         "github": "GitHub",
         "linkedin": "LinkedIn",
-        "copyrights": "© 2026 $t(name) - Creado con amor",
         "rights": "© 2026 - Próximamente"
     },
     "home": "Inicio",

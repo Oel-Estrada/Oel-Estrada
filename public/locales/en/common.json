@@ -1,23 +1,24 @@
 {
-  "contact": "Contact",
-  "email": "Send me a message",
-  "footer": {
-    "rights": "© 2026 - Coming soon",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "copyrights": "© 2026 $t(name) - Built with Passion"
-  },
-  "home": "Home",
-  "mainNavigation": "Main navigation",
-  "name": "Oel Estrada",
-  "navBar": {
-    "howIWork": "How I work",
-    "insights": "Insights",
-    "techStack": "Tech Stack",
-    "work": "Work"
-  },
-  "selectLanguage": "Select language",
-  "specialty": "Frontend Engineer",
-  "telegram": "Chat on Telegram",
-  "whatsapp": "Message me on WhatsApp"
+    "contact": "Contact",
+    "email": "Send me a message",
+    "footer": {
+        "backToTop": "Back to top",
+        "copyrights": "© 2026 $t(name) - Built with Passion",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "rights": "© 2026 - Coming soon"
+    },
+    "home": "Home",
+    "mainNavigation": "Main navigation",
+    "name": "Oel Estrada",
+    "navBar": {
+        "howIWork": "How I work",
+        "insights": "Insights",
+        "techStack": "Tech Stack",
+        "work": "Work"
+    },
+    "selectLanguage": "Select language",
+    "specialty": "Frontend Engineer",
+    "telegram": "Chat on Telegram",
+    "whatsapp": "Message me on WhatsApp"
 }
