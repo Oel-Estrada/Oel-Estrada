@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import type { JSX } from 'react';
 
 /**
@@ -8,10 +10,16 @@ import type { JSX } from 'react';
  * @return {JSX.Element} The rendered footer element with styling and text content.
  */
 function Footer(): JSX.Element {
+    const { t } = useTranslation();
+
     return (
-        <footer className="py-12 px-6 border-t border-white/5 bg-background-dark/50 relative z-10">
-            <div className="max-w-300 mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="flex">LOG</div>
+        <footer className="py-6 px-6 border-t border-border bg-background-dark relative z-10">
+            <div className="max-w-300 mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="order-2 md:order-1">
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest text-balance text-center">
+                        {t('footer.copyrights')}
+                    </p>
+                </div>
                 <div className="flex">LINKS</div>
                 <div className="flex">Select Language</div>
             </div>
