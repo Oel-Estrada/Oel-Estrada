@@ -9,8 +9,12 @@ import type { JSX } from 'react';
  */
 function Footer(): JSX.Element {
     return (
-        <footer className="w-full border-t py-6 px-6 text-center text-sm text-muted-foreground">
-            Footer
+        <footer className="py-12 px-6 border-t border-white/5 bg-background-dark/50 relative z-10">
+            <div className="max-w-300 mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex">LOG</div>
+                <div className="flex">LINKS</div>
+                <div className="flex">Select Language</div>
+            </div>
         </footer>
     );
 }
