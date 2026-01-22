@@ -38,6 +38,7 @@ function Footer(): JSX.Element {
                             <ExternalLink className="h-4 w-4" />
                         </Link>
                     ))}
+                    <div className="h-px md:h-4 w-12 md:w-px bg-border" />
                     <Link
                         className="flex items-center gap-2 text-xs font-black text-muted-foreground  hover:text-text-secondary transition-colors uppercase tracking-widest group"
                         to="#"
