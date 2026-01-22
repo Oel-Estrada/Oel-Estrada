@@ -43,7 +43,7 @@ function Footer(): JSX.Element {
                         className="flex items-center gap-2 text-xs font-black text-muted-foreground  hover:text-text-secondary transition-colors uppercase tracking-widest group"
                         to="#"
                     >
-                        <span>Back to top</span>
+                        <span>{t('footer.backToTop')}</span>
                         <ArrowUpFromDot className="w-4 h-4" />
                     </Link>
                 </div>
