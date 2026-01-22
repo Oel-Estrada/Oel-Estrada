@@ -2,7 +2,10 @@
   "contact": "Contact",
   "email": "Send me a message",
   "footer": {
-    "rights": "© 2026 - Coming soon"
+    "rights": "© 2026 - Coming soon",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copyrights": "© 2026 $t(name) - Built with Passion"
   },
   "home": "Home",
   "mainNavigation": "Main navigation",
