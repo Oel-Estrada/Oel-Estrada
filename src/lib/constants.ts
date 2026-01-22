@@ -1,16 +1,16 @@
 export class ContactInfo {
-    phone: string;
+    phone?: string;
     email: string;
-    telegramUsername: string;
-    linkedinUsername: string;
+    telegramUsername?: string;
+    linkedinUsername?: string;
     githubUsername?: string;
     website?: string;
 
     constructor(opts: {
-        phone: string;
+        phone?: string;
         email: string;
-        telegramUsername: string;
-        linkedinUsername: string;
+        telegramUsername?: string;
+        linkedinUsername?: string;
         githubUsername?: string;
         website?: string;
     }) {
@@ -23,7 +23,7 @@ export class ContactInfo {
     }
 
     get sanitizedPhone(): string {
-        return this.phone.replace(/[^\d]/g, '');
+        return this.phone?.replace(/[^\d]/g, '') ?? '';
     }
 
     get whatsapp(): string {
@@ -31,17 +31,15 @@ export class ContactInfo {
     }
 
     get telegram(): string {
-        return `https://t.me/${this.telegramUsername}`;
+        return `https://t.me/${this.telegramUsername ?? ''}`;
     }
 
     get linkedin(): string {
-        return `https://www.linkedin.com/in/${this.linkedinUsername}`;
+        return `https://www.linkedin.com/in/${this.linkedinUsername ?? ''} `;
     }
 
-    get github(): string | undefined {
-        return this.githubUsername
-            ? `https://github.com/${this.githubUsername}`
-            : undefined;
+    get github(): string {
+        return `https://github.com/${this.githubUsername ?? ''}`;
     }
 }
 
