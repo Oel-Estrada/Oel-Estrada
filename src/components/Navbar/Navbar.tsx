@@ -38,7 +38,9 @@ function Navbar(): JSX.Element {
                         className={({ isActive }) =>
                             cn(
                                 'text-sm font-medium transition-colors hover:text-primary',
-                                isActive ? 'text-primary' : 'text-foreground',
+                                isActive
+                                    ? 'text-primary'
+                                    : 'text-muted-foreground',
                             )
                         }
                     >
