@@ -1,4 +1,8 @@
+import { ArrowUpFromDot, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+import { FOOTER_LINKS } from '@/constants/navigation.ts';
+import { Link } from '@/routes';
 
 import type { JSX } from 'react';
 
@@ -20,8 +24,28 @@ function Footer(): JSX.Element {
                         {t('footer.copyrights')}
                     </p>
                 </div>
-                <div className="flex">LINKS</div>
-                <div className="flex">Select Language</div>
+                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 order-1 md:order-2 w-full md:w-auto">
+                    {FOOTER_LINKS.map((link) => (
+                        <Link
+                            key={link.label}
+                            className="font-black text-muted-foreground hover:text-primary transition-colors flex gap-1 items-center uppercase tracking-widest"
+                            target="_blank"
+                            to={link.to}
+                        >
+                            <span className="text-xs font-bold">
+                                {t(link.label)}
+                            </span>
+                            <ExternalLink className="h-4 w-4" />
+                        </Link>
+                    ))}
+                    <Link
+                        className="flex items-center gap-2 text-xs font-black text-muted-foreground  hover:text-text-secondary transition-colors uppercase tracking-widest group"
+                        to="#"
+                    >
+                        <span>Back to top</span>
+                        <ArrowUpFromDot className="w-4 h-4" />
+                    </Link>
+                </div>
             </div>
         </footer>
     );
