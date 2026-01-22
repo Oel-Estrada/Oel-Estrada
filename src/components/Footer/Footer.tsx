@@ -16,6 +16,16 @@ import type { JSX } from 'react';
 function Footer(): JSX.Element {
     const { t } = useTranslation();
 
+    /**
+     * Scrolls the page to the top of the viewport.
+     */
+    const scrollToTop = (): void => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <footer className="py-6 px-6 border-t border-border bg-background-dark relative z-10">
             <div className="max-w-300 mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -39,13 +49,14 @@ function Footer(): JSX.Element {
                         </Link>
                     ))}
                     <div className="h-px md:h-4 w-12 md:w-px bg-border" />
-                    <Link
+                    <button
                         className="flex items-center gap-2 text-xs font-black text-muted-foreground  hover:text-text-secondary transition-colors uppercase tracking-widest group"
-                        to="#"
+                        onClick={scrollToTop}
+                        type="button"
                     >
                         <span>{t('footer.backToTop')}</span>
                         <ArrowUpFromDot className="w-4 h-4" />
-                    </Link>
+                    </button>
                 </div>
             </div>
         </footer>
