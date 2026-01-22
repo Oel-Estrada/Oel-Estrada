@@ -2,7 +2,10 @@
   "contact": "Связаться",
   "email": "Напишите мне",
   "footer": {
-    "rights": "© 2026 - Скоро"
+    "rights": "© 2026 - Скоро",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copyrights": "© 2026 $t(name) - Сделано с энтузиазмом"
   },
   "home": "Главная",
   "mainNavigation": "Главная навигация",
