@@ -4,6 +4,7 @@
     "footer": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
+        "copyrights": "© 2026 $t(name) - Creado con amor",
         "rights": "© 2026 - Próximamente"
     },
     "home": "Inicio",
