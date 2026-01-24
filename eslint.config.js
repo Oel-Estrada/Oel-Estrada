@@ -45,9 +45,6 @@ export default tseslint.config(
                 version: 'detect',
             },
             'import/resolver': {
-                typescript: {
-                    project: ['./tsconfig.json'],
-                },
                 node: {
                     extensions: ['.js', '.jsx', '.ts', '.tsx'],
                 },
@@ -84,13 +81,13 @@ export default tseslint.config(
             // React Refresh
             'react-refresh/only-export-components': [
                 'warn',
-                {allowConstantExport: true},
+                { allowConstantExport: true },
             ],
 
             // TypeScript specific improvements
             '@typescript-eslint/no-unused-vars': [
                 'error',
-                {argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
+                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
             ],
             '@typescript-eslint/consistent-type-definitions': [
                 'error',
@@ -103,11 +100,11 @@ export default tseslint.config(
             '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/no-misused-promises': [
                 'error',
-                {checksVoidReturn: {attributes: false}},
+                { checksVoidReturn: { attributes: false } },
             ],
 
             // General best practices
-            'no-console': ['warn', {allow: ['warn', 'error']}],
+            'no-console': ['warn', { allow: ['warn', 'error'] }],
             eqeqeq: ['error', 'always'],
             // 'semi': ['error', 'always'],
             // 'indent': ['error', 4, {'SwitchCase': 1}],
@@ -136,7 +133,7 @@ export default tseslint.config(
             // 'object-curly-spacing': ['error', 'always'],
             'react/jsx-curly-brace-presence': [
                 'error',
-                {props: 'never', children: 'never'},
+                { props: 'never', children: 'never' },
             ],
             'react/jsx-tag-spacing': [
                 'error',
@@ -149,7 +146,7 @@ export default tseslint.config(
             ],
             // Force JSX attributes on separate lines when there are multiple props
             'react/jsx-first-prop-new-line': ['error', 'multiline'],
-            'react/jsx-max-props-per-line': ['error', {when: 'multiline'}],
+            'react/jsx-max-props-per-line': ['error', { when: 'multiline' }],
 
             // import plugin recommendations
             'import/no-unresolved': 'error',
@@ -176,7 +173,7 @@ export default tseslint.config(
                     ],
                     pathGroupsExcludedImportTypes: ['builtin'],
                     'newlines-between': 'always',
-                    alphabetize: {order: 'asc', caseInsensitive: true},
+                    alphabetize: { order: 'asc', caseInsensitive: true },
                 },
             ],
 
