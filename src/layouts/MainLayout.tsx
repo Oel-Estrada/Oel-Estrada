@@ -17,7 +17,7 @@ import type { JSX } from 'react';
 function MainLayout(): JSX.Element {
     return (
         <SidebarProvider defaultOpen={false}>
-            <div className="min-h-screen flex flex-col pt-16.25 w-full min-w-xs overflow-hidden">
+            <div className="min-h-screen flex flex-col pt-24 w-full min-w-xs overflow-hidden">
                 <AppSidebar />
                 <Navbar />
                 <main className="grow">
