@@ -18,6 +18,7 @@ function MainLayout(): JSX.Element {
     return (
         <SidebarProvider defaultOpen={false}>
             <div className="min-h-screen flex flex-col pt-24 w-full min-w-xs overflow-hidden">
+                <div className="fixed inset-0 pointer-events-none primary-mix-gradient z-0" />
                 <AppSidebar />
                 <Navbar />
                 <main className="grow">
