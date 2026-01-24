@@ -38,7 +38,7 @@ function Footer(): JSX.Element {
                     {FOOTER_LINKS.map((link) => (
                         <Link
                             key={link.label}
-                            className="font-black text-muted-foreground hover:text-primary transition-colors flex gap-1 items-center uppercase tracking-widest"
+                            className="font-black text-text-secondary hover:text-primary transition-colors flex gap-1 items-center uppercase tracking-widest"
                             target="_blank"
                             to={link.to}
                         >
