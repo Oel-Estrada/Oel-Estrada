@@ -1,0 +1,12 @@
+{
+    "hero": {
+        "title": "Creando experiencias digitales de <1>alto rendimiento</1>",
+        "subtitle": "Senior Frontend Engineer especializado en <1>React, Next.js y UI/UX pixel-perfect</1>. Convierto arquitecturas complejas en experiencias rápidas e intuitivas.",
+        "ctaPrimary": "Trabajemos juntos",
+        "downloadCv": "Descargar CV",
+        "performanceLabel": "Rendimiento",
+        "performanceScoreValue": "99+ Puntuación",
+        "structureLabel": "Estructura",
+        "cleanCodeLabel": "Código limpio"
+    }
+}
