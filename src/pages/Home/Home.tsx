@@ -103,10 +103,10 @@ function Home(): JSX.Element {
                                 <Zap className="text-primary" />
                                 <div className="flex flex-col">
                                     <span className="text-[10px] text-text-secondary font-bold uppercase">
-                                        Performance
+                                        {t('home:hero.performanceLabel')}
                                     </span>
                                     <span className="text-sm font-black uppercase">
-                                        99+ Score
+                                        {t('home:hero.performanceScoreValue')}
                                     </span>
                                 </div>
                             </div>
