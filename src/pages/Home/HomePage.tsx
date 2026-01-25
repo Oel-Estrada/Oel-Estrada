@@ -3,11 +3,11 @@ import { type JSX } from 'react';
 import HomeHeroSection from '@/pages/Home/components/HomeHeroSection/HomeHeroSection.tsx';
 
 /**
- * Represents the Home component.
+ * Represents the HomePage component.
  *
- * @return {JSX.Element} The JSX structure for the Home component, displaying the Home Page.
+ * @return {JSX.Element} The JSX structure for the HomePage component, displaying the HomePage Page.
  */
-function Home(): JSX.Element {
+function HomePage(): JSX.Element {
     return (
         <>
             <HomeHeroSection />
@@ -15,4 +15,4 @@ function Home(): JSX.Element {
     );
 }
 
-export default Home;
+export default HomePage;

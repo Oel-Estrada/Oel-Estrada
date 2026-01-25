@@ -4,11 +4,11 @@ import HomeHeroImageSection from '@/pages/Home/components/HomeHeroSection/compon
 import HomeHeroMainSection from '@/pages/Home/components/HomeHeroSection/components/HomeHeroMainSection/HomeHeroMainSection.tsx';
 
 /**
- * Represents the Home component.
+ * Represents the HomePage component.
  *
- * Used by {@link HomePage} to display the Home Page Hero section.
+ * Used by {@link HomePage} to display the HomePage Page Hero section.
  *
- * @return {JSX.Element} The JSX structure for the Home component, displaying the Home Page.
+ * @return {JSX.Element} The JSX structure for the HomePage component, displaying the HomePage Page.
  */
 function HomeHeroSection(): JSX.Element {
     return (

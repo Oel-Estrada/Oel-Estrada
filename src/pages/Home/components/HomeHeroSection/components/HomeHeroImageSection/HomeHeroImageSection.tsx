@@ -25,11 +25,11 @@ const infoBadges: {
 ];
 
 /**
- * Represents the image section of the Home Hero component.
+ * Represents the image section of the HomePage Hero component.
  *
  * Used by {@link HomeHeroSection} to display an image section with a circular avatar and information badges.
  *
- * @return {JSX.Element} The JSX structure of the image section of the Home Hero component.
+ * @return {JSX.Element} The JSX structure of the image section of the HomePage Hero component.
  */
 function HomeHeroImageSection(): JSX.Element {
     const { t } = useTranslation('home');

@@ -4,7 +4,7 @@ import { ROUTES } from '@/constants/routes.ts';
 import { ENVIRONMENTS } from '@/env.ts';
 import MainLayout from '@/layouts/MainLayout.tsx';
 import ComingSoon from '@/pages/ComingSoon/ComingSoon.tsx';
-import Home from '@/pages/Home/Home.tsx';
+import HomePage from '@/pages/Home/HomePage.tsx';
 import StyleGuide from '@/pages/StyleGuide/StyleGuide.tsx';
 import LangLayout from '@/routes/LangLayout.tsx';
 import RootRedirect from '@/routes/RootRedirect.tsx';
@@ -36,7 +36,7 @@ const routesConfig: AppRouteObject[] = [
                 children: [
                     {
                         index: true,
-                        Component: ENVIRONMENTS.isProd ? ComingSoon : Home,
+                        Component: ENVIRONMENTS.isProd ? ComingSoon : HomePage,
                     },
                     {
                         path: ROUTES.PROJECTS,

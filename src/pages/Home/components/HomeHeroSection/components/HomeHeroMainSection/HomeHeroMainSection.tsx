@@ -20,11 +20,11 @@ const techBadges: {
 ];
 
 /**
- * Represents the main section of the Home Hero component.
+ * Represents the main section of the HomePage Hero component.
  *
- * Used by {@link HomeHeroSection} to display the main section of the Home Hero component, including a title, subtitle, call-to-action buttons, and tech badges.
+ * Used by {@link HomeHeroSection} to display the main section of the HomePage Hero component, including a title, subtitle, call-to-action buttons, and tech badges.
  *
- *  @return {JSX.Element} The JSX structure of the main section of the Home Hero component.
+ *  @return {JSX.Element} The JSX structure of the main section of the HomePage Hero component.
  */
 function HomeHeroMainSection(): JSX.Element {
     const { t } = useTranslation(['home', 'common']);
