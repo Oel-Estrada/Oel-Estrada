@@ -1,4 +1,5 @@
 import { Box, Download, Layers, Zap } from 'lucide-react';
+import React, { type JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -7,7 +8,7 @@ import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import { Button } from '@/components/ui/button.tsx';
 
-import type { JSX } from 'react';
+import TechBadge from './components/TechBadge/TechBadge.tsx';
 
 const techBadges: {
     label: string;
@@ -69,19 +70,8 @@ function Home(): JSX.Element {
                             </Button>
                         </div>
                         <div className="flex flex-wrap gap-4 mt-8 opacity-60">
-                            {techBadges.map(({ label, Icon }) => (
-                                <div
-                                    key={label}
-                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group"
-                                >
-                                    <Icon
-                                        color="var(--text-primary)"
-                                        className="size-4 transition-colors"
-                                    />
-                                    <span className="text-xs font-bold uppercase tracking-tighter">
-                                        {label}
-                                    </span>
-                                </div>
+                            {techBadges.map((badge) => (
+                                <TechBadge key={badge.label} {...badge} />
                             ))}
                         </div>
                     </div>

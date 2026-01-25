@@ -1,6 +1,6 @@
 import { type FC, type JSX, type SVGProps } from 'react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils.ts';
 
 interface TechBadgeProps {
     label: string;
