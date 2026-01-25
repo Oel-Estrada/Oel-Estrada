@@ -32,12 +32,14 @@ function Home(): JSX.Element {
                                 />
                             </h1>
                             <p className="text-lg md:text-xl text-text-secondary max-w-xl font-light leading-relaxed">
-                                Senior Frontend Engineer especializado en{' '}
-                                <span className="text-foreground font-medium">
-                                    React, Next.js y UI/UX pixel-perfect
-                                </span>
-                                . Convierto arquitecturas complejas en
-                                experiencias rápidas e intuitivas.
+                                <Trans
+                                    i18nKey="home:hero.subtitle"
+                                    components={{
+                                        1: (
+                                            <span className="text-foreground font-medium" />
+                                        ),
+                                    }}
+                                />
                             </p>
                         </div>
                     </div>
