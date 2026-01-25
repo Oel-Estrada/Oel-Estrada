@@ -86,7 +86,9 @@ function Home(): JSX.Element {
                         </div>
                     </div>
                     <div className="lg:col-span-5 relative hidden lg:block">
-                        Avatar
+                        <div className="relative w-full aspect-square flex items-center justify-center">
+                            <div className="absolute inset-0 bg-primary/10 rounded-full blur-[100px]" />
+                        </div>
                     </div>
                 </div>
             </div>
