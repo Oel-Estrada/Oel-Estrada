@@ -114,10 +114,10 @@ function Home(): JSX.Element {
                                 <Layers className="text-primary" />
                                 <div className="flex flex-col">
                                     <span className="text-[10px] text-text-secondary font-bold uppercase">
-                                        Structure
+                                        {t('home:hero.structureLabel')}
                                     </span>
                                     <span className="text-sm font-black uppercase">
-                                        Clean Code
+                                        {t('home:hero.cleanCodeLabel')}
                                     </span>
                                 </div>
                             </div>
