@@ -44,13 +44,13 @@ function Home(): JSX.Element {
                                 />
                             </p>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-wrap flex-col sm:flex-row gap-4">
                             <Button className="min-w-40 cursor-pointer border rounded-full h-14 px-8 text-base font-bold tracking-tighter">
                                 {t('home:hero.ctaPrimary')}
                             </Button>
                             <Button
                                 variant="outline"
-                                className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tight"
+                                className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
                             >
                                 <Download className="mr-2 size-6" />
                                 {t('home:hero.downloadCv')}
