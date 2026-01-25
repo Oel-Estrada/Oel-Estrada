@@ -1,4 +1,4 @@
-import { Box, Download, Zap } from 'lucide-react';
+import { Box, Download, Layers, Zap } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -107,6 +107,17 @@ function Home(): JSX.Element {
                                     </span>
                                     <span className="text-sm font-black uppercase">
                                         {t('home:hero.performanceScoreValue')}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="absolute bottom-10 -left-5 glass px-4 py-2 rounded-xl flex items-center gap-3">
+                                <Layers className="text-primary" />
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] text-text-secondary font-bold uppercase">
+                                        Structure
+                                    </span>
+                                    <span className="text-sm font-black uppercase">
+                                        Clean Code
                                     </span>
                                 </div>
                             </div>
