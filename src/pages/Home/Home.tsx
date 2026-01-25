@@ -7,9 +7,8 @@ import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import { HeroInfoBadge } from '@/pages/Home/components/HeroInfoBadge/HeroInfoBadge.tsx';
-
-import TechBadge from './components/TechBadge/TechBadge.tsx';
+import { HeroInfoBadge } from '@/pages/Home/components/HomeHeroSection/components/HeroInfoBadge/HeroInfoBadge.tsx';
+import TechBadge from '@/pages/Home/components/HomeHeroSection/components/TechBadge/TechBadge.tsx';
 
 const techBadges: {
     label: string;
