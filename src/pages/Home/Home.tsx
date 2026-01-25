@@ -20,6 +20,26 @@ const techBadges: {
     { label: 'TypeScript', Icon: TypeScriptLogo },
 ];
 
+const infoBadges: {
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+    label: string;
+    value: string;
+    className: string;
+}[] = [
+    {
+        Icon: Zap,
+        label: 'home:hero.performanceLabel',
+        value: 'home:hero.performanceScoreValue',
+        className: 'absolute top-10 right-0 animate-bounce',
+    },
+    {
+        Icon: Layers,
+        label: 'home:hero.structureLabel',
+        value: 'home:hero.cleanCodeLabel',
+        className: 'absolute bottom-10 -left-5',
+    },
+];
+
 /**
  * Represents the Home component.
  *
@@ -90,18 +110,15 @@ function Home(): JSX.Element {
                                     <Box className="text-primary text-6xl" />
                                 </div>
                             </div>
-                            <HeroInfoBadge
-                                Icon={Zap}
-                                label={t('home:hero.performanceLabel')}
-                                value={t('home:hero.performanceScoreValue')}
-                                className="absolute top-10 right-0 animate-bounce"
-                            />
-                            <HeroInfoBadge
-                                Icon={Layers}
-                                label={t('home:hero.structureLabel')}
-                                value={t('home:hero.cleanCodeLabel')}
-                                className="absolute bottom-10 -left-5"
-                            />
+                            {infoBadges.map((badge) => (
+                                <HeroInfoBadge
+                                    key={badge.label}
+                                    Icon={badge.Icon}
+                                    label={t(badge.label)}
+                                    value={t(badge.value)}
+                                    className={badge.className}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
