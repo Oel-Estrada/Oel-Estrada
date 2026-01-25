@@ -195,6 +195,11 @@
         background-image: radial-gradient(at 0% 0%, color-mix(in srgb, var(--primary) 15%, transparent) 0px, transparent 50%),
         radial-gradient(at 100% 100%, color-mix(in srgb, var(--primary) 5%, transparent) 0px, transparent 50%);
     }
+
+    .geometric-shape {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--background) 100%);
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    }
 }
 
 @theme inline {
