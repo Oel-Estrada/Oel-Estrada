@@ -5,6 +5,8 @@
         "ctaPrimary": "Trabajemos juntos",
         "downloadCv": "Descargar CV",
         "performanceLabel": "Rendimiento",
-        "performanceScoreValue": "99+ Puntuación"
+        "performanceScoreValue": "99+ Puntuación",
+        "structureLabel": "Estructura",
+        "cleanCodeLabel": "Código limpio"
     }
 }
