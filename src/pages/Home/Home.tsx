@@ -56,6 +56,23 @@ function Home(): JSX.Element {
                                 {t('home:hero.downloadCv')}
                             </Button>
                         </div>
+                        <div className="flex flex-wrap gap-4 mt-8 opacity-60">
+                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
+                                <span className="text-xs font-bold uppercase tracking-tighter">
+                                    React
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
+                                <span className="text-xs font-bold uppercase tracking-tighter">
+                                    Next.js
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
+                                <span className="text-xs font-bold uppercase tracking-tighter">
+                                    TypeScript
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div className="lg:col-span-5 relative hidden lg:block">
                         Avatar
