@@ -7,6 +7,7 @@ import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { HeroInfoBadge } from '@/pages/Home/components/HeroInfoBadge/HeroInfoBadge.tsx';
 
 import TechBadge from './components/TechBadge/TechBadge.tsx';
 
@@ -89,28 +90,18 @@ function Home(): JSX.Element {
                                     <Box className="text-primary text-6xl" />
                                 </div>
                             </div>
-                            <div className="absolute top-10 right-0 glass px-4 py-2 rounded-xl flex items-center gap-3 animate-bounce">
-                                <Zap className="text-primary" />
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-text-secondary font-bold uppercase">
-                                        {t('home:hero.performanceLabel')}
-                                    </span>
-                                    <span className="text-sm font-black uppercase">
-                                        {t('home:hero.performanceScoreValue')}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="absolute bottom-10 -left-5 glass px-4 py-2 rounded-xl flex items-center gap-3">
-                                <Layers className="text-primary" />
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-text-secondary font-bold uppercase">
-                                        {t('home:hero.structureLabel')}
-                                    </span>
-                                    <span className="text-sm font-black uppercase">
-                                        {t('home:hero.cleanCodeLabel')}
-                                    </span>
-                                </div>
-                            </div>
+                            <HeroInfoBadge
+                                Icon={Zap}
+                                label={t('home:hero.performanceLabel')}
+                                value={t('home:hero.performanceScoreValue')}
+                                className="absolute top-10 right-0 animate-bounce"
+                            />
+                            <HeroInfoBadge
+                                Icon={Layers}
+                                label={t('home:hero.structureLabel')}
+                                value={t('home:hero.cleanCodeLabel')}
+                                className="absolute bottom-10 -left-5"
+                            />
                         </div>
                     </div>
                 </div>
