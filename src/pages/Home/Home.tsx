@@ -2,9 +2,21 @@ import { Download } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
+import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
+import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import { Button } from '@/components/ui/button.tsx';
 
 import type { JSX } from 'react';
+
+const techBadges: {
+    label: string;
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+}[] = [
+    { label: 'Next.js', Icon: NextJsLogo },
+    { label: 'React', Icon: ReactLogo },
+    { label: 'TypeScript', Icon: TypeScriptLogo },
+];
 
 /**
  * Represents the Home component.
@@ -57,21 +69,20 @@ function Home(): JSX.Element {
                             </Button>
                         </div>
                         <div className="flex flex-wrap gap-4 mt-8 opacity-60">
-                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
-                                <span className="text-xs font-bold uppercase tracking-tighter">
-                                    React
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
-                                <span className="text-xs font-bold uppercase tracking-tighter">
-                                    Next.js
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group">
-                                <span className="text-xs font-bold uppercase tracking-tighter">
-                                    TypeScript
-                                </span>
-                            </div>
+                            {techBadges.map(({ label, Icon }) => (
+                                <div
+                                    key={label}
+                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface group"
+                                >
+                                    <Icon
+                                        color="var(--text-primary)"
+                                        className="size-4 transition-colors"
+                                    />
+                                    <span className="text-xs font-bold uppercase tracking-tighter">
+                                        {label}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="lg:col-span-5 relative hidden lg:block">
