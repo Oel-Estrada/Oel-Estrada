@@ -1,4 +1,4 @@
-import { Box, Download } from 'lucide-react';
+import { Box, Download, Zap } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -97,6 +97,17 @@ function Home(): JSX.Element {
                                 </div>
                                 <div className="absolute inset-4 border border-border/50 rounded-full backdrop-blur-sm flex items-center justify-center">
                                     <Box className="text-primary text-6xl" />
+                                </div>
+                            </div>
+                            <div className="absolute top-10 right-0 glass px-4 py-2 rounded-xl flex items-center gap-3 animate-bounce">
+                                <Zap className="text-primary" />
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] text-text-secondary font-bold">
+                                        PERFORMANCE
+                                    </span>
+                                    <span className="text-sm font-black">
+                                        99+ SCORE
+                                    </span>
                                 </div>
                             </div>
                         </div>
