@@ -1,12 +1,15 @@
+import { Slot } from '@radix-ui/react-slot';
+import * as React from 'react';
+
 import { cn } from '@/lib/utils';
 
 type BadgeVariant = 'primary' | 'success' | 'warning' | 'danger' | 'default';
 
-interface BadgeProps {
+interface BadgeProps extends Omit<React.ComponentProps<'div'>, 'children'> {
     text: string;
     variant?: BadgeVariant;
     showPing?: boolean;
-    className?: string;
+    asChild?: boolean;
 }
 
 const VARIANT_STYLES: Record<
@@ -61,17 +64,23 @@ function Badge({
     variant = 'default',
     showPing = false,
     className = '',
+    asChild = false,
+    ...props
 }: BadgeProps) {
-    const styles = VARIANT_STYLES[variant];
+    const Comp = (asChild ? Slot : 'div') as React.ElementType;
+    const safeVariant = variant in VARIANT_STYLES ? variant : 'default';
+    const styles = VARIANT_STYLES[safeVariant];
 
     return (
-        <div
+        <Comp
+            data-slot="badge"
             className={cn(
                 `inline-flex items-center gap-2 px-3 py-1 rounded-full border w-fit`,
                 styles.container,
                 styles.border,
                 className,
             )}
+            {...props}
         >
             {showPing && (
                 <span className="relative flex h-2 w-2">
@@ -97,7 +106,7 @@ function Badge({
             >
                 {text}
             </span>
-        </div>
+        </Comp>
     );
 }
 
