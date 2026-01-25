@@ -19,7 +19,6 @@ const VARIANT_STYLES: Record<
         border: string;
         text: string;
         dot: string;
-        ping: string;
     }
 > = {
     primary: {
@@ -27,35 +26,30 @@ const VARIANT_STYLES: Record<
         border: 'border-primary/20',
         text: 'text-primary',
         dot: 'bg-primary',
-        ping: 'bg-primary opacity-75',
     },
     success: {
         container: 'bg-success/10',
         border: 'border-success/20',
         text: 'text-success',
         dot: 'bg-success',
-        ping: 'bg-success opacity-75',
     },
     warning: {
         container: 'bg-warning/10',
         border: 'border-warning/20',
         text: 'text-warning',
         dot: 'bg-warning',
-        ping: 'bg-warning opacity-75',
     },
     danger: {
         container: 'bg-error/10',
         border: 'border-error/20',
         text: 'text-error',
         dot: 'bg-error',
-        ping: 'bg-error opacity-75',
     },
     default: {
         container: 'bg-muted/10',
         border: 'border-muted/20',
         text: 'text-muted-foreground',
         dot: 'bg-muted-foreground',
-        ping: 'bg-muted-foreground opacity-75',
     },
 };
 
@@ -86,8 +80,8 @@ function Badge({
                 <span className="relative flex h-2 w-2">
                     <span
                         className={cn(
-                            'animate-ping absolute inline-flex h-full w-full rounded-full',
-                            styles.ping,
+                            'animate-ping absolute inline-flex h-full w-full rounded-full opacity-75',
+                            styles.dot,
                         )}
                     />
                     <span
