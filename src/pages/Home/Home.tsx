@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -41,6 +42,21 @@ function Home(): JSX.Element {
                                     }}
                                 />
                             </p>
+                        </div>
+                        <div className="flex flex-wrap gap-4">
+                            <button
+                                type="button"
+                                className="flex min-w-40 cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-primary-foreground text-base font-bold tracking-tight hover:shadow-[0_0_20px_var(--shadow-color)] transition-all"
+                            >
+                                Trabajemos juntos
+                            </button>
+                            <button
+                                type="button"
+                                className="flex min-w-40 cursor-pointer items-center justify-center rounded-full h-14 px-8 border border-border bg-surface text-foreground text-base font-bold tracking-tight hover:bg-border/50 transition-all group"
+                            >
+                                <Download className="mr-2" />
+                                Download CV
+                            </button>
                         </div>
                     </div>
                     <div className="lg:col-span-5 relative hidden lg:block">
