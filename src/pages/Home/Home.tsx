@@ -102,11 +102,11 @@ function Home(): JSX.Element {
                             <div className="absolute top-10 right-0 glass px-4 py-2 rounded-xl flex items-center gap-3 animate-bounce">
                                 <Zap className="text-primary" />
                                 <div className="flex flex-col">
-                                    <span className="text-[10px] text-text-secondary font-bold">
-                                        PERFORMANCE
+                                    <span className="text-[10px] text-text-secondary font-bold uppercase">
+                                        Performance
                                     </span>
-                                    <span className="text-sm font-black">
-                                        99+ SCORE
+                                    <span className="text-sm font-black uppercase">
+                                        99+ Score
                                     </span>
                                 </div>
                             </div>
