@@ -20,5 +20,8 @@
   "selectLanguage": "Select language",
   "specialty": "Frontend Engineer",
   "telegram": "Chat on Telegram",
-  "whatsapp": "Message me on WhatsApp"
+  "whatsapp": "Message me on WhatsApp",
+  "status": {
+    "availableForProjects": "Open for new projects"
+  }
 }
