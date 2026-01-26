@@ -94,7 +94,7 @@ function Badge({
             )}
             <span
                 className={cn(
-                    'text-[10px] font-bold uppercase tracking-widest',
+                    'text-[10px] font-bold uppercase tracking-widest leading-none',
                     styles.text,
                 )}
             >
