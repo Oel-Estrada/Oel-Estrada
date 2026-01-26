@@ -80,6 +80,17 @@ function ComingSoon(): JSX.Element {
                     />
                 </div>
             </nav>
+            <footer className="relative z-10 w-full px-6 py-12">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
+                    <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
+                        <span className="size-1.5 bg-primary rounded-full animate-pulse" />
+                        System.Status(Available_for_Hire)
+                    </div>
+                    <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase opacity-70">
+                        {t('common:footer.rights')}
+                    </div>
+                </div>
+            </footer>
             <div className="fixed top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 size-150 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
             <div className="fixed bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
         </>
