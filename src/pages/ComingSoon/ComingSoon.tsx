@@ -80,7 +80,7 @@ function ComingSoon(): JSX.Element {
                     />
                 </div>
             </nav>
-            <main className="relative z-10 grow flex flex-col items-center justify-center px-6 py-12">
+            <main className="relative z-10 grow flex flex-col items-center justify-center px-6 py-12 gap-12">
                 <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
                     <div className="flex flex-col items-center gap-4">
                         <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden border border-primary/20 relative">
@@ -100,7 +100,7 @@ function ComingSoon(): JSX.Element {
                     </h1>
                     <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
                         Frontend Engineer specializing in high-performance
-                        architectures.
+                        architectures.{' '}
                         <span className="text-text-muted">
                             Expert in building scalable e-learning platforms and
                             AI-driven interfaces.
