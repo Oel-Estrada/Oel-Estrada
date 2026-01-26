@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
+import Badge from '@/components/Badge/Badge.tsx';
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
+import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import { cn } from '@/lib/utils.ts';
 
@@ -65,6 +67,19 @@ function ComingSoon(): JSX.Element {
                     <Icon key={id} className={cn('absolute', className)} />
                 ))}
             </div>
+            <nav className="relative z-10 w-full px-6 py-8">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                    <div className="flex">
+                        <Logo />
+                    </div>
+                    <Badge
+                        text={t('common:status.availableForProjects')}
+                        showPing
+                        variant="primary"
+                        className="hidden sm:flex leading-normal"
+                    />
+                </div>
+            </nav>
         </>
     );
 }
