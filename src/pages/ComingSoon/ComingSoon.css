@@ -4,6 +4,15 @@
     }
 }
 
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
 .animate-shine {
     background: linear-gradient(
             to right,
@@ -15,4 +24,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s linear infinite;
+}
+
+.floating-icon {
+    animation: float 10s ease-in-out infinite;
+}
+
+.floating-icon-delayed {
+    animation: float 12s ease-in-out infinite -2s;
+}
+
+.floating-icon-slow {
+    animation: float 15s ease-in-out infinite -5s;
 }

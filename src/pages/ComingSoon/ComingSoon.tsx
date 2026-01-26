@@ -1,52 +1,46 @@
-import { motion } from 'framer-motion';
-import { Mail, MessageCircle, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
+import Badge from '@/components/Badge/Badge.tsx';
+import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
+import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
+import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
+import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
-import type { buttonVariants } from '@/components/ui/buttonVariants.tsx';
-import { contactInfo } from '@/lib/constants.ts';
+import { cn } from '@/lib/utils.ts';
 
-import ContactButton from './components/ContactButton.tsx';
-
-import type { VariantProps } from 'class-variance-authority';
 import type { ComponentType, JSX, SVGProps } from 'react';
 
-interface ContactButton {
+interface logos {
     id: number;
-    icon: { icon: ComponentType<SVGProps<SVGSVGElement>>; className?: string };
-    label: string;
-    href: string;
-    target?: string;
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
     className?: string;
-    variant?: VariantProps<typeof buttonVariants>['variant'];
 }
 
-const contactButtons: ContactButton[] = [
+const logos: logos[] = [
     {
         id: 0,
-        icon: { icon: Mail },
-        label: 'common:email',
-        href: `mailto:${contactInfo.email}`,
-        className: 'shadow-lg hover:shadow-primary/20 transition-shadow',
+        Icon: TypeScriptLogo,
+        className:
+            'w-24 h-24 bottom-[20%] right-[10%] opacity-5 floating-icon ',
     },
     {
         id: 1,
-        icon: { icon: Send, className: 'text-[#24A1DE]' },
-        label: 'common:telegram',
-        href: contactInfo.telegram,
-        target: '_blank',
-        className: 'hover:bg-surface transition-colors',
-        variant: 'outline',
+        Icon: JavaScriptLogo,
+        className:
+            'w-32 h-32 top-[25%] right-[20%] opacity-5 floating-icon-delayed ',
     },
     {
         id: 2,
-        icon: { icon: MessageCircle, className: 'text-[#25D366]' },
-        label: 'common:whatsapp',
-        href: contactInfo.whatsapp,
-        target: '_blank',
-        className: 'hover:bg-surface transition-colors',
-        variant: 'outline',
+        Icon: ReactLogo,
+        className:
+            'w-32 h-32 bottom-[30%] left-[15%] opacity-5 floating-icon-slow ',
+    },
+    {
+        id: 3,
+        Icon: NextJsLogo,
+        className: 'w-24 h-24 top-[15%] left-[10%] opacity-50 floating-icon ',
     },
 ];
 
@@ -61,68 +55,73 @@ function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen w-full p-8 text-center relative overflow-hidden bg-background text-text-primary">
+        <>
             <MetaTags
                 title={t('comingSoon:meta.title')}
                 description={t('comingSoon:meta.description')}
                 keywords={t('comingSoon:meta.keywords')}
             />
-            <div
-                className="absolute inset-0 z-0 opacity-30 pointer-events-none"
-                style={{
-                    background:
-                        'radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 40%)',
-                }}
-            />
-
-            <motion.header
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="relative z-10"
-            >
-                <h1 className="text-[clamp(3rem,8vw,5rem)] mb-2 font-heading font-extrabold tracking-tight animate-shine">
-                    {t('common:name')}
-                </h1>
-                <h2 className="text-[clamp(1.2rem,3vw,1.8rem)] font-sans text-text-secondary mb-8 tracking-widest uppercase">
-                    {t('common:specialty')}
-                </h2>
-            </motion.header>
-
-            <motion.main
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="relative z-10 flex flex-col gap-6"
-            >
-                <div className="card glass max-w-2xl mx-auto">
-                    <p className="text-xl text-text-secondary">
-                        {t('comingSoon:working')}
-                    </p>
-                    <p className="text-xl text-text-secondary mt-4">
-                        {t('comingSoon:portfolio')}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <div className="absolute inset-0 primary-mix-gradient" />
+                {logos.map(({ Icon, id, className }) => (
+                    <Icon key={id} className={cn('absolute', className)} />
+                ))}
+            </div>
+            <nav className="relative z-10 w-full px-6 py-8">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                    <div className="flex">
+                        <Logo />
+                    </div>
+                    <Badge
+                        text={t('common:status.availableForProjects')}
+                        showPing
+                        variant="primary"
+                        className="hidden sm:flex leading-normal"
+                    />
+                </div>
+            </nav>
+            <main className="relative z-10 grow flex flex-col items-center justify-center px-6 py-12 gap-12">
+                <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden border border-primary/20 relative">
+                            <div className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5" />
+                        </div>
+                        <span className="text-[10px] font-mono tracking-[0.4em] text-primary uppercase">
+                            Portfolio v2.0 In Progress
+                        </span>
+                    </div>
+                </div>
+                <div className="space-y-6 text-center">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+                        Refining the <br />
+                        <span className="text-transparent animate-shine">
+                            Digital Experience
+                        </span>
+                    </h1>
+                    <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
+                        Frontend Engineer specializing in high-performance
+                        architectures.{' '}
+                        <span className="text-text-muted">
+                            Expert in building scalable e-learning platforms and
+                            AI-driven interfaces.
+                        </span>
                     </p>
                 </div>
-
-                <div className="flex flex-col flex-wrap justify-center gap-4 mt-4 md:flex-row">
-                    {contactButtons.map((button) => (
-                        <ContactButton
-                            key={button.id}
-                            icon={button.icon}
-                            label={t(button.label)}
-                            href={button.href}
-                            target={button.target}
-                            variant={button.variant}
-                            className="shadow-lg hover:shadow-primary/20 transition-shadow"
-                        />
-                    ))}
+            </main>
+            <footer className="relative z-10 w-full px-6 py-12">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
+                    <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
+                        <span className="size-1.5 bg-primary rounded-full animate-pulse" />
+                        System.Status(Available_for_Hire)
+                    </div>
+                    <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase opacity-70">
+                        {t('common:footer.rights')}
+                    </div>
                 </div>
-            </motion.main>
-
-            <footer className="relative z-10 mt-16 text-text-secondary text-sm">
-                <p>{t('common:footer.rights')}</p>
             </footer>
-        </div>
+            <div className="fixed top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 size-150 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+            <div className="fixed bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+        </>
     );
 }
 

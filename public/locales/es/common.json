@@ -1,27 +1,28 @@
 {
-  "contact": "Contactar",
-  "email": "Escribeme por Email",
-  "footer": {
-    "backToTop": "Volver arriba",
-    "copyrights": "© 2026 $t(name) - Creado con amor",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "rights": "© 2026 - Próximamente"
-  },
-  "home": "Inicio",
-  "mainNavigation": "Navegación principal",
-  "name": "Oel Estrada",
-  "navBar": {
-    "howIWork": "Cómo trabajo",
-    "insights": "Insights",
-    "techStack": "Tech Stack",
-    "work": "Proyectos"
-  },
-  "selectLanguage": "Seleccionar idioma",
-  "specialty": "Frontend Engineer",
-  "status": {
-    "availableForProjects": "Disponible para nuevos proyectos"
-  },
-  "telegram": "Chatear en Telegram",
-  "whatsapp": "Escribeme por WhatsApp"
+    "contact": "Contactar",
+    "email": "Escribeme por Email",
+    "footer": {
+        "backToTop": "Volver arriba",
+        "copyrights": "© 2026 $t(common:name) - Creado con amor",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "rights": "© 2026 · $t(common:name) — $t(common:specialty) de alto nivel"
+    },
+    "home": "Inicio",
+    "mainNavigation": "Navegación principal",
+    "name": "Oel Estrada",
+    "navBar": {
+        "howIWork": "Cómo trabajo",
+        "insights": "Insights",
+        "techStack": "Tech Stack",
+        "work": "Proyectos"
+    },
+    "selectLanguage": "Seleccionar idioma",
+    "specialty": "Frontend Engineer",
+    "status": {
+        "availableForProjects": "Disponible para nuevos proyectos"
+    },
+    "systemStatus": { "available": "System.Status(Available_for_Hire)" },
+    "telegram": "Chatear en Telegram",
+    "whatsapp": "Escribeme por WhatsApp"
 }
