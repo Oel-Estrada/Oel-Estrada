@@ -20,5 +20,8 @@
   "selectLanguage": "Выбрать язык",
   "specialty": "Фронтенд-инженер",
   "telegram": "Чат в Telegram",
-  "whatsapp": "Пишите в WhatsApp"
+  "whatsapp": "Пишите в WhatsApp",
+  "status": {
+    "availableForProjects": "Открыт для новых проектов"
+  }
 }
