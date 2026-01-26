@@ -91,6 +91,22 @@ function ComingSoon(): JSX.Element {
                         </span>
                     </div>
                 </div>
+                <div className="space-y-6 text-center">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+                        Refining the <br />
+                        <span className="text-transparent animate-shine">
+                            Digital Experience
+                        </span>
+                    </h1>
+                    <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
+                        Frontend Engineer specializing in high-performance
+                        architectures.
+                        <span className="text-text-muted">
+                            Expert in building scalable e-learning platforms and
+                            AI-driven interfaces.
+                        </span>
+                    </p>
+                </div>
             </main>
             <footer className="relative z-10 w-full px-6 py-12">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
