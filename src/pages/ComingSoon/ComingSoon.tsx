@@ -80,6 +80,8 @@ function ComingSoon(): JSX.Element {
                     />
                 </div>
             </nav>
+            <div className="fixed top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 size-150 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+            <div className="fixed bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
         </>
     );
 }
