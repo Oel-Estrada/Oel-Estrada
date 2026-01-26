@@ -1,24 +1,24 @@
 {
-    "contact": "Связаться",
-    "email": "Напишите мне",
-    "footer": {
-        "backToTop": "Наверх",
-        "copyrights": "© 2026 $t(name) - Сделано с энтузиазмом",
-        "github": "GitHub",
-        "linkedin": "LinkedIn",
-        "rights": "© 2026 - Скоро"
-    },
-    "home": "Главная",
-    "mainNavigation": "Главная навигация",
-    "name": "Оэль Эстрада",
-    "navBar": {
-        "howIWork": "Как я работаю",
-        "insights": "Insights",
-        "techStack": "Tech Stack",
-        "work": "Проекты"
-    },
-    "selectLanguage": "Выбрать язык",
-    "specialty": "Фронтенд-инженер",
-    "telegram": "Чат в Telegram",
-    "whatsapp": "Пишите в WhatsApp"
+  "contact": "Связаться",
+  "email": "Напишите мне",
+  "footer": {
+    "backToTop": "Наверх",
+    "copyrights": "© 2026 $t(name) - Сделано с энтузиазмом",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "rights": "© 2026 - Скоро"
+  },
+  "home": "Главная",
+  "mainNavigation": "Главная навигация",
+  "name": "Оэль Эстрада",
+  "navBar": {
+    "howIWork": "Как я работаю",
+    "insights": "Insights",
+    "techStack": "Tech Stack",
+    "work": "Проекты"
+  },
+  "selectLanguage": "Выбрать язык",
+  "specialty": "Фронтенд-инженер",
+  "telegram": "Чат в Telegram",
+  "whatsapp": "Пишите в WhatsApp"
 }
