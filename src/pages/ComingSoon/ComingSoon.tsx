@@ -80,6 +80,18 @@ function ComingSoon(): JSX.Element {
                     />
                 </div>
             </nav>
+            <main className="relative z-10 grow flex flex-col items-center justify-center px-6 py-12">
+                <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden border border-primary/20 relative">
+                            <div className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5" />
+                        </div>
+                        <span className="text-[10px] font-mono tracking-[0.4em] text-primary uppercase">
+                            Portfolio v2.0 In Progress
+                        </span>
+                    </div>
+                </div>
+            </main>
             <footer className="relative z-10 w-full px-6 py-12">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
