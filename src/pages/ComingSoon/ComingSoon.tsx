@@ -1,52 +1,44 @@
-import { motion } from 'framer-motion';
-import { Mail, MessageCircle, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
+import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
+import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
+import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
-import type { buttonVariants } from '@/components/ui/buttonVariants.tsx';
-import { contactInfo } from '@/lib/constants.ts';
+import { cn } from '@/lib/utils.ts';
 
-import ContactButton from './components/ContactButton.tsx';
-
-import type { VariantProps } from 'class-variance-authority';
 import type { ComponentType, JSX, SVGProps } from 'react';
 
-interface ContactButton {
+interface logos {
     id: number;
-    icon: { icon: ComponentType<SVGProps<SVGSVGElement>>; className?: string };
-    label: string;
-    href: string;
-    target?: string;
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
     className?: string;
-    variant?: VariantProps<typeof buttonVariants>['variant'];
 }
 
-const contactButtons: ContactButton[] = [
+const logos: logos[] = [
     {
         id: 0,
-        icon: { icon: Mail },
-        label: 'common:email',
-        href: `mailto:${contactInfo.email}`,
-        className: 'shadow-lg hover:shadow-primary/20 transition-shadow',
+        Icon: TypeScriptLogo,
+        className:
+            'w-24 h-24 bottom-[20%] right-[10%] opacity-5 floating-icon ',
     },
     {
         id: 1,
-        icon: { icon: Send, className: 'text-[#24A1DE]' },
-        label: 'common:telegram',
-        href: contactInfo.telegram,
-        target: '_blank',
-        className: 'hover:bg-surface transition-colors',
-        variant: 'outline',
+        Icon: JavaScriptLogo,
+        className:
+            'w-32 h-32 top-[25%] right-[20%] opacity-5 floating-icon-delayed ',
     },
     {
         id: 2,
-        icon: { icon: MessageCircle, className: 'text-[#25D366]' },
-        label: 'common:whatsapp',
-        href: contactInfo.whatsapp,
-        target: '_blank',
-        className: 'hover:bg-surface transition-colors',
-        variant: 'outline',
+        Icon: ReactLogo,
+        className:
+            'w-32 h-32 bottom-[30%] left-[15%] opacity-5 floating-icon-slow ',
+    },
+    {
+        id: 3,
+        Icon: NextJsLogo,
+        className: 'w-24 h-24 top-[15%] left-[10%] opacity-50 floating-icon ',
     },
 ];
 
@@ -61,68 +53,19 @@ function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen w-full p-8 text-center relative overflow-hidden bg-background text-text-primary">
+        <>
             <MetaTags
                 title={t('comingSoon:meta.title')}
                 description={t('comingSoon:meta.description')}
                 keywords={t('comingSoon:meta.keywords')}
             />
-            <div
-                className="absolute inset-0 z-0 opacity-30 pointer-events-none"
-                style={{
-                    background:
-                        'radial-gradient(circle at 20% 30%, var(--primary) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 40%)',
-                }}
-            />
-
-            <motion.header
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="relative z-10"
-            >
-                <h1 className="text-[clamp(3rem,8vw,5rem)] mb-2 font-heading font-extrabold tracking-tight animate-shine">
-                    {t('common:name')}
-                </h1>
-                <h2 className="text-[clamp(1.2rem,3vw,1.8rem)] font-sans text-text-secondary mb-8 tracking-widest uppercase">
-                    {t('common:specialty')}
-                </h2>
-            </motion.header>
-
-            <motion.main
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="relative z-10 flex flex-col gap-6"
-            >
-                <div className="card glass max-w-2xl mx-auto">
-                    <p className="text-xl text-text-secondary">
-                        {t('comingSoon:working')}
-                    </p>
-                    <p className="text-xl text-text-secondary mt-4">
-                        {t('comingSoon:portfolio')}
-                    </p>
-                </div>
-
-                <div className="flex flex-col flex-wrap justify-center gap-4 mt-4 md:flex-row">
-                    {contactButtons.map((button) => (
-                        <ContactButton
-                            key={button.id}
-                            icon={button.icon}
-                            label={t(button.label)}
-                            href={button.href}
-                            target={button.target}
-                            variant={button.variant}
-                            className="shadow-lg hover:shadow-primary/20 transition-shadow"
-                        />
-                    ))}
-                </div>
-            </motion.main>
-
-            <footer className="relative z-10 mt-16 text-text-secondary text-sm">
-                <p>{t('common:footer.rights')}</p>
-            </footer>
-        </div>
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <div className="absolute inset-0 primary-mix-gradient" />
+                {logos.map(({ Icon, id, className }) => (
+                    <Icon key={id} className={cn('absolute', className)} />
+                ))}
+            </div>
+        </>
     );
 }
 
