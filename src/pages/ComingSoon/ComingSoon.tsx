@@ -1,4 +1,9 @@
-import { Download, MessageCircleQuestionMark } from 'lucide-react';
+import {
+    AtSign,
+    Download,
+    MessageCircleQuestionMark,
+    Phone,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
@@ -125,6 +130,42 @@ function ComingSoon(): JSX.Element {
                         <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-10 text-center">
                             Direct Connectivity
                         </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+                            <div className="space-y-8 md:col-span-8">
+                                <div className="flex items-center gap-5">
+                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                        <AtSign />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
+                                            Email Address
+                                        </p>
+                                        <a
+                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            href="mailto:oelestradacampos@gmail.com"
+                                        >
+                                            oelestradacampos@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-5">
+                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                        <Phone />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
+                                            Direct Line
+                                        </p>
+                                        <a
+                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            href="tel:+79955556081"
+                                        >
+                                            +7 995 555 60 81
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
