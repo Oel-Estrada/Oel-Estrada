@@ -1,4 +1,4 @@
-import { Download } from 'lucide-react';
+import { Download, MessageCircleQuestionMark } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
@@ -118,6 +118,14 @@ function ComingSoon(): JSX.Element {
                         Download Professional CV
                         <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
                     </Button>
+                    <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            <MessageCircleQuestionMark className="size-24" />
+                        </div>
+                        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-10 text-center">
+                            Direct Connectivity
+                        </h2>
+                    </div>
                 </div>
             </main>
             <footer className="relative z-10 w-full px-6 py-12">
