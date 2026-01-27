@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
@@ -8,6 +9,7 @@ import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
+import { Button } from '@/components/ui/button.tsx';
 import { cn } from '@/lib/utils.ts';
 
 import type { ComponentType, JSX, SVGProps } from 'react';
@@ -106,6 +108,16 @@ function ComingSoon(): JSX.Element {
                             AI-driven interfaces.
                         </span>
                     </p>
+                </div>
+                <div className="flex flex-col items-center gap-12 w-full">
+                    <Button
+                        size="auto"
+                        className="text-lg font-bold uppercase tracking-[0.15em] group relative py-5 px-10 bg-primary  rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
+                    >
+                        <Download className="size-6" />
+                        Download Professional CV
+                        <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
+                    </Button>
                 </div>
             </main>
             <footer className="relative z-10 w-full px-6 py-12">
