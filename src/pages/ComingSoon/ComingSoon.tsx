@@ -117,10 +117,10 @@ function ComingSoon(): JSX.Element {
                 <div className="flex flex-col items-center gap-12 w-full">
                     <Button
                         size="auto"
-                        className="text-lg font-bold uppercase tracking-[0.15em] group relative py-5 px-10 bg-primary  rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
+                        className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
                     >
                         <Download className="size-6" />
-                        Download Professional CV
+                        Скачать резюме
                         <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
                     </Button>
                     <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
