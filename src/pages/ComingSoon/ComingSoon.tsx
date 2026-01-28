@@ -127,11 +127,11 @@ function ComingSoon(): JSX.Element {
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <MessageCircleQuestionMark className="size-24" />
                         </div>
-                        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-10 text-center">
+                        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-5 md:m-10 text-center">
                             Direct Connectivity
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                            <div className="space-y-8 md:col-span-8">
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
+                            <div className="space-y-4 sm:space-y-8 md:col-span-8">
                                 <div className="flex items-center gap-5">
                                     <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
                                         <AtSign />
