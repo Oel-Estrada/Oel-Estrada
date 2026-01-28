@@ -4,7 +4,7 @@ import {
     MessageCircleQuestionMark,
     Phone,
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
 import Badge from '@/components/Badge/Badge.tsx';
@@ -96,24 +96,29 @@ function ComingSoon(): JSX.Element {
                             <div className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5" />
                         </div>
                         <span className="text-[10px] font-mono tracking-[0.4em] text-primary uppercase">
-                            Portfolio v2.0 In Progress
+                            {t('comingSoon:hero.status')}
                         </span>
                     </div>
                 </div>
                 <div className="space-y-6 text-center">
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-                        Refining the <br />
-                        <span className="text-transparent animate-shine">
-                            Digital Experience
-                        </span>
+                        <Trans
+                            i18nKey="comingSoon:hero.title"
+                            components={{
+                                1: <br />,
+                                2: (
+                                    <span className="text-transparent animate-shine" />
+                                ),
+                            }}
+                        />
                     </h1>
                     <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
-                        Frontend Engineer specializing in high-performance
-                        architectures.{' '}
-                        <span className="text-text-muted">
-                            Expert in building scalable e-learning platforms and
-                            AI-driven interfaces.
-                        </span>
+                        <Trans
+                            i18nKey="comingSoon:hero.subtitle"
+                            components={{
+                                1: <span className="text-text-muted" />,
+                            }}
+                        />
                     </p>
                 </div>
                 <div className="flex flex-col items-center gap-12 w-full">
@@ -122,7 +127,7 @@ function ComingSoon(): JSX.Element {
                         className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
                     >
                         <Download className="size-6" />
-                        Скачать резюме
+                        {t('common:downloadCv')}
                         <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
                     </Button>
                     <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
@@ -130,7 +135,7 @@ function ComingSoon(): JSX.Element {
                             <MessageCircleQuestionMark className="size-24" />
                         </div>
                         <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-5 md:m-10 text-center">
-                            Direct Connectivity
+                            {t('comingSoon:contact.title')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
                             <div className="space-y-4 sm:space-y-8 md:col-span-8">
@@ -140,7 +145,7 @@ function ComingSoon(): JSX.Element {
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            Email Address
+                                            {t('comingSoon:contact.email')}
                                         </p>
                                         <a
                                             className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
@@ -156,7 +161,7 @@ function ComingSoon(): JSX.Element {
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            Direct Line
+                                            {t('comingSoon:contact.phone')}
                                         </p>
                                         <a
                                             className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
@@ -169,7 +174,7 @@ function ComingSoon(): JSX.Element {
                             </div>
                             <div className="flex flex-col justify-center border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-7 md:col-span-4">
                                 <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-6">
-                                    Messaging Platforms
+                                    {t('comingSoon:contact.messagingTitle')}
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <a
@@ -200,7 +205,7 @@ function ComingSoon(): JSX.Element {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
                         <span className="size-1.5 bg-primary rounded-full animate-pulse" />
-                        System.Status(Available_for_Hire)
+                        {t('common:systemStatus.available')}
                     </div>
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase opacity-70">
                         {t('common:footer.rights')}
