@@ -141,7 +141,7 @@ function ComingSoon(): JSX.Element {
                                             Email Address
                                         </p>
                                         <a
-                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
                                             href="mailto:oelestradacampos@gmail.com"
                                         >
                                             oelestradacampos@gmail.com
@@ -157,7 +157,7 @@ function ComingSoon(): JSX.Element {
                                             Direct Line
                                         </p>
                                         <a
-                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
                                             href="tel:+79955556081"
                                         >
                                             +7 995 555 60 81
