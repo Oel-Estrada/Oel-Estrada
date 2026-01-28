@@ -1,5 +1,6 @@
 {
     "contact": "Contact",
+    "downloadCv": "Download CV",
     "email": "Send me a message",
     "footer": {
         "backToTop": "Back to top",
@@ -19,10 +20,12 @@
     },
     "selectLanguage": "Select language",
     "specialty": "Frontend Engineer",
-    "telegram": "Chat on Telegram",
-    "whatsapp": "Message me on WhatsApp",
     "status": {
         "availableForProjects": "Open for new projects"
     },
-    "systemStatus": { "available": "System.Status(Available_for_Hire)" }
+    "systemStatus": {
+        "available": "System.Status(Available_for_Hire)"
+    },
+    "telegram": "Chat on Telegram",
+    "whatsapp": "Message me on WhatsApp"
 }
