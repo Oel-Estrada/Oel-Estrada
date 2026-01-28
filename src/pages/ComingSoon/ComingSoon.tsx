@@ -180,7 +180,9 @@ function ComingSoon(): JSX.Element {
                                 <div className="flex flex-wrap gap-4">
                                     <a
                                         className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
-                                        href="./"
+                                        href={contactInfo.whatsapp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <WhatsAppLogo
                                             color="currentColor"
@@ -189,7 +191,9 @@ function ComingSoon(): JSX.Element {
                                     </a>
                                     <a
                                         className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
-                                        href="./"
+                                        href={contactInfo.telegram}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <TelegramLogo
                                             color="currentColor"
