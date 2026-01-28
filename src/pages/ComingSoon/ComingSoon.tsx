@@ -133,7 +133,7 @@ function ComingSoon(): JSX.Element {
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
                             <div className="space-y-8 md:col-span-8">
                                 <div className="flex items-center gap-5">
-                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
                                         <AtSign />
                                     </div>
                                     <div>
@@ -149,7 +149,7 @@ function ComingSoon(): JSX.Element {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-5">
-                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
                                         <Phone />
                                     </div>
                                     <div>
