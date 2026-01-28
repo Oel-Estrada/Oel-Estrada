@@ -17,6 +17,7 @@ import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
 
 import type { ComponentType, JSX, SVGProps } from 'react';
@@ -149,9 +150,9 @@ function ComingSoon(): JSX.Element {
                                         </p>
                                         <a
                                             className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href="mailto:oelestradacampos@gmail.com"
+                                            href={`mailto:${contactInfo.email}`}
                                         >
-                                            oelestradacampos@gmail.com
+                                            {contactInfo.email}
                                         </a>
                                     </div>
                                 </div>
@@ -165,7 +166,7 @@ function ComingSoon(): JSX.Element {
                                         </p>
                                         <a
                                             className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href="tel:+79955556081"
+                                            href={`tel:+${contactInfo.phone ?? ''}`}
                                         >
                                             +7 995 555 60 81
                                         </a>
