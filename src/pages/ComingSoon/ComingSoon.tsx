@@ -11,6 +11,7 @@ import Badge from '@/components/Badge/Badge.tsx';
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TelegramLogo from '@/components/icons/TelegramLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
@@ -184,13 +185,10 @@ function ComingSoon(): JSX.Element {
                                         className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
                                         href="./"
                                     >
-                                        <svg
+                                        <TelegramLogo
+                                            color="currentColor"
                                             className="size-7 fill-current transition-transform group-hover/social:scale-110"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.962 4.084-1.362 5.441-.168.575-.504.767-.714.786-.456.043-.799-.299-1.24-.587-.69-.452-1.08-.732-1.748-1.171-.773-.51-.272-.791.168-1.25.115-.119 2.112-1.936 2.151-2.102.005-.021.009-.098-.037-.139-.046-.041-.113-.027-.162-.016-.07.016-1.18.749-3.328 2.197-.314.216-.599.322-.855.316-.281-.006-.823-.153-1.226-.284-.493-.161-.886-.246-.852-.52.017-.143.214-.289.59-.44 2.301-1.001 3.835-1.662 4.603-1.983 2.172-.911 2.623-1.069 2.917-1.074.064-.001.21.015.304.092.079.065.101.152.109.221.008.069.01.143-.002.217z" />
-                                        </svg>
+                                        />
                                     </a>
                                 </div>
                             </div>
