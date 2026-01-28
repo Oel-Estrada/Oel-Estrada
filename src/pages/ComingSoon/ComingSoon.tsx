@@ -166,9 +166,9 @@ function ComingSoon(): JSX.Element {
                                         </p>
                                         <a
                                             className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href={`tel:+${contactInfo.phone ?? ''}`}
+                                            href={`tel:+${contactInfo.sanitizedPhone}`}
                                         >
-                                            +7 995 555 60 81
+                                            {contactInfo.formattedPhone}
                                         </a>
                                     </div>
                                 </div>
