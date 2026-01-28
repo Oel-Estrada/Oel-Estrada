@@ -63,7 +63,7 @@ function HomeHeroMainSection(): JSX.Element {
                     className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
                 >
                     <Download className="mr-2 size-6" />
-                    {t('home:hero.downloadCv')}
+                    {t('common:downloadCv')}
                 </Button>
             </div>
             <div className="flex flex-wrap gap-4 mt-8 opacity-60">
