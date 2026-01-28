@@ -1,5 +1,6 @@
 {
     "contact": "Связаться",
+    "downloadCv": "Скачать резюме",
     "email": "Напишите мне",
     "footer": {
         "backToTop": "Наверх",
@@ -19,10 +20,12 @@
     },
     "selectLanguage": "Выбрать язык",
     "specialty": "Фронтенд-инженер",
-    "telegram": "Чат в Telegram",
-    "whatsapp": "Пишите в WhatsApp",
     "status": {
         "availableForProjects": "Открыт для новых проектов"
     },
-    "systemStatus": { "available": "System.Status(Available_for_Hire)" }
+    "systemStatus": {
+        "available": "System.Status(Available_for_Hire)"
+    },
+    "telegram": "Чат в Telegram",
+    "whatsapp": "Пишите в WhatsApp"
 }

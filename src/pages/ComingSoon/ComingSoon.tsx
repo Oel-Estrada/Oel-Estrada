@@ -4,17 +4,20 @@ import {
     MessageCircleQuestionMark,
     Phone,
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
 import Badge from '@/components/Badge/Badge.tsx';
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TelegramLogo from '@/components/icons/TelegramLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
+import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
 
 import type { ComponentType, JSX, SVGProps } from 'react';
@@ -62,7 +65,7 @@ function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
 
     return (
-        <>
+        <div className="min-w-xs">
             <MetaTags
                 title={t('comingSoon:meta.title')}
                 description={t('comingSoon:meta.description')}
@@ -94,71 +97,76 @@ function ComingSoon(): JSX.Element {
                             <div className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5" />
                         </div>
                         <span className="text-[10px] font-mono tracking-[0.4em] text-primary uppercase">
-                            Portfolio v2.0 In Progress
+                            {t('comingSoon:hero.status')}
                         </span>
                     </div>
                 </div>
                 <div className="space-y-6 text-center">
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-                        Refining the <br />
-                        <span className="text-transparent animate-shine">
-                            Digital Experience
-                        </span>
+                        <Trans
+                            i18nKey="comingSoon:hero.title"
+                            components={{
+                                1: <br />,
+                                2: (
+                                    <span className="text-transparent animate-shine" />
+                                ),
+                            }}
+                        />
                     </h1>
                     <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
-                        Frontend Engineer specializing in high-performance
-                        architectures.{' '}
-                        <span className="text-text-muted">
-                            Expert in building scalable e-learning platforms and
-                            AI-driven interfaces.
-                        </span>
+                        <Trans
+                            i18nKey="comingSoon:hero.subtitle"
+                            components={{
+                                1: <span className="text-text-muted" />,
+                            }}
+                        />
                     </p>
                 </div>
                 <div className="flex flex-col items-center gap-12 w-full">
                     <Button
                         size="auto"
-                        className="text-lg font-bold uppercase tracking-[0.15em] group relative py-5 px-10 bg-primary  rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
+                        className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
                     >
                         <Download className="size-6" />
-                        Download Professional CV
+                        {t('common:downloadCv')}
                         <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
                     </Button>
                     <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <MessageCircleQuestionMark className="size-24" />
                         </div>
-                        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-10 text-center">
-                            Direct Connectivity
+                        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-5 md:m-10 text-center">
+                            {t('comingSoon:contact.title')}
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                            <div className="space-y-8 md:col-span-8">
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
+                            <div className="space-y-4 sm:space-y-8 md:col-span-8">
                                 <div className="flex items-center gap-5">
-                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
                                         <AtSign />
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            Email Address
+                                            {t('comingSoon:contact.email')}
                                         </p>
                                         <a
-                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href="mailto:oelestradacampos@gmail.com"
+                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            href={`mailto:${contactInfo.email}`}
                                         >
-                                            oelestradacampos@gmail.com
+                                            {contactInfo.email}
                                         </a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-5">
-                                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
                                         <Phone />
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            Direct Line
+                                            {t('comingSoon:contact.phone')}
                                         </p>
                                         <a
-                                            className="text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href="tel:+79955556081"
+                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                            href={`tel:+${contactInfo.phone ?? ''}`}
                                         >
                                             +7 995 555 60 81
                                         </a>
@@ -167,32 +175,26 @@ function ComingSoon(): JSX.Element {
                             </div>
                             <div className="flex flex-col justify-center border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-7 md:col-span-4">
                                 <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-6">
-                                    Messaging Platforms
+                                    {t('comingSoon:contact.messagingTitle')}
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <a
                                         className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
                                         href="./"
                                     >
-                                        <svg
+                                        <WhatsAppLogo
+                                            color="currentColor"
                                             className="size-7 fill-current transition-transform group-hover/social:scale-110"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.415-8.414z" />
-                                        </svg>
+                                        />
                                     </a>
                                     <a
                                         className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
                                         href="./"
                                     >
-                                        <svg
+                                        <TelegramLogo
+                                            color="currentColor"
                                             className="size-7 fill-current transition-transform group-hover/social:scale-110"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.962 4.084-1.362 5.441-.168.575-.504.767-.714.786-.456.043-.799-.299-1.24-.587-.69-.452-1.08-.732-1.748-1.171-.773-.51-.272-.791.168-1.25.115-.119 2.112-1.936 2.151-2.102.005-.021.009-.098-.037-.139-.046-.041-.113-.027-.162-.016-.07.016-1.18.749-3.328 2.197-.314.216-.599.322-.855.316-.281-.006-.823-.153-1.226-.284-.493-.161-.886-.246-.852-.52.017-.143.214-.289.59-.44 2.301-1.001 3.835-1.662 4.603-1.983 2.172-.911 2.623-1.069 2.917-1.074.064-.001.21.015.304.092.079.065.101.152.109.221.008.069.01.143-.002.217z" />
-                                        </svg>
+                                        />
                                     </a>
                                 </div>
                             </div>
@@ -204,7 +206,7 @@ function ComingSoon(): JSX.Element {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
                         <span className="size-1.5 bg-primary rounded-full animate-pulse" />
-                        System.Status(Available_for_Hire)
+                        {t('common:systemStatus.available')}
                     </div>
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase opacity-70">
                         {t('common:footer.rights')}
@@ -213,7 +215,7 @@ function ComingSoon(): JSX.Element {
             </footer>
             <div className="fixed top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 size-150 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
             <div className="fixed bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-        </>
+        </div>
     );
 }
 

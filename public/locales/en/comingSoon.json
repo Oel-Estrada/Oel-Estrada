@@ -1,9 +1,20 @@
 {
-  "meta": {
-    "description": "My professional web developer portfolio is coming soon. Discover modern digital projects, creative solutions, and high-quality development work.",
-    "keywords": "web developer portfolio, digital projects, web development, coming soon, frontend developer, software developer",
-    "title": "Coming Soon | Web Developer Portfolio & Digital Projects"
-  },
-  "portfolio": "My professional portfolio is launching soon. Stay tuned to explore real-world web development projects and creative solutions.",
-  "working": "I am currently building new digital projects and modern web experiences."
+    "contact": {
+        "email": "Email address",
+        "messagingTitle": "Messaging apps",
+        "phone": "Phone",
+        "title": "Let’s connect"
+    },
+    "hero": {
+        "status": "Portfolio v2.0 in the making",
+        "subtitle": "$t(common:specialty) building high-performance architectures. <1>I create scalable e-learning platforms and AI-driven interfaces.</1>",
+        "title": "Refining <1 /><2>Digital Experiences</2>"
+    },
+    "meta": {
+        "description": "My professional web developer portfolio is coming soon. Discover modern digital projects, creative solutions, and high-quality development work.",
+        "keywords": "web developer portfolio, digital projects, web development, coming soon, frontend developer, software developer",
+        "title": "Coming Soon | Web Developer Portfolio & Digital Projects"
+    },
+    "portfolio": "My professional portfolio is launching soon. Stay tuned to explore real-world web development projects and creative solutions.",
+    "working": "I am currently building new digital projects and modern web experiences."
 }

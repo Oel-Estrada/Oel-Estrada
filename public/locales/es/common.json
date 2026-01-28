@@ -1,5 +1,6 @@
 {
     "contact": "Contactar",
+    "downloadCv": "Descargar CV",
     "email": "Escribeme por Email",
     "footer": {
         "backToTop": "Volver arriba",
@@ -22,7 +23,9 @@
     "status": {
         "availableForProjects": "Disponible para nuevos proyectos"
     },
-    "systemStatus": { "available": "System.Status(Available_for_Hire)" },
+    "systemStatus": {
+        "available": "System.Status(Disponible_para_contratar)"
+    },
     "telegram": "Chatear en Telegram",
     "whatsapp": "Escribeme por WhatsApp"
 }

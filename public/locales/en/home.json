@@ -1,12 +1,11 @@
 {
-  "hero": {
-    "cleanCodeLabel": "Clean Code",
-    "ctaPrimary": "Let’s work together",
-    "downloadCv": "Download CV",
-    "performanceLabel": "Performance",
-    "performanceScoreValue": "99+ Score",
-    "structureLabel": "Structure",
-    "subtitle": "Senior $t(common:specialty) specializing in <1>React, Next.js, and pixel-perfect UI/UX</1>. Turning complex architecture into fast, intuitive experiences.",
-    "title": "Building <1>High-Performance</1> Digital Experiences"
-  }
+    "hero": {
+        "cleanCodeLabel": "Clean Code",
+        "ctaPrimary": "Let’s work together",
+        "performanceLabel": "Performance",
+        "performanceScoreValue": "99+ Score",
+        "structureLabel": "Structure",
+        "subtitle": "Senior $t(common:specialty) specializing in <1>React, Next.js, and pixel-perfect UI/UX</1>. Turning complex architecture into fast, intuitive experiences.",
+        "title": "Building <1>High-Performance</1> Digital Experiences"
+    }
 }
