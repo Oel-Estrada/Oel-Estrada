@@ -1,1 +1,0 @@
-// Implement a custom ESLint configuration using the new flat config format
