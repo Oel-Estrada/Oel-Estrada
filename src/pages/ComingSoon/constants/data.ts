@@ -1,7 +1,10 @@
+import { AtSign, Phone } from 'lucide-react';
+
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
+import { contactInfo } from '@/lib/constants.ts';
 
 import type { ComponentType, SVGProps } from 'react';
 
@@ -34,5 +37,30 @@ export const logos: logos[] = [
         id: 3,
         Icon: NextJsLogo,
         className: 'w-24 h-24 top-[15%] left-[10%] opacity-50 floating-icon ',
+    },
+];
+
+interface contactInfoData {
+    id: number;
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
+    label: string;
+    link: string;
+    value: string;
+}
+
+export const contactInfoData: contactInfoData[] = [
+    {
+        id: 0,
+        Icon: AtSign,
+        label: 'comingSoon:contact.email',
+        link: `mailto:${contactInfo.email}`,
+        value: contactInfo.email,
+    },
+    {
+        id: 1,
+        Icon: Phone,
+        label: 'comingSoon:contact.phone',
+        link: `tel:+${contactInfo.sanitizedPhone}`,
+        value: contactInfo.formattedPhone,
     },
 ];
