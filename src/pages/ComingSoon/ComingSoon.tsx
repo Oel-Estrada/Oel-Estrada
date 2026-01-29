@@ -4,15 +4,16 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
 import Badge from '@/components/Badge/Badge.tsx';
-import TelegramLogo from '@/components/icons/TelegramLogo.tsx';
-import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
-import { contactInfoData, logos } from '@/pages/ComingSoon/constants/data.ts';
+import {
+    contactInfoData,
+    logos,
+    socialLinks,
+} from '@/pages/ComingSoon/constants/data.ts';
 import {
     itemVariants,
     progressVariants,
@@ -162,28 +163,20 @@ function ComingSoon(): JSX.Element {
                                     {t('comingSoon:contact.messagingTitle')}
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <a
-                                        className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
-                                        href={contactInfo.whatsapp}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <WhatsAppLogo
-                                            color="currentColor"
-                                            className="size-7 fill-current transition-transform group-hover/social:scale-110"
-                                        />
-                                    </a>
-                                    <a
-                                        className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
-                                        href={contactInfo.telegram}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <TelegramLogo
-                                            color="currentColor"
-                                            className="size-7 fill-current transition-transform group-hover/social:scale-110"
-                                        />
-                                    </a>
+                                    {socialLinks.map(({ id, Icon, link }) => (
+                                        <a
+                                            key={id}
+                                            className="flex items-center justify-center size-14 rounded-2xl bg-surface border border-border hover:border-primary hover:text-primary transition-all group/social"
+                                            href={link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Icon
+                                                color="currentColor"
+                                                className="size-7 fill-current transition-transform group-hover/social:scale-110"
+                                            />
+                                        </a>
+                                    ))}
                                 </div>
                             </div>
                         </div>
