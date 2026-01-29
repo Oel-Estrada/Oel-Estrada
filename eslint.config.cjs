@@ -1,25 +1,21 @@
-import { createRequire } from 'module';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const require = createRequire(import.meta.url);
+/* eslint-disable */
 const { FlatCompat } = require('@eslint/eslintrc');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+// Use recommended config from @eslint/js for FlatCompat
 const compat = new FlatCompat({
     baseDirectory: __dirname,
     recommendedConfig: require('@eslint/js').configs.recommended,
 });
 
-export default [
+module.exports = [
+    // extend legacy shareable configs via compatibility helper
     ...compat.extends(
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
     ),
+    // global ignores previously in .eslintignore
     {
         ignores: [
             'node_modules/**',
@@ -30,6 +26,7 @@ export default [
             '.vite',
         ],
     },
+    // apply rules and plugins for source files
     {
         files: ['**/*.{ts,tsx,js,jsx}'],
         languageOptions: {
@@ -38,6 +35,8 @@ export default [
                 ecmaVersion: 'latest',
                 sourceType: 'module',
                 ecmaFeatures: { jsx: true },
+                // If you want type-aware linting, uncomment the next line and ensure tsconfig.json exists
+                // project: path.resolve(__dirname, 'tsconfig.json'),
             },
         },
         plugins: {
@@ -56,32 +55,7 @@ export default [
             'react/react-in-jsx-scope': 'off',
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
-            'simple-import-sort/imports': [
-                'error',
-                {
-                    groups: [
-                        // 1. React and React runtime APIs
-                        [
-                            '^react(?:$|/)',
-                            '^react-dom(?:$|/)',
-                            '^react/jsx-runtime$',
-                            '^react/jsx-dev-runtime$',
-                        ],
-                        // 2. External libraries (npm packages, including scoped)
-                        ['^@?\\w'],
-                        // 3. Absolute project imports (alias @/)
-                        ['^@/'],
-                        // 4. Relative imports (parent then sibling)
-                        ['^\\.\\./', '^\\./'],
-                        // 5. Styles (CSS/SCSS)
-                        ['^.+\\.s?css$'],
-                        // 6. Assets (images, svgs, etc.)
-                        ['^.+\\.(png|jpe?g|gif|svg|webp|avif|ico)$'],
-                        // 7. Side effect imports
-                        ['^\\u0000'],
-                    ],
-                },
-            ],
+            'simple-import-sort/imports': 'error',
             'simple-import-sort/exports': 'error',
             'prettier/prettier': 'error',
             'no-unused-vars': 'off',
@@ -91,6 +65,7 @@ export default [
             ],
         },
     },
+    // file-specific overrides
     {
         files: ['**/*.{ts,tsx}'],
         rules: { '@typescript-eslint/consistent-type-imports': 'error' },
