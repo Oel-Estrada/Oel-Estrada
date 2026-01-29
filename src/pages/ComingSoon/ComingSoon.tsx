@@ -102,7 +102,7 @@ function ComingSoon(): JSX.Element {
                     </div>
                 </div>
                 <div className="space-y-6 text-center">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
                         <Trans
                             i18nKey="comingSoon:hero.title"
                             components={{
@@ -113,7 +113,7 @@ function ComingSoon(): JSX.Element {
                             }}
                         />
                     </h1>
-                    <p className="text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-md sm:text-xl md:text-2xl text-text-secondary font-medium max-w-2xl mx-auto leading-relaxed">
                         <Trans
                             i18nKey="comingSoon:hero.subtitle"
                             components={{
