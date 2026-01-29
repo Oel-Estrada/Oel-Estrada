@@ -77,7 +77,7 @@ function ComingSoon(): JSX.Element {
                     <Icon key={id} className={cn('absolute', className)} />
                 ))}
             </div>
-            <nav className="relative z-10 w-full px-6 py-8">
+            <nav className="relative z-10 w-full px-4 py-6 md:px-6 md:py-8">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div className="flex">
                         <Logo />
@@ -90,7 +90,7 @@ function ComingSoon(): JSX.Element {
                     />
                 </div>
             </nav>
-            <main className="relative z-10 grow flex flex-col items-center justify-center px-6 py-12 gap-12">
+            <main className="relative z-10 grow flex flex-col items-center justify-center px-4 py-8 gap-8 md:px-6 md:py-12 md:gap-12">
                 <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
                     <div className="flex flex-col items-center gap-4">
                         <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden border border-primary/20 relative">
@@ -206,7 +206,7 @@ function ComingSoon(): JSX.Element {
                     </div>
                 </div>
             </main>
-            <footer className="relative z-10 w-full px-6 py-12">
+            <footer className="relative z-10 w-full px-4 py-8 md:px-6 md:py-12">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
                         <span className="size-1.5 bg-primary rounded-full animate-pulse" />
