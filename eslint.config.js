@@ -56,7 +56,32 @@ export default [
             'react/react-in-jsx-scope': 'off',
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
-            'simple-import-sort/imports': 'error',
+            'simple-import-sort/imports': [
+                'error',
+                {
+                    groups: [
+                        // 1. React and React runtime APIs
+                        [
+                            '^react(?:$|/)',
+                            '^react-dom(?:$|/)',
+                            '^react/jsx-runtime$',
+                            '^react/jsx-dev-runtime$',
+                        ],
+                        // 2. External libraries (npm packages, including scoped)
+                        ['^@?\\w'],
+                        // 3. Absolute project imports (alias @/)
+                        ['^@/'],
+                        // 4. Relative imports (parent then sibling)
+                        ['^\\.\\./', '^\\./'],
+                        // 5. Styles (CSS/SCSS)
+                        ['^.+\\.s?css$'],
+                        // 6. Assets (images, svgs, etc.)
+                        ['^.+\\.(png|jpe?g|gif|svg|webp|avif|ico)$'],
+                        // 7. Side effect imports
+                        ['^\\u0000'],
+                    ],
+                },
+            ],
             'simple-import-sort/exports': 'error',
             'prettier/prettier': 'error',
             'no-unused-vars': 'off',
