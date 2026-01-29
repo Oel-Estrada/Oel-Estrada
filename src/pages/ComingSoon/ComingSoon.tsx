@@ -16,6 +16,7 @@ import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
+import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
@@ -82,12 +83,15 @@ function ComingSoon(): JSX.Element {
                     <div className="flex">
                         <Logo />
                     </div>
-                    <Badge
-                        text={t('common:status.availableForProjects')}
-                        showPing
-                        variant="primary"
-                        className="hidden sm:flex leading-normal"
-                    />
+                    <div className="flex items-center gap-4">
+                        <Badge
+                            text={t('common:status.availableForProjects')}
+                            showPing
+                            variant="primary"
+                            className="hidden sm:flex leading-normal"
+                        />
+                        <SelectLanguage />
+                    </div>
                 </div>
             </nav>
             <main className="relative z-10 grow flex flex-col items-center justify-center px-4 py-8 gap-8 md:px-6 md:py-12 md:gap-12">
