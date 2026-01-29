@@ -207,7 +207,7 @@ function ComingSoon(): JSX.Element {
                 </div>
             </main>
             <footer className="relative z-10 w-full px-4 py-8 md:px-6 md:py-12">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-border pt-8">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
                         <span className="size-1.5 bg-primary rounded-full animate-pulse" />
                         {t('common:systemStatus.available')}
