@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import React, { type JSX } from 'react';
 
 import { Button } from '@/components/ui/button.tsx';

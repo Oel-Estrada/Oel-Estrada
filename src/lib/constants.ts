@@ -1,3 +1,5 @@
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
+
 export class ContactInfo {
     phone?: string;
     email: string;
@@ -23,7 +25,21 @@ export class ContactInfo {
     }
 
     get sanitizedPhone(): string {
-        return this.phone?.replace(/[^\d]/g, '') ?? '';
+        if (!this.phone) return '';
+        const phoneNumber = parsePhoneNumberFromString(
+            this.phone.startsWith('+') ? this.phone : `+${this.phone}`,
+        );
+        return phoneNumber
+            ? phoneNumber.number.replace('+', '')
+            : this.phone.replace(/[^\d]/g, '');
+    }
+
+    get formattedPhone(): string {
+        if (!this.phone) return '';
+        const phoneNumber = parsePhoneNumberFromString(
+            this.phone.startsWith('+') ? this.phone : `+${this.phone}`,
+        );
+        return phoneNumber ? phoneNumber.formatInternational() : this.phone;
     }
 
     get whatsapp(): string {
@@ -35,7 +51,7 @@ export class ContactInfo {
     }
 
     get linkedin(): string {
-        return `https://www.linkedin.com/in/${this.linkedinUsername ?? ''} `;
+        return `https://www.linkedin.com/in/${this.linkedinUsername ?? ''}`;
     }
 
     get github(): string {

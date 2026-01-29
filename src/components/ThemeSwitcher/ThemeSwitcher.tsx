@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
