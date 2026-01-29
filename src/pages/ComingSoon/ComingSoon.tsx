@@ -4,6 +4,7 @@ import {
     MessageCircleQuestionMark,
     Phone,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import './ComingSoon.css';
@@ -20,6 +21,10 @@ import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
+import {
+    itemVariants,
+    progressVariants,
+} from '@/pages/ComingSoon/constants/motion.ts';
 
 import type { ComponentType, JSX, SVGProps } from 'react';
 
@@ -64,6 +69,7 @@ const logos: logos[] = [
  */
 function ComingSoon(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
+    const shouldReduceMotion = useReducedMotion();
 
     return (
         <div className="min-w-xs">
@@ -94,18 +100,35 @@ function ComingSoon(): JSX.Element {
                     </div>
                 </div>
             </nav>
-            <main className="relative z-10 grow flex flex-col items-center justify-center px-4 py-8 gap-8 md:px-6 md:py-12 md:gap-12">
-                <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
+
+            <motion.main
+                className="relative z-10 grow flex flex-col items-center justify-center px-4 py-8 gap-8 md:px-6 md:py-12 md:gap-12"
+                initial={shouldReduceMotion ? 'show' : 'hidden'}
+                animate="show"
+            >
+                <motion.div
+                    className="max-w-4xl mx-auto flex flex-col items-center gap-12"
+                    variants={itemVariants}
+                    custom={{ idx: 0, reduced: shouldReduceMotion }}
+                >
                     <div className="flex flex-col items-center gap-4">
                         <div className="w-48 h-1 bg-primary/10 rounded-full overflow-hidden border border-primary/20 relative">
-                            <div className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5" />
+                            <motion.div
+                                className="absolute inset-y-0 left-0 bg-primary progress-glow w-4/5 origin-left"
+                                variants={progressVariants}
+                                style={{ transformOrigin: 'left' }}
+                            />
                         </div>
                         <span className="text-[10px] font-mono tracking-[0.4em] text-primary uppercase">
                             {t('comingSoon:hero.status')}
                         </span>
                     </div>
-                </div>
-                <div className="space-y-6 text-center">
+                </motion.div>
+                <motion.div
+                    className="space-y-6 text-center"
+                    variants={itemVariants}
+                    custom={{ idx: 1, reduced: shouldReduceMotion }}
+                >
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
                         <Trans
                             i18nKey="comingSoon:hero.title"
@@ -125,16 +148,22 @@ function ComingSoon(): JSX.Element {
                             }}
                         />
                     </p>
-                </div>
-                <div className="flex flex-col items-center gap-12 w-full">
-                    <Button
-                        size="auto"
-                        className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
-                    >
-                        <Download className="size-6" />
-                        {t('common:downloadCv')}
-                        <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
-                    </Button>
+                </motion.div>
+                <motion.div
+                    className="flex flex-col items-center gap-12 w-full"
+                    variants={itemVariants}
+                    custom={{ idx: 2, reduced: shouldReduceMotion }}
+                >
+                    <div>
+                        <Button
+                            size="auto"
+                            className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
+                        >
+                            <Download className="size-6" />
+                            {t('common:downloadCv')}
+                            <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
+                        </Button>
+                    </div>
                     <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <MessageCircleQuestionMark className="size-24" />
@@ -208,8 +237,9 @@ function ComingSoon(): JSX.Element {
                             </div>
                         </div>
                     </div>
-                </div>
-            </main>
+                </motion.div>
+            </motion.main>
+
             <footer className="relative z-10 w-full px-4 py-8 md:px-6 md:py-12">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 border-t border-border pt-8">
                     <div className="text-text-muted text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
@@ -221,6 +251,7 @@ function ComingSoon(): JSX.Element {
                     </div>
                 </div>
             </footer>
+
             <div className="fixed top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 size-150 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
             <div className="fixed bottom-0 right-0 translate-y-1/2 translate-x-1/2 size-125 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
         </div>
