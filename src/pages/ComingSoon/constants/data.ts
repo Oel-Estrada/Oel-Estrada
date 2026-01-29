@@ -3,7 +3,9 @@ import { AtSign, Phone } from 'lucide-react';
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
+import TelegramLogo from '@/components/icons/TelegramLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
+import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import { contactInfo } from '@/lib/constants.ts';
 
 import type { ComponentType, SVGProps } from 'react';
@@ -62,5 +64,24 @@ export const contactInfoData: contactInfoData[] = [
         label: 'comingSoon:contact.phone',
         link: `tel:+${contactInfo.sanitizedPhone}`,
         value: contactInfo.formattedPhone,
+    },
+];
+
+interface socialLink {
+    id: number;
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
+    link: string;
+}
+
+export const socialLinks: socialLink[] = [
+    {
+        id: 0,
+        Icon: WhatsAppLogo,
+        link: contactInfo.whatsapp,
+    },
+    {
+        id: 1,
+        Icon: TelegramLogo,
+        link: contactInfo.telegram,
     },
 ];
