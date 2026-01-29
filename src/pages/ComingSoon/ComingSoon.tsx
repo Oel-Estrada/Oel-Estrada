@@ -1,9 +1,4 @@
-import {
-    AtSign,
-    Download,
-    MessageCircleQuestionMark,
-    Phone,
-} from 'lucide-react';
+import { Download, MessageCircleQuestionMark } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -17,7 +12,7 @@ import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { contactInfo } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
-import { logos } from '@/pages/ComingSoon/constants/data.ts';
+import { contactInfoData, logos } from '@/pages/ComingSoon/constants/data.ts';
 import {
     itemVariants,
     progressVariants,
@@ -138,38 +133,29 @@ function ComingSoon(): JSX.Element {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
                             <div className="space-y-4 sm:space-y-8 md:col-span-8">
-                                <div className="flex items-center gap-5">
-                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
-                                        <AtSign />
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            {t('comingSoon:contact.email')}
-                                        </p>
-                                        <a
-                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href={`mailto:${contactInfo.email}`}
+                                {contactInfoData.map(
+                                    ({ id, Icon, label, link, value }) => (
+                                        <div
+                                            key={id}
+                                            className="flex items-center gap-5"
                                         >
-                                            {contactInfo.email}
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-5">
-                                    <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
-                                        <Phone />
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
-                                            {t('comingSoon:contact.phone')}
-                                        </p>
-                                        <a
-                                            className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
-                                            href={`tel:+${contactInfo.sanitizedPhone}`}
-                                        >
-                                            {contactInfo.formattedPhone}
-                                        </a>
-                                    </div>
-                                </div>
+                                            <div className="hidden sm:flex size-14 rounded-2xl bg-primary/10 border border-primary/30 items-center justify-center text-primary">
+                                                <Icon />
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-1">
+                                                    {t(label)}
+                                                </p>
+                                                <a
+                                                    className="text-sm md:text-lg font-mono text-text-primary hover:text-primary transition-colors"
+                                                    href={link}
+                                                >
+                                                    {value}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ),
+                                )}
                             </div>
                             <div className="flex flex-col justify-center border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-7 md:col-span-4">
                                 <p className="text-[10px] text-text-muted uppercase font-black tracking-widest mb-6">
