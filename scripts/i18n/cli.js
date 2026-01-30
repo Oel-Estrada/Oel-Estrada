@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-import {checkMissingKeys} from './check-keys.js';
-import {sortLocales} from './sort-keys.js';
-import {syncLocales} from './sync-keys.js';
-import {extractKeys} from './extract-keys.js';
-import {COLORS, createQuestionAsker} from './utils.js';
+/* eslint-disable no-undef */
+import { checkMissingKeys } from './check-keys.js';
+import { extractKeys } from './extract-keys.js';
+import { sortLocales } from './sort-keys.js';
+import { syncLocales } from './sync-keys.js';
+import { COLORS, createQuestionAsker } from './utils.js';
 
 const command = process.argv[2];
 
@@ -22,7 +23,7 @@ Commands:
 };
 
 async function interactiveMenu() {
-    const {ask, close} = createQuestionAsker();
+    const { ask, close } = createQuestionAsker();
     console.log(
         `\n${COLORS.bright}${COLORS.blue}--- i18n Interactive Menu ---${COLORS.reset}`,
     );

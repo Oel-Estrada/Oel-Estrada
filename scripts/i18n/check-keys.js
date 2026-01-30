@@ -1,6 +1,14 @@
+/* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
-import {COLORS, getDeepKeys, getLogPrefix, loadSharedConfig, LOCALES_DIR,} from './utils.js';
+
+import {
+    COLORS,
+    getDeepKeys,
+    getLogPrefix,
+    loadSharedConfig,
+    LOCALES_DIR,
+} from './utils.js';
 
 const LOG_PREFIX = getLogPrefix('check');
 
@@ -8,7 +16,7 @@ const LOG_PREFIX = getLogPrefix('check');
  * Checks for missing translation keys across locale files.
  */
 export async function checkMissingKeys() {
-    const {LANGUAGES, REFERENCE_LANG} = await loadSharedConfig();
+    const { LANGUAGES, REFERENCE_LANG } = await loadSharedConfig();
     const referenceFiles = fs.readdirSync(
         path.join(LOCALES_DIR, REFERENCE_LANG),
     );
