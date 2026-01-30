@@ -3,7 +3,7 @@ import { Navigate, Outlet, type RouteObject } from 'react-router';
 import { ROUTES } from '@/constants/routes.ts';
 import { ENVIRONMENTS } from '@/env.ts';
 import MainLayout from '@/layouts/MainLayout.tsx';
-import ComingSoon from '@/pages/ComingSoon/ComingSoon.tsx';
+import ComingSoonPage from '@/pages/ComingSoon/ComingSoonPage.tsx';
 import HomePage from '@/pages/Home/HomePage.tsx';
 import StyleGuide from '@/pages/StyleGuide/StyleGuide.tsx';
 import LangLayout from '@/routes/LangLayout.tsx';
@@ -36,7 +36,9 @@ const routesConfig: AppRouteObject[] = [
                 children: [
                     {
                         index: true,
-                        Component: ENVIRONMENTS.isProd ? ComingSoon : HomePage,
+                        Component: ENVIRONMENTS.isProd
+                            ? ComingSoonPage
+                            : HomePage,
                     },
                     {
                         path: ROUTES.PROJECTS,
