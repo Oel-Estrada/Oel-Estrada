@@ -5,7 +5,7 @@ import { ENVIRONMENTS } from '@/env.ts';
 import MainLayout from '@/layouts/MainLayout.tsx';
 import ComingSoonPage from '@/pages/ComingSoon/ComingSoonPage.tsx';
 import HomePage from '@/pages/Home/HomePage.tsx';
-import StyleGuide from '@/pages/StyleGuide/StyleGuide.tsx';
+import StyleGuidePage from '@/pages/StyleGuide/StyleGuidePage.tsx';
 import LangLayout from '@/routes/LangLayout.tsx';
 import RootRedirect from '@/routes/RootRedirect.tsx';
 
@@ -24,7 +24,7 @@ const routesConfig: AppRouteObject[] = [
     },
     {
         path: ROUTES.STYLE_GUIDE,
-        Component: StyleGuide,
+        Component: StyleGuidePage,
         isDevelopment: true,
     },
     {
