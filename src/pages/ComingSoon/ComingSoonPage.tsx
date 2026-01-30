@@ -19,7 +19,7 @@ import {
     progressVariants,
 } from '@/pages/ComingSoon/constants/motion.ts';
 
-import './ComingSoon.css';
+import './ComingSoonPage.css';
 
 /**
  * "Coming Soon" page.
@@ -28,7 +28,7 @@ import './ComingSoon.css';
  *
  * @return {JSX.Element} A JSX element representing the "Coming Soon" page.
  */
-function ComingSoon(): JSX.Element {
+function ComingSoonPage(): JSX.Element {
     const { t } = useTranslation(['comingSoon', 'common']);
     const shouldReduceMotion = useReducedMotion();
 
@@ -204,4 +204,4 @@ function ComingSoon(): JSX.Element {
     );
 }
 
-export default ComingSoon;
+export default ComingSoonPage;

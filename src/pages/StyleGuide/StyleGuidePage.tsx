@@ -22,7 +22,7 @@ import { Input } from '@/components/ui/input.tsx';
 import { Toaster } from '@/components/ui/sonner.tsx';
 
 /**
- * Navigation items for the StyleGuide.
+ * Navigation items for the StyleGuidePage.
  */
 const NAV_ITEMS = [
     { label: 'Brand', href: '#brand' },
@@ -179,9 +179,9 @@ const ColorCard = ({
 );
 
 /**
- * StyleGuide component showcasing the design system and components.
+ * StyleGuidePage component showcasing the design system and components.
  */
-const StyleGuide = () => {
+const StyleGuidePage = () => {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
             <Toaster />
@@ -526,4 +526,4 @@ const StyleGuide = () => {
     );
 };
 
-export default StyleGuide;
+export default StyleGuidePage;
