@@ -1,13 +1,13 @@
 import { Download, MessageCircleQuestionMark } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
+import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import './ComingSoon.css';
 import Badge from '@/components/Badge/Badge.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
-import { Button } from '@/components/ui/button.tsx';
+import { buttonVariants } from '@/components/ui/buttonVariants.tsx';
 import { cn } from '@/lib/utils.ts';
 import {
     contactInfoData,
@@ -19,7 +19,7 @@ import {
     progressVariants,
 } from '@/pages/ComingSoon/constants/motion.ts';
 
-import type { JSX } from 'react';
+import './ComingSoon.css';
 
 /**
  * "Coming Soon" page.
@@ -55,7 +55,7 @@ function ComingSoon(): JSX.Element {
                             text={t('common:status.availableForProjects')}
                             showPing
                             variant="primary"
-                            className="hidden sm:flex leading-normal"
+                            className="hidden sm:flex"
                         />
                         <SelectLanguage />
                     </div>
@@ -115,16 +115,18 @@ function ComingSoon(): JSX.Element {
                     variants={itemVariants}
                     custom={{ idx: 2, reduced: shouldReduceMotion }}
                 >
-                    <div>
-                        <Button
-                            size="auto"
-                            className="w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
-                        >
-                            <Download className="size-6" />
-                            {t('common:downloadCv')}
-                            <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
-                        </Button>
-                    </div>
+                    <a
+                        href="/cv.pdf"
+                        download
+                        className={cn(
+                            buttonVariants({ size: 'auto' }),
+                            'w-full sm:w-fit text-sm md:text-lg font-bold uppercase tracking-widest md:tracking-[0.15em] group relative py-5 px-10 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_color-mix(in_srgb,var(--primary)_40%,transparent)]',
+                        )}
+                    >
+                        <Download className="size-6" />
+                        {t('common:downloadCv')}
+                        <div className="absolute inset-0 rounded-full bg-primary-foreground/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500" />
+                    </a>
                     <div className="bg-surface/60 backdrop-blur-lg border border-primary/15 w-full max-w-3xl rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <MessageCircleQuestionMark className="size-24" />
