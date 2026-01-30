@@ -1,4 +1,5 @@
 import { Languages } from 'lucide-react';
+import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router';
 
@@ -13,8 +14,6 @@ import {
     SUPPORTED_LANGUAGES,
     type SupportedLanguage,
 } from '@/i18n/shared.ts';
-
-import type { JSX } from 'react';
 
 /**
  * Renders a language selection dropdown menu.

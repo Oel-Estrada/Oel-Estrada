@@ -1,10 +1,10 @@
-import { motion } from 'motion/react';
 import React, { type JSX } from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { motion } from 'motion/react';
 
 import { Button } from '@/components/ui/button.tsx';
 import type { buttonVariants } from '@/components/ui/buttonVariants.tsx';
-
-import type { VariantProps } from 'class-variance-authority';
 
 export interface ContactButtonProps {
     icon: {

@@ -1,8 +1,7 @@
+import type { NavigateOptions } from 'react-router';
 import { type To, useNavigate as useReactRouterNavigate } from 'react-router';
 
 import { useLocalizedPath } from '@/routes';
-
-import type { NavigateOptions } from 'react-router';
 
 type PathParamValue = string | number;
 type PathParams = Record<string, PathParamValue>;

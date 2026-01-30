@@ -1,5 +1,6 @@
-import { Download } from 'lucide-react';
 import React, { type JSX } from 'react';
+
+import { Download } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -7,6 +8,8 @@ import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
 import ReactLogo from '@/components/icons/ReactLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { buttonVariants } from '@/components/ui/buttonVariants.tsx';
+import { cn } from '@/lib/utils.ts';
 
 import TechBadge from '../TechBadge/TechBadge.tsx';
 
@@ -58,13 +61,17 @@ function HomeHeroMainSection(): JSX.Element {
                 <Button className="min-w-40 cursor-pointer border rounded-full h-14 px-8 text-base font-bold tracking-tighter">
                     {t('home:hero.ctaPrimary')}
                 </Button>
-                <Button
-                    variant="outline"
-                    className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
+                <a
+                    href="/cv.pdf"
+                    download
+                    className={cn(
+                        buttonVariants({ variant: 'outline' }),
+                        'min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter',
+                    )}
                 >
                     <Download className="mr-2 size-6" />
                     {t('common:downloadCv')}
-                </Button>
+                </a>
             </div>
             <div className="flex flex-wrap gap-4 mt-8 opacity-60">
                 {techBadges.map((badge) => (
