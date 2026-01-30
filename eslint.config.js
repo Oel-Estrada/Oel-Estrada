@@ -1,188 +1,98 @@
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
-import react from 'eslint-plugin-react';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import importPlugin from 'eslint-plugin-import';
-import prettierPlugin from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
+import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-export default tseslint.config(
+const require = createRequire(import.meta.url);
+const { FlatCompat } = require('@eslint/eslintrc');
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: require('@eslint/js').configs.recommended,
+});
+
+export default [
+    ...compat.extends(
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+    ),
     {
         ignores: [
-            'dist',
-            'node_modules',
+            'node_modules/**',
+            'dist/**',
+            'build/**',
+            'public/**',
+            'pnpm-lock.yaml',
             '.vite',
-            '.react-router',
-            'src/env.d.ts',
         ],
     },
-    ...tseslint.configs.strictTypeChecked.map((config) => ({
-        ...config,
-        files: ['**/*.{ts,tsx}'],
-    })),
-    ...tseslint.configs.stylisticTypeChecked.map((config) => ({
-        ...config,
-        files: ['**/*.{ts,tsx}'],
-    })),
     {
-        files: ['**/*.{ts,tsx}'],
+        files: ['**/*.{ts,tsx,js,jsx}'],
         languageOptions: {
-            ecmaVersion: 2020,
-            globals: {
-                ...globals.browser,
-                ...globals.es2020,
-            },
+            parser: require('@typescript-eslint/parser'),
             parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-                extraFileExtensions: ['.d.ts'],
-            },
-        },
-        settings: {
-            react: {
-                version: 'detect',
-            },
-            'import/resolver': {
-                typescript: {
-                    project: ['./tsconfig.json'],
-                },
-                node: {
-                    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-                },
-                alias: {
-                    map: [['@', './src']],
-                    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-                },
+                ecmaVersion: 'latest',
+                sourceType: 'module',
+                ecmaFeatures: { jsx: true },
             },
         },
         plugins: {
-            react,
-            'react-hooks': reactHooks,
-            'react-refresh': reactRefresh,
-            'jsx-a11y': jsxA11y,
-            import: importPlugin,
-            prettier: prettierPlugin,
+            react: require('eslint-plugin-react'),
+            '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
+            'react-hooks': require('eslint-plugin-react-hooks'),
+            'simple-import-sort': require('eslint-plugin-simple-import-sort'),
+            prettier: require('eslint-plugin-prettier'),
         },
+        settings: { react: { version: 'detect' } },
         rules: {
-            // React rules
-            ...react.configs.recommended.rules,
-            ...react.configs['jsx-runtime'].rules,
-            ...reactHooks.configs.recommended.rules,
-            ...jsxA11y.configs.recommended.rules,
-
-            // Custom React 19 / Best Practices
-            'react/prop-types': 'off', // Not needed with TS
-            'react/jsx-no-target-blank': 'error',
-            'react/self-closing-comp': 'warn',
-            'react/no-array-index-key': 'warn',
-            'react/button-has-type': 'warn',
-            'react/hook-use-state': 'warn',
-            'react/no-unescaped-entities': 'off', // Often annoying with Spanish
-
-            // React Refresh
-            'react-refresh/only-export-components': [
-                'warn',
-                {allowConstantExport: true},
-            ],
-
-            // TypeScript specific improvements
-            '@typescript-eslint/no-unused-vars': [
-                'error',
-                {argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
-            ],
-            '@typescript-eslint/consistent-type-definitions': [
-                'error',
-                'interface',
-            ],
-            '@typescript-eslint/no-explicit-any': 'error',
-            '@typescript-eslint/explicit-function-return-type': 'off',
-            '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-            '@typescript-eslint/no-non-null-assertion': 'warn',
-            '@typescript-eslint/no-floating-promises': 'error',
-            '@typescript-eslint/no-misused-promises': [
-                'error',
-                {checksVoidReturn: {attributes: false}},
-            ],
-
-            // General best practices
-            'no-console': ['warn', {allow: ['warn', 'error']}],
-            eqeqeq: ['error', 'always'],
-            // 'semi': ['error', 'always'],
-            // 'indent': ['error', 4, {'SwitchCase': 1}],
-            'id-length': [
-                'error',
-                {
-                    min: 3,
-                    exceptions: [
-                        'id',
-                        't',
-                        'cn',
-                        'ns',
-                        'x',
-                        'y',
-                        'sm',
-                        'md',
-                        'lg',
-                        'xl',
-                        'xs',
-                        '_',
-                        'to',
-                    ],
-                },
-            ],
-            // formatting handled by Prettier
-            // 'object-curly-spacing': ['error', 'always'],
             'react/jsx-curly-brace-presence': [
                 'error',
-                {props: 'never', children: 'never'},
+                { props: 'never', children: 'never' },
             ],
-            'react/jsx-tag-spacing': [
-                'error',
-                {
-                    closingSlash: 'never',
-                    beforeSelfClosing: 'always',
-                    afterOpening: 'never',
-                    beforeClosing: 'never',
-                },
-            ],
-            // Force JSX attributes on separate lines when there are multiple props
-            'react/jsx-first-prop-new-line': ['error', 'multiline'],
-            'react/jsx-max-props-per-line': ['error', {when: 'multiline'}],
-
-            // import plugin recommendations
-            'import/no-unresolved': 'error',
-            'import/named': 'error',
-            'import/default': 'error',
-            'import/namespace': 'error',
-            // Import ordering and grouping
-            'import/order': [
+            'react/react-in-jsx-scope': 'off',
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'warn',
+            'simple-import-sort/imports': [
                 'error',
                 {
                     groups: [
-                        'builtin',
-                        'external',
-                        'internal',
-                        ['parent', 'sibling', 'index'],
-                        'object',
-                        'type',
+                        // 1. React and React runtime APIs
+                        [
+                            '^react(?:$|/)',
+                            '^react-dom(?:$|/)',
+                            '^react/jsx-runtime$',
+                            '^react/jsx-dev-runtime$',
+                        ],
+                        // 2. External libraries (npm packages, including scoped)
+                        ['^@?\\w'],
+                        // 3. Absolute project imports (alias @/)
+                        ['^@/'],
+                        // 4. Relative imports (parent then sibling)
+                        ['^\\.\\./', '^\\./'],
+                        // 5. Styles (CSS/SCSS)
+                        ['^.+\\.s?css$'],
+                        // 6. Assets (images, svgs, etc.)
+                        ['^.+\\.(png|jpe?g|gif|svg|webp|avif|ico)$'],
+                        // 7. Side effect imports
+                        ['^\\u0000'],
                     ],
-                    pathGroups: [
-                        {
-                            pattern: '@/**',
-                            group: 'internal',
-                        },
-                    ],
-                    pathGroupsExcludedImportTypes: ['builtin'],
-                    'newlines-between': 'always',
-                    alphabetize: {order: 'asc', caseInsensitive: true},
                 },
             ],
-
-            // Prettier integration
+            'simple-import-sort/exports': 'error',
             'prettier/prettier': 'error',
+            'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+            ],
         },
     },
-    prettierConfig,
-);
+    {
+        files: ['**/*.{ts,tsx}'],
+        rules: { '@typescript-eslint/consistent-type-imports': 'error' },
+    },
+];

@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/components/Logo/Logo.tsx';
@@ -6,8 +7,6 @@ import { SidebarTrigger } from '@/components/ui/sidebar.tsx';
 import { CONTACT_LINK, NAVIGATION_ITEMS } from '@/constants/navigation.ts';
 import { cn } from '@/lib/utils.ts';
 import { Link, NavLink } from '@/routes';
-
-import type { JSX } from 'react';
 
 /**
  * Renders the Navbar component.
@@ -38,7 +37,9 @@ function Navbar(): JSX.Element {
                         className={({ isActive }) =>
                             cn(
                                 'text-sm font-medium transition-colors hover:text-primary',
-                                isActive ? 'text-primary' : 'text-foreground',
+                                isActive
+                                    ? 'text-primary'
+                                    : 'text-muted-foreground',
                             )
                         }
                     >

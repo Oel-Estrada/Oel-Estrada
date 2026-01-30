@@ -1,6 +1,15 @@
+/* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
-import {COLORS, createQuestionAsker, getLogPrefix, loadSharedConfig, LOCALES_DIR, sortObject,} from './utils.js';
+
+import {
+    COLORS,
+    createQuestionAsker,
+    getLogPrefix,
+    loadSharedConfig,
+    LOCALES_DIR,
+    sortObject,
+} from './utils.js';
 
 const LOG_PREFIX = getLogPrefix('sort');
 
@@ -8,8 +17,8 @@ const LOG_PREFIX = getLogPrefix('sort');
  * Sorts locale JSON files by their keys and confirms changes with the user.
  */
 export async function sortLocales() {
-    const {LANGUAGES} = await loadSharedConfig();
-    const {ask, close} = createQuestionAsker();
+    const { LANGUAGES } = await loadSharedConfig();
+    const { ask, close } = createQuestionAsker();
     const backups = new Map();
     try {
         LANGUAGES.forEach((lang) => {

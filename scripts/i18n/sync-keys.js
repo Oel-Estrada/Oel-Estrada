@@ -1,6 +1,14 @@
+/* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
-import {COLORS, createQuestionAsker, getLogPrefix, loadSharedConfig, LOCALES_DIR,} from './utils.js';
+
+import {
+    COLORS,
+    createQuestionAsker,
+    getLogPrefix,
+    loadSharedConfig,
+    LOCALES_DIR,
+} from './utils.js';
 
 const LOG_PREFIX = getLogPrefix('sync');
 
@@ -16,7 +24,7 @@ async function fillMissingInteractive(
     REFERENCE_LANG,
     prefix = '',
 ) {
-    const result = {...target};
+    const result = { ...target };
 
     for (const key in ref) {
         const fullKey = prefix ? `${prefix}.${key}` : key;
@@ -58,8 +66,8 @@ async function fillMissingInteractive(
  * Synchronizes locale files by adding missing keys interactively.
  */
 export async function syncLocales() {
-    const {LANGUAGES, REFERENCE_LANG} = await loadSharedConfig();
-    const {ask, close} = createQuestionAsker();
+    const { LANGUAGES, REFERENCE_LANG } = await loadSharedConfig();
+    const { ask, close } = createQuestionAsker();
     const referenceFiles = fs.readdirSync(
         path.join(LOCALES_DIR, REFERENCE_LANG),
     );
@@ -77,7 +85,7 @@ export async function syncLocales() {
 
                 const langDir = path.join(LOCALES_DIR, lang);
                 if (!fs.existsSync(langDir))
-                    fs.mkdirSync(langDir, {recursive: true});
+                    fs.mkdirSync(langDir, { recursive: true });
 
                 const langPath = path.join(langDir, file);
                 let langContent = {};

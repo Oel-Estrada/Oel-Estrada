@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import path from 'path';
 import readline from 'readline';
 
@@ -27,16 +28,16 @@ export const createQuestionAsker = () => {
     });
     const ask = (query) =>
         new Promise((resolve) => rl.question(query, resolve));
-    return {ask, close: () => rl.close()};
+    return { ask, close: () => rl.close() };
 };
 
 /**
  * Loads shared i18n configuration.
  */
 export const loadSharedConfig = async () => {
-    const {SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE} =
+    const { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } =
         await import('../../src/i18n/shared.ts');
-    return {LANGUAGES: SUPPORTED_LANGUAGES, REFERENCE_LANG: DEFAULT_LANGUAGE};
+    return { LANGUAGES: SUPPORTED_LANGUAGES, REFERENCE_LANG: DEFAULT_LANGUAGE };
 };
 
 /**

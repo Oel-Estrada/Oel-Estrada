@@ -1,9 +1,20 @@
 {
-  "meta": {
-    "description": "Mi portafolio profesional de desarrollador web estará disponible próximamente. Conoce proyectos digitales, desarrollo web moderno y soluciones creativas.",
-    "keywords": "portafolio desarrollador web, proyectos digitales, desarrollo web, programador web, frontend, software, próximamente",
-    "title": "Próximamente | Portafolio de Desarrollador Web y Proyectos Digitales"
-  },
-  "portfolio": "Mi portafolio profesional estará disponible muy pronto. Aquí encontrarás proyectos reales de desarrollo web y soluciones digitales.",
-  "working": "Actualmente estoy desarrollando nuevos proyectos digitales y experiencias web modernas."
+    "contact": {
+        "email": "Correo electrónico",
+        "messagingTitle": "Apps de mensajería",
+        "phone": "Teléfono",
+        "title": "Conectemos"
+    },
+    "hero": {
+        "status": "Portafolio v2.0 en construcción",
+        "subtitle": "$t(common:specialty) creando arquitecturas de alto rendimiento. <1>Desarrollo plataformas e-learning escalables e interfaces impulsadas por IA.</1>",
+        "title": "Perfeccionando la <1 /><2>experiencia digital</2>"
+    },
+    "meta": {
+        "description": "Mi portafolio profesional de desarrollador web estará disponible próximamente. Conoce proyectos digitales, desarrollo web moderno y soluciones creativas.",
+        "keywords": "portafolio desarrollador web, proyectos digitales, desarrollo web, programador web, frontend, software, próximamente",
+        "title": "Próximamente | Portafolio de Desarrollador Web y Proyectos Digitales"
+    },
+    "portfolio": "Mi portafolio profesional estará disponible muy pronto. Aquí encontrarás proyectos reales de desarrollo web y soluciones digitales.",
+    "working": "Actualmente estoy desarrollando nuevos proyectos digitales y experiencias web modernas."
 }

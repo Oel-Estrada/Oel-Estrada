@@ -1,6 +1,14 @@
+/* eslint-disable no-undef */
 import fs from 'fs';
 import path from 'path';
-import {COLORS, createQuestionAsker, getLogPrefix, loadSharedConfig, LOCALES_DIR,} from './utils.js';
+
+import {
+    COLORS,
+    createQuestionAsker,
+    getLogPrefix,
+    loadSharedConfig,
+    LOCALES_DIR,
+} from './utils.js';
 
 const LOG_PREFIX = getLogPrefix('extract');
 
@@ -20,7 +28,7 @@ function getAllKeys(obj, prefix = '') {
         res[fullKey] = value;
 
         if (isObject) {
-            return {...res, ...getAllKeys(value, fullKey)};
+            return { ...res, ...getAllKeys(value, fullKey) };
         }
         return res;
     }, {});
@@ -65,7 +73,7 @@ function deleteKeyPath(obj, keyPath) {
     let current = obj;
 
     for (let i = 0; i < keys.length - 1; i++) {
-        stack.push({obj: current, key: keys[i]});
+        stack.push({ obj: current, key: keys[i] });
         current = current[keys[i]];
         if (!current) return;
     }
@@ -74,7 +82,7 @@ function deleteKeyPath(obj, keyPath) {
 
     // Limpiar objetos vacíos hacia arriba
     for (let i = stack.length - 1; i >= 0; i--) {
-        const {obj, key} = stack[i];
+        const { obj, key } = stack[i];
         if (Object.keys(obj[key]).length === 0) {
             delete obj[key];
         } else {
@@ -109,8 +117,8 @@ function mergeDeep(target, source) {
 }
 
 export async function extractKeys() {
-    const {LANGUAGES, REFERENCE_LANG} = await loadSharedConfig();
-    const {ask, close} = createQuestionAsker();
+    const { LANGUAGES, REFERENCE_LANG } = await loadSharedConfig();
+    const { ask, close } = createQuestionAsker();
     const backups = new Map();
     const filesToCleanup = new Set();
     try {
@@ -307,7 +315,7 @@ export async function extractKeys() {
         for (const lang of LANGUAGES) {
             const langDir = path.join(LOCALES_DIR, lang);
             if (!fs.existsSync(langDir))
-                fs.mkdirSync(langDir, {recursive: true});
+                fs.mkdirSync(langDir, { recursive: true });
 
             const targetPath = path.join(langDir, targetFileName);
             let targetContent = {};

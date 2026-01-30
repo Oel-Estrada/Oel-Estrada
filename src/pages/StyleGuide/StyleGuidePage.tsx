@@ -22,7 +22,7 @@ import { Input } from '@/components/ui/input.tsx';
 import { Toaster } from '@/components/ui/sonner.tsx';
 
 /**
- * Navigation items for the StyleGuide.
+ * Navigation items for the StyleGuidePage.
  */
 const NAV_ITEMS = [
     { label: 'Brand', href: '#brand' },
@@ -179,9 +179,9 @@ const ColorCard = ({
 );
 
 /**
- * StyleGuide component showcasing the design system and components.
+ * StyleGuidePage component showcasing the design system and components.
  */
-const StyleGuide = () => {
+const StyleGuidePage = () => {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
             <Toaster />
@@ -228,7 +228,7 @@ const StyleGuide = () => {
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
                         A comprehensive guide to the visual identity and user
-                        interface components used across Oel Estrada's
+                        interface components used across Oel Estrada&#39;s
                         portfolio. This system balances technical precision with
                         high-fidelity aesthetics, utilizing a deep-black
                         foundation and emerald accents.
@@ -319,7 +319,7 @@ const StyleGuide = () => {
                                         </span>{' '}
                                         portfolio = &#123; name:{' '}
                                         <span className="text-success">
-                                            "Oel Estrada"
+                                            &#34;Oel Estrada&#34;
                                         </span>{' '}
                                         &#125;;
                                         <br />
@@ -336,7 +336,8 @@ const StyleGuide = () => {
                                         <span className="text-accent">log</span>
                                         (
                                         <span className="text-success">
-                                            'Activating Design Engine...'
+                                            &#39;Activating Design
+                                            Engine...&#39;
                                         </span>
                                         );
                                         <br />
@@ -525,4 +526,4 @@ const StyleGuide = () => {
     );
 };
 
-export default StyleGuide;
+export default StyleGuidePage;

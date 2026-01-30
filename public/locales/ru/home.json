@@ -1,0 +1,11 @@
+{
+    "hero": {
+        "cleanCodeLabel": "Чистый код",
+        "ctaPrimary": "Давайте работать вместе",
+        "performanceLabel": "Производительность",
+        "performanceScoreValue": "99+ Оценка",
+        "structureLabel": "Структура",
+        "subtitle": "Senior $t(common:specialty): <1>React, Next.js и UI/UX с pixel-perfect качеством</1>. Превращаю сложную архитектуру в быстрые и интуитивные интерфейсы.",
+        "title": "Создаю цифровые продукты с <1>высокой отдачей</1>"
+    }
+}

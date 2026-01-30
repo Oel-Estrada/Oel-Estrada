@@ -1,20 +1,31 @@
 {
-  "contact": "Contact",
-  "email": "Send me a message",
-  "footer": {
-    "rights": "© 2026 - Coming soon"
-  },
-  "home": "Home",
-  "mainNavigation": "Main navigation",
-  "name": "Oel Estrada",
-  "navBar": {
-    "howIWork": "How I work",
-    "insights": "Insights",
-    "techStack": "Tech Stack",
-    "work": "Work"
-  },
-  "selectLanguage": "Select language",
-  "specialty": "Frontend Engineer",
-  "telegram": "Chat on Telegram",
-  "whatsapp": "Message me on WhatsApp"
+    "contact": "Contact",
+    "downloadCv": "Download CV",
+    "email": "Send me a message",
+    "footer": {
+        "backToTop": "Back to top",
+        "copyrights": "© 2026 $t(common:name) - Built with Passion",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "rights": "© 2026 · $t(common:name) — High-level $t(common:specialty)"
+    },
+    "home": "Home",
+    "mainNavigation": "Main navigation",
+    "name": "Oel Estrada",
+    "navBar": {
+        "howIWork": "How I work",
+        "insights": "Insights",
+        "techStack": "Tech Stack",
+        "work": "Work"
+    },
+    "selectLanguage": "Select language",
+    "specialty": "Frontend Engineer",
+    "status": {
+        "availableForProjects": "Open for new projects"
+    },
+    "systemStatus": {
+        "available": "System.Status(Available_for_Hire)"
+    },
+    "telegram": "Chat on Telegram",
+    "whatsapp": "Message me on WhatsApp"
 }

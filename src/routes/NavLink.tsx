@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import {
     NavLink as RouterNavLink,
     type NavLinkProps,
@@ -5,8 +6,6 @@ import {
 } from 'react-router';
 
 import { useLocalizedPath } from './hooks/useLocalizedPath.tsx';
-
-import type { JSX } from 'react';
 
 interface AppNavLinkProps extends Omit<NavLinkProps, 'to'> {
     to: To;
