@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import {
     Navigate as RouterNavigate,
     type NavigateProps,
@@ -5,8 +6,6 @@ import {
 } from 'react-router';
 
 import { useLocalizedPath } from './hooks/useLocalizedPath.tsx';
-
-import type { JSX } from 'react';
 
 interface AppNavigateProps extends Omit<NavigateProps, 'to'> {
     to: To;

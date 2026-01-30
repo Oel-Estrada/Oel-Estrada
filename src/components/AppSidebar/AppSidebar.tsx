@@ -1,5 +1,6 @@
-import { X } from 'lucide-react';
 import { type JSX } from 'react';
+
+import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@/components/Logo/Logo.tsx';

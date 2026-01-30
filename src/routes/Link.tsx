@@ -1,8 +1,7 @@
+import type { JSX } from 'react';
 import { Link as RouterLink, type LinkProps, type To } from 'react-router';
 
 import { useLocalizedPath } from './hooks/useLocalizedPath.tsx';
-
-import type { JSX } from 'react';
 
 interface AppLinkProps extends Omit<LinkProps, 'to'> {
     to: To;

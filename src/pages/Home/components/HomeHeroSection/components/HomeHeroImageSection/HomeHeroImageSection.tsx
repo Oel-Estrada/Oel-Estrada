@@ -1,5 +1,6 @@
-import { Box, Layers, Zap } from 'lucide-react';
 import React, { type JSX } from 'react';
+
+import { Box, Layers, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { HeroInfoBadge } from '@/pages/Home/components/HomeHeroSection/components/HeroInfoBadge/HeroInfoBadge.tsx';

@@ -1,6 +1,8 @@
-import { cn } from '@/lib/utils.ts';
+import React from 'react';
 
 import type { ComponentType, SVGProps } from 'react';
+
+import { cn } from '@/lib/utils.ts';
 
 interface HeroInfoBadgeProps {
     Icon: ComponentType<SVGProps<SVGSVGElement>>;

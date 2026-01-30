@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Outlet } from 'react-router';
 
 import AppSidebar from '@/components/AppSidebar/AppSidebar.tsx';
@@ -5,8 +6,6 @@ import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher';
 import { SidebarProvider } from '@/components/ui/sidebar.tsx';
-
-import type { JSX } from 'react';
 
 /**
  * Main layout part that structures the primary layout of the application.

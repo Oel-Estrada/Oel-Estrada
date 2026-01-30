@@ -1,10 +1,9 @@
 import { ArrowUpFromDot, ExternalLink } from 'lucide-react';
+import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FOOTER_LINKS } from '@/constants/navigation.ts';
 import { Link } from '@/routes';
-
-import type { JSX } from 'react';
 
 /**
  * Represents the footer component of the application.

@@ -6,11 +6,10 @@ import {
     type LucideIcon,
     Workflow,
 } from 'lucide-react';
+import type { To } from 'react-router';
 
 import { ROUTES } from '@/constants/routes.ts';
 import { contactInfo } from '@/lib/constants.ts';
-
-import type { To } from 'react-router';
 
 export interface NavbarLink {
     icon?: LucideIcon;

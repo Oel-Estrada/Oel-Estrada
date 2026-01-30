@@ -1,5 +1,6 @@
-import { DraftingCompass } from 'lucide-react';
 import { type JSX } from 'react';
+
+import { DraftingCompass } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from '@/constants/routes.ts';

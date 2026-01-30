@@ -1,4 +1,5 @@
 import { AtSign, Phone } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
 
 import JavaScriptLogo from '@/components/icons/JavaScriptLogo.tsx';
 import NextJsLogo from '@/components/icons/NextJsLogo.tsx';
@@ -7,8 +8,6 @@ import TelegramLogo from '@/components/icons/TelegramLogo.tsx';
 import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import { contactInfo } from '@/lib/constants.ts';
-
-import type { ComponentType, SVGProps } from 'react';
 
 interface logos {
     id: number;
