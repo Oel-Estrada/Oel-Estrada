@@ -19,7 +19,7 @@ import {
     progressVariants,
 } from '@/pages/ComingSoon/constants/motion.ts';
 
-import './ComingSoon.css';
+import './ComingSoonPage.css';
 
 /**
  * "Coming Soon" page.
