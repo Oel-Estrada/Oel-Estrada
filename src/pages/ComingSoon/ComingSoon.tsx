@@ -55,7 +55,7 @@ function ComingSoon(): JSX.Element {
                             text={t('common:status.availableForProjects')}
                             showPing
                             variant="primary"
-                            className="hidden sm:flex leading-normal"
+                            className="hidden sm:flex"
                         />
                         <SelectLanguage />
                     </div>
