@@ -5,6 +5,7 @@ import { ENVIRONMENTS } from '@/env.ts';
 import MainLayout from '@/layouts/MainLayout.tsx';
 import ComingSoonPage from '@/pages/ComingSoon/ComingSoonPage.tsx';
 import HomePage from '@/pages/Home/HomePage.tsx';
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage.tsx';
 import StyleGuidePage from '@/pages/StyleGuide/StyleGuidePage.tsx';
 import LangLayout from '@/routes/LangLayout.tsx';
 import RootRedirect from '@/routes/RootRedirect.tsx';
@@ -63,6 +64,11 @@ const routesConfig: AppRouteObject[] = [
                     {
                         path: ROUTES.CONTACT,
                         element: <>Contact</>,
+                        isDevelopment: true,
+                    },
+                    {
+                        path: ROUTES.NOT_FOUND,
+                        Component: NotFoundPage,
                         isDevelopment: true,
                     },
                     {
