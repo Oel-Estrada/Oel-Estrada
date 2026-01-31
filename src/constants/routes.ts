@@ -6,6 +6,7 @@ export const ROUTES = {
     TECH_STACK: 'tech-stack',
     INSIGHTS: 'insights',
     CONTACT: 'contact',
+    NOT_FOUND: 'not-found',
     STYLE_GUIDE: 'style-guide',
 } as const;
 
