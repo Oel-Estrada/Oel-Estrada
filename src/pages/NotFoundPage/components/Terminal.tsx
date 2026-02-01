@@ -1,6 +1,12 @@
+import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-function Terminal() {
+/**
+ * Terminal component to display a styled terminal-like box with commands and messages.
+ *
+ * @returns {JSX.Element} The Terminal component.
+ */
+function Terminal(): JSX.Element {
     const { t } = useTranslation('notFound');
 
     return (
