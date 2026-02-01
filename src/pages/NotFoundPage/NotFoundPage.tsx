@@ -27,6 +27,19 @@ function NotFoundPage(): JSX.Element {
                         className="absolute -top-4 -right-8"
                     />
                 </div>
+                <div className="space-y-4 mb-12">
+                    <h2 className="text-2xl md:text-3xl font-bold font-display">
+                        Página no encontrada
+                    </h2>
+                    <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+                        Módulo no encontrado:
+                        <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
+                            /unknown-route
+                        </code>{' '}
+                        se movió o se eliminó de{' '}
+                        <code className="text-primary font-bold">main</code>.
+                    </p>
+                </div>
             </div>
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
         </div>
