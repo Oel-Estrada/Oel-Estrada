@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 function Terminal() {
     const { t } = useTranslation('notFound');
@@ -18,11 +18,16 @@ function Terminal() {
             </div>
             <div className="p-6 text-left text-sm md:text-base space-y-2">
                 <div className="flex gap-2">
-                    <span className="text-primary">➜</span>
-                    <span className="text-text-secondary">portfolio</span>
-                    <span className="text-primary font-bold">git:(main)</span>
-                    <span className="text-warning">✗</span>
-                    <span className="text-text-primary">find page</span>
+                    <Trans
+                        i18nKey="notFound:terminal.findCommand"
+                        components={{
+                            1: <span className="text-primary" />,
+                            2: <span className="text-text-secondary" />,
+                            3: <span className="text-primary font-bold" />,
+                            4: <span className="text-warning" />,
+                            5: <span className="text-text-primary" />,
+                        }}
+                    />
                 </div>
                 <div className="text-error">
                     No se encontró el punto de entrada en manifest.json
