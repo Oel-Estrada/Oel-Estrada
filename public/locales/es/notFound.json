@@ -1,3 +1,4 @@
 {
-    "title": "Página no encontrada"
+    "title": "Página no encontrada",
+    "descriptionWithRoute": "Módulo no encontrado: <1>{{route}}</1> se movió o se eliminó de <2>main</2>."
 }
