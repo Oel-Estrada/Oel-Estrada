@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 
 import Badge from '@/components/Badge/Badge.tsx';
@@ -34,12 +34,16 @@ function NotFoundPage(): JSX.Element {
                         {t('notFound:title')}
                     </h2>
                     <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
-                        Módulo no encontrado:
-                        <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
-                            {pathname}
-                        </code>{' '}
-                        se movió o se eliminó de{' '}
-                        <code className="text-primary font-bold">main</code>.
+                        <Trans
+                            i18nKey="notFound:descriptionWithRoute"
+                            values={{ route: pathname }}
+                            components={{
+                                1: (
+                                    <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded-full" />
+                                ),
+                                2: <code className="text-primary font-bold" />,
+                            }}
+                        />
                     </p>
                 </div>
             </div>
