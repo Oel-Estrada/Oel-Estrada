@@ -30,7 +30,7 @@ function Terminal() {
                     />
                 </div>
                 <div className="text-error">
-                    No se encontró el punto de entrada en manifest.json
+                    {t('notFound:terminal.errorEntryPoint')}
                 </div>
                 <div className="flex gap-2 items-center">
                     <span className="text-primary">➜</span>
