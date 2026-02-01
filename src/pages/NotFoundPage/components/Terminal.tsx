@@ -13,7 +13,23 @@ function Terminal() {
                 <div className="w-10"></div>
             </div>
             <div className="p-6 text-left text-sm md:text-base space-y-2">
-                Terminal simulation
+                <div className="flex gap-2">
+                    <span className="text-primary">➜</span>
+                    <span className="text-text-secondary">portfolio</span>
+                    <span className="text-primary font-bold">git:(main)</span>
+                    <span className="text-warning">✗</span>
+                    <span className="text-text-primary">find page</span>
+                </div>
+                <div className="text-error">
+                    No se encontró el punto de entrada en manifest.json
+                </div>
+                <div className="flex gap-2 items-center">
+                    <span className="text-primary">➜</span>
+                    <span className="text-text-secondary">portfolio</span>
+                    <span className="flex items-center">
+                        <span className="text-text-primary">go back</span>
+                    </span>
+                </div>
             </div>
         </div>
     );
