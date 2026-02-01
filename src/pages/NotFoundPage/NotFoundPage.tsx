@@ -38,7 +38,7 @@ function NotFoundPage(): JSX.Element {
                     <h2 className="text-2xl md:text-3xl font-bold font-display">
                         {t('notFound:title')}
                     </h2>
-                    <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+                    <p className="text-text-secondary max-w-md mx-auto leading-relaxed">
                         <Trans
                             i18nKey="notFound:descriptionWithRoute"
                             values={{ route: pathname }}
