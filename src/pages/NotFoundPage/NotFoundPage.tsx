@@ -17,7 +17,7 @@ function NotFoundPage(): JSX.Element {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
             <div className="flex flex-col items-center max-w-2xl w-full">
                 <div className="relative mb-8">
-                    <h1 className="text-9xl md:text-[12rem] font-black tracking-tighter leading-none glitch-text opacity-90">
+                    <h1 className="text-9xl md:text-[12rem] font-black tracking-tighter leading-none opacity-90">
                         404
                     </h1>
                     <Badge
