@@ -22,8 +22,8 @@ function Terminal(): JSX.Element {
                 </span>
                 <div className="w-10"></div>
             </div>
-            <div className="font-mono p-6 text-left text-sm md:text-base space-y-2">
-                <div className="flex gap-2">
+            <span className="font-mono p-6 text-left text-sm md:text-base space-y-2 flex flex-col gap-1 h-48 overflow-y-auto">
+                <span className="">
                     <Trans
                         i18nKey="notFound:terminal.findCommand"
                         components={{
@@ -34,11 +34,11 @@ function Terminal(): JSX.Element {
                             5: <span className="text-text-primary" />,
                         }}
                     />
-                </div>
-                <div className="text-error">
+                </span>
+                <span className="text-error">
                     {t('notFound:terminal.errorEntryPoint')}
-                </div>
-                <div className="flex gap-2">
+                </span>
+                <span>
                     <Trans
                         i18nKey="notFound:terminal.goBackCommand"
                         components={{
@@ -46,12 +46,12 @@ function Terminal(): JSX.Element {
                             2: <span className="text-text-secondary" />,
                             3: <span className="text-primary font-bold" />,
                             4: (
-                                <span className="bg-text-primary w-3 h-0.5 border-none self-end" />
+                                <span className="bg-text-primary w-3 h-0.5 inline-block" />
                             ),
                         }}
                     />
-                </div>
-            </div>
+                </span>
+            </span>
         </div>
     );
 }
