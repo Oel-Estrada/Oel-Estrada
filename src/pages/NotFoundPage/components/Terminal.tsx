@@ -38,13 +38,16 @@ function Terminal(): JSX.Element {
                 <div className="text-error">
                     {t('notFound:terminal.errorEntryPoint')}
                 </div>
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2">
                     <Trans
                         i18nKey="notFound:terminal.goBackCommand"
                         components={{
                             1: <span className="text-primary" />,
                             2: <span className="text-text-secondary" />,
-                            3: <span className="text-text-primary" />,
+                            3: <span className="text-primary font-bold" />,
+                            4: (
+                                <span className="bg-text-primary w-3 h-0.5 border-none self-end" />
+                            ),
                         }}
                     />
                 </div>
