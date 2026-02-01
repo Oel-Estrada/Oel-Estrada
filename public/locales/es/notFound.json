@@ -2,6 +2,7 @@
     "title": "Página no encontrada",
     "descriptionWithRoute": "Módulo no encontrado: <1>{{route}}</1> se movió o se eliminó de <2>main</2>.",
     "terminal": {
-        "header": "bash — 80x24"
+        "header": "bash — 80x24",
+        "findCommand": "<1>➜</1> <2>portfolio</2> <3>git:(main)</3> <4>✗</4> <5>find-page</5>"
     }
 }
