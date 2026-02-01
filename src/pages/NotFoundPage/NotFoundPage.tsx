@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 
 import Badge from '@/components/Badge/Badge.tsx';
 
@@ -12,6 +13,7 @@ import Badge from '@/components/Badge/Badge.tsx';
  */
 function NotFoundPage(): JSX.Element {
     const { t } = useTranslation(['common', 'notFound']);
+    const { pathname } = useLocation();
 
     return (
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
@@ -34,7 +36,7 @@ function NotFoundPage(): JSX.Element {
                     <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
                         Módulo no encontrado:
                         <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
-                            /unknown-route
+                            {pathname}
                         </code>{' '}
                         se movió o se eliminó de{' '}
                         <code className="text-primary font-bold">main</code>.
