@@ -11,7 +11,7 @@ import Badge from '@/components/Badge/Badge.tsx';
  * @returns {JSX.Element} The NotFoundPage component.
  */
 function NotFoundPage(): JSX.Element {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation(['common', 'notFound']);
 
     return (
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
@@ -29,7 +29,7 @@ function NotFoundPage(): JSX.Element {
                 </div>
                 <div className="space-y-4 mb-12">
                     <h2 className="text-2xl md:text-3xl font-bold font-display">
-                        Página no encontrada
+                        {t('notFound:title')}
                     </h2>
                     <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
                         Módulo no encontrado:
