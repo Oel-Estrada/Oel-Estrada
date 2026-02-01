@@ -8,7 +8,7 @@ import { useLocation } from 'react-router';
 import Badge from '@/components/Badge/Badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { ROUTES } from '@/constants/routes.ts';
-import Terminal from '@/pages/NotFoundPage/components/Terminal.tsx';
+import Terminal from '@/pages/NotFound/components/Terminal.tsx';
 import { useNavigation } from '@/routes';
 
 /**
