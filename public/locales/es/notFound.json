@@ -4,6 +4,7 @@
     "terminal": {
         "header": "bash — 80x24",
         "findCommand": "<1>➜</1> <2>portfolio</2> <3>git:(main)</3> <4>✗</4> <5>find-page</5>",
-        "errorEntryPoint": "Error: No se encontró el punto de entrada en manifest.json"
+        "errorEntryPoint": "Error: No se encontró el punto de entrada en manifest.json",
+        "goBackCommand": "<1>➜</1> <2>portfolio</2> <3>go back</3>"
     }
 }
