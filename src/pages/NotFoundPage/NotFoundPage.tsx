@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
 
@@ -10,6 +11,8 @@ import Badge from '@/components/Badge/Badge.tsx';
  * @returns {JSX.Element} The NotFoundPage component.
  */
 function NotFoundPage(): JSX.Element {
+    const { t } = useTranslation('common');
+
     return (
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
             <div className="flex flex-col items-center max-w-2xl w-full">
@@ -19,7 +22,7 @@ function NotFoundPage(): JSX.Element {
                     </h1>
                     <Badge
                         variant="danger"
-                        text="Error crítico"
+                        text={t('common:status.criticalError')}
                         showPing
                         className="absolute -top-4 -right-8"
                     />
