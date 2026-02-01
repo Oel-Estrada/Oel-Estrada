@@ -33,11 +33,14 @@ function Terminal() {
                     {t('notFound:terminal.errorEntryPoint')}
                 </div>
                 <div className="flex gap-2 items-center">
-                    <span className="text-primary">➜</span>
-                    <span className="text-text-secondary">portfolio</span>
-                    <span className="flex items-center">
-                        <span className="text-text-primary">go back</span>
-                    </span>
+                    <Trans
+                        i18nKey="notFound:terminal.goBackCommand"
+                        components={{
+                            1: <span className="text-primary" />,
+                            2: <span className="text-text-secondary" />,
+                            3: <span className="text-text-primary" />,
+                        }}
+                    />
                 </div>
             </div>
         </div>
