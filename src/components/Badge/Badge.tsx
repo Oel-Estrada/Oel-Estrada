@@ -70,7 +70,7 @@ function Badge({
         <Comp
             data-slot="badge"
             className={cn(
-                `inline-flex items-center gap-2 px-3 py-1 rounded-full border w-fit leading-0`,
+                `inline-flex items-center gap-2 px-3 py-1 rounded-full border w-fit leading-tight`,
                 styles.container,
                 styles.border,
                 className,
