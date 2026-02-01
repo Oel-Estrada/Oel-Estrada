@@ -6,5 +6,9 @@
         "findCommand": "<1>➜</1> <2>portfolio</2> <3>(main) $</3> <4>✗</4> <5>find-page</5>",
         "errorEntryPoint": "Error: No se encontró el punto de entrada en manifest.json",
         "goBackCommand": "<1>➜</1> <2>portfolio</2> <3>(main) $</3> <4 />"
+    },
+    "actions": {
+        "fixBug": "Arreglar la ruta",
+        "returnHome": "Volver al inicio"
     }
 }
