@@ -7,7 +7,9 @@ import { useLocation } from 'react-router';
 
 import Badge from '@/components/Badge/Badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { ROUTES } from '@/constants/routes.ts';
 import Terminal from '@/pages/NotFoundPage/components/Terminal.tsx';
+import { useNavigation } from '@/routes';
 
 /**
  * Not Found Page component.
@@ -19,6 +21,21 @@ import Terminal from '@/pages/NotFoundPage/components/Terminal.tsx';
 function NotFoundPage(): JSX.Element {
     const { t } = useTranslation(['common', 'notFound']);
     const { pathname } = useLocation();
+    const navigate = useNavigation();
+
+    /**
+     * Handler to navigate to the projects page to "fix the bug".
+     */
+    const fixBugHandler = (): void => {
+        void navigate(ROUTES.PROJECTS);
+    };
+
+    /**
+     * Handler to navigate back to the home page.
+     */
+    const returnHomeHandler = (): void => {
+        void navigate(ROUTES.HOME);
+    };
 
     return (
         <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
@@ -53,11 +70,15 @@ function NotFoundPage(): JSX.Element {
                 </div>
                 <Terminal />
                 <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <Button className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter">
+                    <Button
+                        onClick={fixBugHandler}
+                        className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
+                    >
                         <Wrench />
                         {t('notFound:actions.fixBug')}
                     </Button>
                     <Button
+                        onClick={returnHomeHandler}
                         variant="outline"
                         className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
                     >
