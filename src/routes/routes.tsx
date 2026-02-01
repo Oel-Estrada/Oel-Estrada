@@ -73,7 +73,11 @@ const routesConfig: AppRouteObject[] = [
                     },
                     {
                         path: '*',
-                        element: <Navigate to={ROUTES.HOME} replace />,
+                        element: ENVIRONMENTS.isProd ? (
+                            <Navigate to={ROUTES.HOME} replace />
+                        ) : (
+                            <NotFoundPage />
+                        ),
                     },
                 ],
             },
