@@ -22,7 +22,7 @@ function Terminal(): JSX.Element {
                 </span>
                 <div className="w-10"></div>
             </div>
-            <div className="p-6 text-left text-sm md:text-base space-y-2">
+            <div className="font-mono p-6 text-left text-sm md:text-base space-y-2">
                 <div className="flex gap-2">
                     <Trans
                         i18nKey="notFound:terminal.findCommand"
