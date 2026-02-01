@@ -21,7 +21,7 @@ function NotFoundPage(): JSX.Element {
     const { pathname } = useLocation();
 
     return (
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center">
             <div className="flex flex-col items-center max-w-2xl w-full">
                 <div className="relative mb-8">
                     <h1 className="text-9xl md:text-[12rem] font-black font-mono tracking-tighter leading-none opacity-90">
@@ -53,7 +53,7 @@ function NotFoundPage(): JSX.Element {
                 </div>
                 <Terminal />
                 <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <Button className="min-w-40 cursor-pointer border rounded-full h-14 px-8 text-base font-bold tracking-tighter">
+                    <Button className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter">
                         <Wrench />
                         {t('notFound:actions.fixBug')}
                     </Button>
