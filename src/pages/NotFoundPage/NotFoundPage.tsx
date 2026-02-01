@@ -1,8 +1,12 @@
+import React from 'react';
+
+import { House, Wrench } from 'lucide-react';
 import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 
 import Badge from '@/components/Badge/Badge.tsx';
+import { Button } from '@/components/ui/button.tsx';
 import Terminal from '@/pages/NotFoundPage/components/Terminal.tsx';
 
 /**
@@ -48,6 +52,19 @@ function NotFoundPage(): JSX.Element {
                     </p>
                 </div>
                 <Terminal />
+                <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <Button className="min-w-40 cursor-pointer border rounded-full h-14 px-8 text-base font-bold tracking-tighter">
+                        <Wrench />
+                        {t('notFound:actions.fixBug')}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        className="min-w-40 cursor-pointer border rounded-full h-14 has-[>svg]:px-8 text-base font-bold tracking-tighter"
+                    >
+                        <House />
+                        {t('notFound:actions.returnHome')}
+                    </Button>
+                </div>
             </div>
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
         </div>
