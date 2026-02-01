@@ -21,7 +21,8 @@
     "selectLanguage": "Seleccionar idioma",
     "specialty": "Frontend Engineer",
     "status": {
-        "availableForProjects": "Disponible para nuevos proyectos"
+        "availableForProjects": "Disponible para nuevos proyectos",
+        "criticalError": "Error crítico"
     },
     "systemStatus": {
         "available": "System.Status(Disponible_para_contratar)"
