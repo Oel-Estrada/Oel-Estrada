@@ -21,7 +21,8 @@
     "selectLanguage": "Выбрать язык",
     "specialty": "Фронтенд-инженер",
     "status": {
-        "availableForProjects": "Открыт для новых проектов"
+        "availableForProjects": "Открыт для новых проектов",
+        "criticalError": "Критическая ошибка"
     },
     "systemStatus": {
         "available": "System.Status(Available_for_Hire)"
