@@ -25,31 +25,33 @@ function Terminal(): JSX.Element {
                 <div className="w-10"></div>
             </div>
             <span className="font-mono p-6 text-left text-sm md:text-base space-y-2 flex flex-col gap-1 h-48 overflow-y-auto">
-                <span className="">
+                <span>
                     <Trans
-                        i18nKey="notFound:terminal.findCommand"
+                        i18nKey="notFound:terminal.prompt"
                         components={{
                             1: <span className="text-primary" />,
                             2: <span className="text-text-secondary" />,
                             3: <span className="text-primary font-bold" />,
-                            4: <span className="text-warning" />,
-                            5: <span className="text-text-primary" />,
                         }}
-                    />
+                    />{' '}
+                    <span className="text-warning">✗</span>{' '}
+                    <span className="text-primary">
+                        {t('notFound:terminal.findCommand')}
+                    </span>
                 </span>
                 <span className="text-error">
                     {t('notFound:terminal.errorEntryPoint')}
                 </span>
                 <span>
                     <Trans
-                        i18nKey="notFound:terminal.goBackCommand"
+                        i18nKey="notFound:terminal.prompt"
                         components={{
                             1: <span className="text-primary" />,
                             2: <span className="text-text-secondary" />,
                             3: <span className="text-primary font-bold" />,
-                            4: <Cursor />,
                         }}
-                    />
+                    />{' '}
+                    <Cursor />
                 </span>
             </span>
         </div>
