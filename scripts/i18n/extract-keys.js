@@ -346,7 +346,7 @@ export async function extractKeys() {
                 } else {
                     value = getDeepValue(otherLangSourceContent, key);
                     if (value === undefined) {
-                        value = `[TODO] ${JSON.stringify(allKeysMap[key])}`;
+                        value = JSON.stringify(allKeysMap[key]);
                     }
                 }
                 setDeepValue(langExtractedObj, key, value);
