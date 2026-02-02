@@ -54,9 +54,9 @@ async function fillMissingInteractive(
             );
 
             const answer = await ask(
-                `${COLORS.bright}${COLORS.cyan}Introduce la traducción${COLORS.reset} (deja vacío para "[TODO] ${ref[key]}"): `,
+                `${COLORS.bright}${COLORS.cyan}Introduce la traducción${COLORS.reset} (deja vacío para "${ref[key]}"): `,
             );
-            result[key] = answer.trim() || `[TODO] ${ref[key]}`;
+            result[key] = answer.trim() || ref[key];
         }
     }
     return result;
