@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { animate } from 'motion';
 import type { JSX } from 'react';
 
+import Cursor from '@/pages/NotFound/components/Terminal/comoponents/Cursor.tsx';
+
 interface TypewriterProps {
     text: string;
     duration?: number;
@@ -35,7 +37,12 @@ function Typewriter({ text, duration = 0.8 }: TypewriterProps): JSX.Element {
         return () => controls.stop();
     }, [text, duration]);
 
-    return <>{text.slice(0, count)}</>;
+    return (
+        <>
+            {text.slice(0, count)}
+            {count !== text.length && <Cursor />}
+        </>
+    );
 }
 
 export default Typewriter;
