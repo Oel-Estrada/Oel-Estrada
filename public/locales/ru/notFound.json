@@ -1,6 +1,6 @@
 {
     "title": "Страница не найдена",
-    "descriptionWithRoute": "Модуль не найден: <1>`{{route}}`</1> был перемещён или удалён из <2>main</2>.",
+    "descriptionWithRoute": "Модуль не найден: <1>{{route}}</1> был перемещён или удалён из <2>main</2>.",
     "terminal": {
         "header": "bash — 80x24",
         "findCommand": "<1>➜</1> <2>portfolio</2> <3>(main)</3> <4>✗</4> <5>find-page</5>",
