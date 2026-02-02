@@ -4,7 +4,7 @@
     "terminal": {
         "prompt": "<1>➜</1> <2>portfolio</2> <3>(main) $</3>",
         "header": "bash — 80x24",
-        "findCommand": "<1>➜</1> <2>portfolio</2> <3>(main)</3> <4>✗</4> <5>find-page</5>",
+        "findCommand": "find-page",
         "errorEntryPoint": "Ошибка: не найдена точка входа в manifest.json",
         "goBackCommand": "<1>➜</1> <2>portfolio</2> <3>(main) $</3> <4 />"
     },
