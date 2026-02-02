@@ -2,8 +2,9 @@
     "title": "Page not found",
     "descriptionWithRoute": "Module not found: <1>{{route}}</1> was moved or deleted from <2>main</2>.",
     "terminal": {
+        "prompt": "<1>➜</1> <2>portfolio</2> <3>(main) $</3>",
         "header": "bash — 80x24",
-        "findCommand": "<1>➜</1> <2>portfolio</2> <3>(main)</3> <4>✗</4> <5>find-page</5>",
+        "findCommand": "find-page",
         "errorEntryPoint": "Error: Cannot find entry point in manifest.json",
         "goBackCommand": "<1>➜</1> <2>portfolio</2> <3>(main) $</3> <4 />"
     },
