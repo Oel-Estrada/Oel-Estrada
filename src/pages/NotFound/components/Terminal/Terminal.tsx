@@ -1,6 +1,8 @@
 import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
+import Cursor from '@/pages/NotFound/components/Terminal/comoponents/Cursor.tsx';
+
 /**
  * Terminal component to display a styled terminal-like box with commands and messages.
  *
@@ -45,9 +47,7 @@ function Terminal(): JSX.Element {
                             1: <span className="text-primary" />,
                             2: <span className="text-text-secondary" />,
                             3: <span className="text-primary font-bold" />,
-                            4: (
-                                <span className="bg-text-primary w-3 h-0.5 inline-block" />
-                            ),
+                            4: <Cursor />,
                         }}
                     />
                 </span>
