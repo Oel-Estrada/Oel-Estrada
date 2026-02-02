@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Cursor from '@/pages/NotFound/components/Terminal/comoponents/Cursor.tsx';
+import Typewriter from '@/pages/NotFound/components/Terminal/comoponents/Typewriter.tsx';
 
 /**
  * Terminal component to display a styled terminal-like box with commands and messages.
@@ -36,11 +37,11 @@ function Terminal(): JSX.Element {
                     />{' '}
                     <span className="text-warning">✗</span>{' '}
                     <span className="text-primary">
-                        {t('notFound:terminal.findCommand')}
+                        <Typewriter text={t('notFound:terminal.findCommand')} />
                     </span>
                 </span>
                 <span className="text-error">
-                    {t('notFound:terminal.errorEntryPoint')}
+                    <Typewriter text={t('notFound:terminal.errorEntryPoint')} />
                 </span>
                 <span>
                     <Trans
