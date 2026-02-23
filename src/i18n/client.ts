@@ -7,6 +7,9 @@ import { ENVIRONMENTS } from '@/env.ts';
 
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './shared';
 
+/**
+ * Initialize i18next for client-side internationalization.
+ */
 void i18n
     // load translation using http -> see /public/locales
     .use(Backend)
