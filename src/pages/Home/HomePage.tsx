@@ -8,11 +8,7 @@ import HomeHeroSection from '@/pages/Home/components/HomeHeroSection/HomeHeroSec
  * @return {JSX.Element} The JSX structure for the HomePage component, displaying the HomePage Page.
  */
 function HomePage(): JSX.Element {
-    return (
-        <>
-            <HomeHeroSection />
-        </>
-    );
+    return <HomeHeroSection />;
 }
 
 export default HomePage;
