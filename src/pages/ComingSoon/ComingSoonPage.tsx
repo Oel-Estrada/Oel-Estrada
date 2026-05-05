@@ -4,10 +4,12 @@ import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Badge from '@/components/Badge/Badge.tsx';
+import JsonLd from '@/components/JsonLd.tsx';
 import Logo from '@/components/Logo/Logo.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
 import SelectLanguage from '@/components/Navbar/components/SelectLanguage.tsx';
 import { buttonVariants } from '@/components/ui/buttonVariants.tsx';
+import { personSchema } from '@/lib/constants.ts';
 import { cn } from '@/lib/utils.ts';
 import {
     contactInfoData,
@@ -39,6 +41,7 @@ function ComingSoonPage(): JSX.Element {
                 description={t('comingSoon:meta.description')}
                 keywords={t('comingSoon:meta.keywords')}
             />
+            <JsonLd schema={personSchema} />
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute inset-0 primary-mix-gradient" />
                 {logos.map(({ Icon, id, className }) => (

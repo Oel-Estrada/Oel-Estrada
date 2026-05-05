@@ -1,5 +1,7 @@
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
+import type { PersonSchema } from '@/components/JsonLd.tsx';
+
 export class ContactInfo {
     phone?: string;
     email: string;
@@ -67,3 +69,14 @@ export const contactInfo = new ContactInfo({
     githubUsername: 'Oel-Estrada',
     website: 'https://www.oelestrada.ru',
 });
+
+export const personSchema: PersonSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Oel Estrada',
+    jobTitle: 'Senior Frontend Engineer',
+    url: contactInfo.website ?? '',
+    email: contactInfo.email,
+    telephone: `+${contactInfo.sanitizedPhone}`,
+    sameAs: [contactInfo.linkedin, contactInfo.github],
+};

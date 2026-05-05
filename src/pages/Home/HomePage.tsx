@@ -2,7 +2,9 @@ import { type JSX } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import JsonLd from '@/components/JsonLd.tsx';
 import MetaTags from '@/components/MetaTags.tsx';
+import { personSchema } from '@/lib/constants.ts';
 import HomeHeroSection from '@/pages/Home/components/HomeHeroSection/HomeHeroSection.tsx';
 
 /**
@@ -20,6 +22,7 @@ function HomePage(): JSX.Element {
                 description={t('meta.description')}
                 keywords={t('meta.keywords')}
             />
+            <JsonLd schema={personSchema} />
             <HomeHeroSection />
         </>
     );
