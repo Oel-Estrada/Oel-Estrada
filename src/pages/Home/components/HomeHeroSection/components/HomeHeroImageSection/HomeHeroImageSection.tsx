@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import { type FC, type JSX, type SVGProps } from 'react';
 
 import { Box, Layers, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { HeroInfoBadge } from '@/pages/Home/components/HomeHeroSection/components/HeroInfoBadge/HeroInfoBadge.tsx';
 
 const infoBadges: {
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+    Icon: FC<SVGProps<SVGSVGElement>>;
     label: string;
     value: string;
     className: string;

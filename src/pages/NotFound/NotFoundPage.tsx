@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { House, Wrench } from 'lucide-react';
 import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';

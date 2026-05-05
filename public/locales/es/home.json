@@ -7,5 +7,10 @@
         "structureLabel": "Estructura",
         "subtitle": "Senior $t(common:specialty) especializado en <1>React, Next.js y UI/UX pixel-perfect</1>. Convierto arquitecturas complejas en experiencias rápidas e intuitivas.",
         "title": "Creando experiencias digitales de <1>alto rendimiento</1>"
+    },
+    "meta": {
+        "description": "Portafolio de Oel Estrada, Senior Frontend Engineer con 6+ años de experiencia en React, Next.js y TypeScript. Especializado en plataformas e-learning, animaciones avanzadas y optimización de rendimiento.",
+        "keywords": "frontend engineer, React, Next.js, TypeScript, portafolio desarrollador, UI/UX, rendimiento web, desarrollo web",
+        "title": "Oel Estrada — Senior Frontend Engineer | React & Next.js"
     }
 }

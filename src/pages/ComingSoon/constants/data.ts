@@ -9,13 +9,13 @@ import TypeScriptLogo from '@/components/icons/TypeScriptLogo.tsx';
 import WhatsAppLogo from '@/components/icons/WhatsAppLogo.tsx';
 import { contactInfo } from '@/lib/constants.ts';
 
-interface logos {
+interface LogoItem {
     id: number;
     Icon: ComponentType<SVGProps<SVGSVGElement>>;
     className?: string;
 }
 
-export const logos: logos[] = [
+export const logos: LogoItem[] = [
     {
         id: 0,
         Icon: TypeScriptLogo,
@@ -41,7 +41,7 @@ export const logos: logos[] = [
     },
 ];
 
-interface contactInfoData {
+interface ContactInfoItem {
     id: number;
     Icon: ComponentType<SVGProps<SVGSVGElement>>;
     label: string;
@@ -49,7 +49,7 @@ interface contactInfoData {
     value: string;
 }
 
-export const contactInfoData: contactInfoData[] = [
+export const contactInfoData: ContactInfoItem[] = [
     {
         id: 0,
         Icon: AtSign,
@@ -66,13 +66,13 @@ export const contactInfoData: contactInfoData[] = [
     },
 ];
 
-interface socialLink {
+interface SocialLink {
     id: number;
     Icon: ComponentType<SVGProps<SVGSVGElement>>;
     link: string;
 }
 
-export const socialLinks: socialLink[] = [
+export const socialLinks: SocialLink[] = [
     {
         id: 0,
         Icon: WhatsAppLogo,
