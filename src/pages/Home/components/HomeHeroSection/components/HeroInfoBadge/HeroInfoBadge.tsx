@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ComponentType, SVGProps } from 'react';
 
 import { cn } from '@/lib/utils.ts';

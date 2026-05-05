@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import { type FC, type JSX, type SVGProps } from 'react';
 
 import { Download } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -15,7 +15,7 @@ import TechBadge from '../TechBadge/TechBadge.tsx';
 
 const techBadges: {
     label: string;
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+    Icon: FC<SVGProps<SVGSVGElement>>;
 }[] = [
     { label: 'Next.js', Icon: NextJsLogo },
     { label: 'React', Icon: ReactLogo },
