@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { animate } from 'motion';
 import type { JSX } from 'react';
 
-import Cursor from '@/pages/NotFound/components/Terminal/comoponents/Cursor.tsx';
+import Cursor from '@/pages/NotFound/components/Terminal/components/Cursor.tsx';
 
 interface TypewriterProps {
     text: string;

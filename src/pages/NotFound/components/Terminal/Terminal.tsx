@@ -1,8 +1,8 @@
 import type { JSX } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import Cursor from '@/pages/NotFound/components/Terminal/comoponents/Cursor.tsx';
-import Typewriter from '@/pages/NotFound/components/Terminal/comoponents/Typewriter.tsx';
+import Cursor from '@/pages/NotFound/components/Terminal/components/Cursor.tsx';
+import Typewriter from '@/pages/NotFound/components/Terminal/components/Typewriter.tsx';
 
 /**
  * Terminal component to display a styled terminal-like box with commands and messages.
