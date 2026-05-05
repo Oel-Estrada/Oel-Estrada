@@ -1,5 +1,8 @@
 import { type JSX } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
+import MetaTags from '@/components/MetaTags.tsx';
 import HomeHeroSection from '@/pages/Home/components/HomeHeroSection/HomeHeroSection.tsx';
 
 /**
@@ -8,7 +11,18 @@ import HomeHeroSection from '@/pages/Home/components/HomeHeroSection/HomeHeroSec
  * @return {JSX.Element} The JSX structure for the HomePage component, displaying the HomePage Page.
  */
 function HomePage(): JSX.Element {
-    return <HomeHeroSection />;
+    const { t } = useTranslation('home');
+
+    return (
+        <>
+            <MetaTags
+                title={t('meta.title')}
+                description={t('meta.description')}
+                keywords={t('meta.keywords')}
+            />
+            <HomeHeroSection />
+        </>
+    );
 }
 
 export default HomePage;
